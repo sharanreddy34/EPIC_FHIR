@@ -1,0 +1,14 @@
+{
+  "name": "Atlas Epic FHIR",
+  "description": "Unified Epic FHIR ingestion and transformation pipeline (bronze → silver → gold) on Palantir Foundry",
+  "repository": "atlas-epic-fhir-foundry",
+  "language": "python",
+  "transforms": {
+    "bronze": "transforms-python/src/epic_fhir_integration/bronze",
+    "silver": "transforms-python/src/epic_fhir_integration/silver",
+    "gold":   "transforms-python/src/epic_fhir_integration/gold",
+    "dq":     "transforms-python/src/epic_fhir_integration/validation"
+  },
+  "datasets": "datasets",
+  "tests": "transforms-python/tests"
+} 

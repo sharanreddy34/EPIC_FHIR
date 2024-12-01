@@ -1,0 +1,12 @@
+{
+  "keys": [
+    {
+      "kty": "RSA",
+      "kid": "atlas-key-001",
+      "alg": "RS384",
+      "use": "sig",
+      "n": "vqic0Zt40csTwrx6rGaEZGpXPLecc28DD74Kc1cSXHU3kxvloVj2cMsSRwu6JWERYcuL691labN2sIk2VaaK-Ntou8jwWjQbVZZ8DDn-c_LvqZVDzFkN3L2zXLIERb3dhwGfeq4Kp5319Y073ZiLdM5tnoO3eMO0j1LQhfK4ZKXsxtc1ZJPGfx5PwYPkMtIs0vtLXqGfHL9pKBNyELvXfcqt8gfRKdBKWm683TJ8croPP2mqsOkSFVEriflmrvDsvnTWx8bKxHdaC9SwiMZExA8spcoEQ23TR9opjbFZ2PNVODYy1HCZ8mrm4YmNJXR1JDrDfG7CM7lWJJVASXKAtQ",
+      "e": "AQAB"
+    }
+  ]
+} 

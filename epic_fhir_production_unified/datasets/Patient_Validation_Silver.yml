@@ -1,0 +1,32 @@
+name: Patient_Validation_Silver
+type: table
+mode: overwrite
+description: Validation results for Patient resources from Epic FHIR API
+tags:
+  - validation
+  - silver
+  - fhir
+  - epic
+  - patient
+columns:
+  - name: resource_type
+    type: string
+    description: FHIR resource type
+  - name: resource_id
+    type: string
+    description: FHIR resource ID
+  - name: level
+    type: string
+    description: Validation level (error, warning, info)
+  - name: message
+    type: string
+    description: Validation message
+  - name: location
+    type: string
+    description: Location of the validation issue in the resource
+  - name: ingest_timestamp
+    type: timestamp
+    description: Timestamp when the resource was ingested
+  - name: ingest_date
+    type: date
+    description: Date when the resource was ingested 

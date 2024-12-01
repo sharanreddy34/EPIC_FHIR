@@ -1,0 +1,82 @@
+{
+  "resourceType": "Observation",
+  "id": "e-YO59Gkf53ih5AQXG8LmWv41WFRrBO5Z3OyqKi6ePV704BSi44lG7HNwBOh.gITm3",
+  "extension": [
+    {
+      "valueIdentifier": {
+        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.707684",
+        "value": "20"
+      },
+      "url": "http://open.epic.com/FHIR/StructureDefinition/extension/template-id"
+    }
+  ],
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "vital-signs",
+          "display": "Vital Signs"
+        }
+      ],
+      "text": "Vital Signs"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679",
+        "code": "11",
+        "display": "Height"
+      },
+      {
+        "system": "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id",
+        "code": "tkgg8UmEMvovrM.sHkZKrAQ0",
+        "display": "Height"
+      },
+      {
+        "system": "urn:oid:1.2.246.537.6.96",
+        "code": "8302-2"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8302-2",
+        "display": "Body height"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8716-3",
+        "display": "Vital signs"
+      }
+    ],
+    "text": "Height"
+  },
+  "subject": {
+    "reference": "Patient/eOPSKZbz6YIgoilQprzPy0Q3",
+    "display": "Cadence, Anna"
+  },
+  "encounter": {
+    "reference": "Encounter/eAdQmAfZwmdIWvpMiaMSvtA3",
+    "identifier": {
+      "use": "usual",
+      "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+      "value": "27483"
+    },
+    "display": "Office Visit"
+  },
+  "effectiveDateTime": "2019-04-12T21:01:00Z",
+  "issued": "2019-04-12T21:02:47Z",
+  "performer": [
+    {
+      "reference": "Practitioner/exfo6E4EXjWsnhA1OGVElgw3",
+      "display": "User Epic"
+    }
+  ],
+  "valueQuantity": {
+    "value": 177.8,
+    "unit": "cm",
+    "system": "http://unitsofmeasure.org",
+    "code": "cm"
+  }
+}

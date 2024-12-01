@@ -1,0 +1,36 @@
+resourceType: MedicationRequest
+version: 1
+validate: true
+columns:
+  # Identifiers
+  medication_request_id: id
+  patient_id: subject.reference.replace('Patient/','')
+  encounter_id: encounter.reference.replace('Encounter/','')
+  # Status
+  status: status
+  intent: intent
+  priority: priority
+  # Medication details
+  medication_reference: medicationReference.reference
+  medication_id: medicationReference.reference.replace('Medication/','')
+  medication_code: medicationCodeableConcept.coding[0].code
+  medication_system: medicationCodeableConcept.coding[0].system
+  medication_display: medicationCodeableConcept.coding[0].display
+  medication_text: medicationCodeableConcept.text
+  # Dosage instructions
+  dosage_text: dosageInstruction[0].text
+  dosage_route: dosageInstruction[0].route.coding[0].display
+  dosage_timing: dosageInstruction[0].timing.code.text
+  # Dates
+  authored_datetime: authoredOn
+  # Requestor
+  requester_id: requester.reference.replace('Practitioner/','')
+  requester_display: requester.display
+  # Reason
+  reason_code: reasonCode[0].coding[0].code
+  reason_display: reasonCode[0].coding[0].display
+  reason_text: reasonCode[0].text
+  # Narrative
+  clinical_text: text.div
+extras:
+  partition_by: [authored_year] 

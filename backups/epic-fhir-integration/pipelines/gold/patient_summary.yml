@@ -1,0 +1,34 @@
+apiVersion: 1.0.0
+kind: Transform
+name: gold-patient-summary
+profile: FHIR_GOLD_PATIENT_SUMMARY
+file: pipelines/gold/patient_summary.py
+entrypoint: create_patient_summary
+inputs:
+  - path: /silver/fhir_normalized/patient
+  - path: /silver/fhir_normalized/encounter
+    optional: true
+  - path: /silver/fhir_normalized/condition
+    optional: true
+  - path: /silver/fhir_normalized/observation
+    optional: true
+  - path: /silver/fhir_normalized/medicationrequest
+    optional: true
+  - path: /silver/fhir_normalized/immunization
+    optional: true
+  - path: /silver/fhir_normalized/allergyintolerance
+    optional: true
+outputs:
+  - path: /gold/patient_summary
+resources:
+  memory: 8Gi
+  timeout: 1800s  # 30 minutes
+schedule:
+  cron: "0 5 * * *"   # Run daily at 5 AM, after silver layer is ready
+dependencies:
+  - transform: transform-resources
+description: |
+  Creates a comprehensive patient summary dataset that integrates data from 
+  multiple FHIR resources. This gold layer dataset includes patient demographics,
+  encounter history, active conditions, vital trends, medication summaries, and
+  other clinical metrics in a denormalized format optimized for analytics and reporting. 

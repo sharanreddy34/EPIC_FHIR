@@ -1,0 +1,20 @@
+id: epic-fhir-integration
+canonical: http://atlaspalantir.com/epic-fhir
+version: 0.1.0
+name: EpicFHIRIntegration
+title: Epic FHIR Integration Profiles
+status: active
+publisher: Atlas Palantir
+contact:
+  - name: Atlas Palantir
+    telecom:
+      - system: email
+        value: support@atlaspalantir.com
+description: Profiles for Epic FHIR Integration
+license: CC0-1.0
+fhirVersion: 4.0.1
+parameters:
+  apply-contact: true
+  apply-jurisdiction: true
+  apply-publisher: true
+  apply-version: true

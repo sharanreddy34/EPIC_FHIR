@@ -1,0 +1,36 @@
+# Core dependencies
+requests>=2.28.0
+PyJWT[crypto]>=2.4.0
+cryptography>=36.0.0
+python-dotenv>=0.20.0
+PyYAML>=6.0
+
+# FHIR Resources and processing
+fhir.resources>=8.0.0
+fhirpath>=0.9.0
+pandas>=1.5.3
+
+# Data quality and validation
+great-expectations>=0.15.50
+numpy>=1.24.0
+matplotlib>=3.7.0
+
+# Dashboard
+dash>=2.9.0
+dash-bootstrap-components>=1.4.0
+plotly>=5.13.0
+
+# Analytics
+pathling-client>=6.0.0
+
+# Testing
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# CLI
+click>=8.1.3
+rich>=13.0.0
+
+# Spark (optional)
+# pyspark>=3.4.0
+# delta-spark>=2.4.0

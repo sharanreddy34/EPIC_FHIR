@@ -1,0 +1,103 @@
+# Atlas IDE: React Frontend - Step 6 Plan: V1 Stabilization, Integration & Real-World Readiness
+
+This document outlines the tasks for Step 6, concentrating on stabilizing all implemented features, ensuring seamless integration with mature `code-server` extensions and backend APIs, comprehensive testing, and preparing the Atlas IDE frontend for initial real-world use or a Version 1.0 release.
+
+## A. Solidify External Integrations (Contracts & Implementation)
+
+### 1. Finalize `code-server` Extension API Integration
+*   **Task:** Based on finalized API contracts (message types, data schemas, error codes, event sequences) from the `code-server` extension development team:
+    *   Rigorously test and refine all `useCodeServerComm.ts` interactions for features like ghost text rendering, diff view display, diagnostics/problems view updates, FHIR validation results, and editor context events.
+    *   Implement any missing client-side logic to fully support the agreed-upon contracts.
+    *   Ensure robust error handling for all `code-server` communication pathways.
+*   **Focus:** Transition from "sending commands" to "fully interactive, state-synced features" driven by the **`code-server` extension**.
+
+### 2. Finalize Backend API Integration (AI & FHIR Proxy)
+*   **Task:** Based on finalized API contracts from the FastAPI backend team:
+    *   Verify and lock down all `useAIChatAPI.ts` (and any other API hooks) implementations for chat, suggestions, refactoring, and any backend-proxied FHIR operations.
+    *   Implement comprehensive client-side handling for all specified backend error codes and states.
+    *   Ensure authentication and authorization mechanisms (token handling, refresh logic) are flawlessly integrated with the backend.
+
+## B. Comprehensive Testing & Quality Assurance
+
+### 1. End-to-End (E2E) Test Suite Development
+*   **Tools:** Finalize choice and setup of E2E testing framework (e.g., Playwright, Cypress) within the Nx monorepo.
+*   **Scenarios:** Define and implement E2E tests for all critical user flows:
+    *   Full AI chat lifecycle (sending message with context, streaming response, using action buttons, history).
+    *   Ghost text suggestion and application.
+    *   AI-driven refactoring: suggestion, diff preview, application/rejection.
+    *   Loading and interacting with patient FHIR data.
+    *   Using the Command Palette to trigger key actions.
+    *   Interacting with the FHIR Resource Navigator and FHIR validation.
+    *   Settings panel configuration persistence.
+*   **Task for LLM:** Generate test script outlines or full scripts based on detailed flow descriptions.
+
+### 2. Integration Testing for Core Modules
+*   **Task:** Write integration tests focusing on the interaction between key libraries and services (e.g., `core-hooks` with `core-state` and `core-graphql`, `AIChatView` with `useAIChatAPI` and `chatStore`).
+
+### 3. User Acceptance Testing (UAT) Preparation & Bug Bash
+*   **Task:** Prepare UAT scenarios for domain experts (clinicians, informaticians).
+*   Conduct internal "bug bash" sessions focusing on features developed through Step 5. The LLM can be used to rapidly address identified bugs with clear reproduction steps.
+
+### 4. Performance Profiling and Optimization
+*   **Task:** Profile key application areas:
+    *   Initial load time.
+    *   Responsiveness of AI chat, especially with long histories or streaming.
+    *   Performance of ghost text suggestions.
+    *   Rendering speed for large FHIR resources or lists.
+*   **Optimization:** Apply targeted optimizations (memoization, virtualization for lists, code splitting, lazy loading of non-critical components) based on profiling results. The LLM can assist in implementing these patterns.
+
+## C. User Experience (UX) Finalization & Polish
+
+### 1. Full UI/UX Review & Consistency Pass
+*   **Task:** A final, meticulous review of the entire application for UI consistency (MUI theme, Tailwind usage, spacing, typography, iconography), intuitive navigation, and overall aesthetic polish.
+*   Address any remaining UI/UX debt from previous steps.
+
+### 2. Empty States, Edge Cases, and Loading States
+*   **Task:** Ensure all views and components have well-designed empty states (e.g., "No patient selected," "No chat history," "No FHIR resources found").
+*   Verify graceful handling of all identified edge cases.
+*   Ensure all data-loading operations have clear, non-disruptive loading indicators.
+
+### 3. User Onboarding & In-App Help (Initial Version)
+*   **`UserOnboardingModal.tsx`:** Create a simple first-launch modal highlighting 3-5 key features and how to access them.
+*   **`HelpSystem.tsx` / Documentation Links:**
+    *   A basic, accessible help panel or section (perhaps in `SettingsPanel` or Command Palette) with FAQs or links to external documentation (if available).
+    *   Ensure keyboard shortcut discoverability.
+
+## D. Security, Compliance & Configuration Hardening
+
+### 1. Security Review (Frontend Focus)
+*   **Task:** Review frontend code for common web vulnerabilities (XSS, CSRF if applicable, insecure direct object references if any client-side decisions are made based on IDs).
+    *   Ensure secure handling of any sensitive tokens or configuration passed from Epic/the **`code-server` extension**.
+*   Verify PHI handling policies are strictly adhered to in the frontend (e.g., no PHI in `localStorage` if not encrypted, careful logging).
+
+### 2. Production Build & Configuration
+*   **Task:** Optimize Nx build configurations for production (minification, tree-shaking, chunking).
+*   Finalize environment variable setup (`.env.production.example`) for all configurable aspects (API endpoints, `code-server` URLs, feature flags).
+
+### 3. Accessibility (WCAG 2.2 AA) Final Audit
+*   **Task:** Conduct a final comprehensive accessibility audit. Remediate any outstanding issues. Ensure all interactive elements and dynamic content updates are fully accessible.
+
+## E. Documentation & Release Preparation
+
+### 1. Developer Documentation Update
+*   **Task:** Ensure all `READMEs` for apps and libs are up-to-date.
+    *   Document final API contracts (from React's perspective) for the **`code-server` extension** and backend integrations.
+*   Document complex state management flows or architectural decisions.
+
+### 2. User-Facing Documentation (Draft)
+*   **Task:** Based on the implemented features and UAT feedback, draft initial user documentation for key workflows. The LLM can assist in generating these from feature descriptions.
+
+### 3. Change Management & Versioning Strategy
+*   **Task:** Implement a clear versioning strategy (e.g., SemVer).
+*   Prepare a changelog for the V1 release.
+
+## Definition of Done for Step 6 (V1 Release Candidate)
+
+*   All integrations with `code-server` extensions and backend APIs are complete, stable, and match agreed-upon contracts.
+*   A comprehensive E2E test suite is in place and passing for all critical user flows.
+*   Performance profiling has been conducted, and key optimizations implemented.
+*   The UI/UX is polished, consistent, and handles edge cases gracefully; basic user onboarding and help are present.
+*   Security and accessibility reviews have been completed and critical issues addressed.
+*   The application is buildable in a production configuration with clear environment variable management.
+*   Developer and initial user documentation drafts are ready.
+*   The application is deemed a "Release Candidate" for V1.0.

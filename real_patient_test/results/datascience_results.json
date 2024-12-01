@@ -1,0 +1,10 @@
+{
+  "demographics_columns": [
+    "gender",
+    "birth_date"
+  ],
+  "demographics_row_count": 1,
+  "cohort_results": {
+    "cohort_patient_count": 1
+  }
+}

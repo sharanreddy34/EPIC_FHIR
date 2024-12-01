@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-05-18T14:34:35.478949",
+  "run_id": "mock-run-123",
+  "status": "COMPLETED",
+  "steps": {
+    "token": "SUCCESS",
+    "extract": "SUCCESS",
+    "transform": "SUCCESS",
+    "gold": "SUCCESS",
+    "monitoring": "SUCCESS"
+  }
+}

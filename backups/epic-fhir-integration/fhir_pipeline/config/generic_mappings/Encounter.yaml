@@ -1,0 +1,31 @@
+resourceType: Encounter
+version: 1
+validate: true
+columns:
+  # Identifiers
+  encounter_id: id
+  patient_id: subject.reference.replace('Patient/','')
+  # Status and class
+  status: status
+  class_code: class.code
+  class_display: class.display
+  # Timing
+  start_datetime: period.start
+  end_datetime: period.end
+  # Type and reason
+  type_code: type[0].coding[0].code
+  type_display: type[0].coding[0].display
+  reason_code: reasonCode[0].coding[0].code
+  reason_display: reasonCode[0].coding[0].display
+  # Participants
+  primary_performer: participant[0].individual.reference
+  # Location
+  location: location[0].location.reference
+  service_provider: serviceProvider.reference
+  # Hospitalization
+  admission_status: hospitalization.admissionStatus.coding[0].code
+  discharge_disposition: hospitalization.dischargeDisposition.coding[0].code
+  # Narrative
+  clinical_text: text.div
+extras:
+  partition_by: [start_year] 

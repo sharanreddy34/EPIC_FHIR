@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "patient_id": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB",
+    "resource_type": "Encounter",
+    "created_at": "2025-05-18T14:34:35.472162",
+    "entry_count": 5
+  },
+  "bundle": {
+    "resourceType": "Bundle",
+    "type": "searchset",
+    "total": 5,
+    "entry": [
+      {
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "mock-encounter-0",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472152"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "status": "finished",
+          "class": {
+            "code": "AMB"
+          },
+          "period": {
+            "start": "2023-01-01T08:00:00Z",
+            "end": "2023-01-01T09:00:00Z"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "mock-encounter-1",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472156"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "status": "finished",
+          "class": {
+            "code": "AMB"
+          },
+          "period": {
+            "start": "2023-01-01T08:00:00Z",
+            "end": "2023-01-01T09:00:00Z"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "mock-encounter-2",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472158"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "status": "finished",
+          "class": {
+            "code": "AMB"
+          },
+          "period": {
+            "start": "2023-01-01T08:00:00Z",
+            "end": "2023-01-01T09:00:00Z"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "mock-encounter-3",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472159"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "status": "finished",
+          "class": {
+            "code": "AMB"
+          },
+          "period": {
+            "start": "2023-01-01T08:00:00Z",
+            "end": "2023-01-01T09:00:00Z"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "mock-encounter-4",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472160"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "status": "finished",
+          "class": {
+            "code": "AMB"
+          },
+          "period": {
+            "start": "2023-01-01T08:00:00Z",
+            "end": "2023-01-01T09:00:00Z"
+          }
+        }
+      }
+    ]
+  }
+}

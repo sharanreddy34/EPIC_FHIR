@@ -1,0 +1,36 @@
+{
+  "start_timestamp": "2025-05-20T08:38:09.871044",
+  "system": {
+    "python_version": "3.13.3 (main, Apr  8 2025, 13:54:08) [Clang 16.0.0 (clang-1600.0.26.6)]",
+    "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "hostname": "MacBook-Pro-2.local"
+  },
+  "params": {
+    "patient_id": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB",
+    "debug_mode": true,
+    "retry_count": 3,
+    "disk_space": {
+      "initial_free_gb": 15.426414489746094,
+      "min_required_gb": 10.0
+    }
+  },
+  "validation": {
+    "status": "SUCCESS",
+    "success": 1,
+    "warning": 0,
+    "failure": 0,
+    "skipped": 4,
+    "result_file": "output/production_test/TEST_20250520_083809/validation/results.json"
+  },
+  "end_run": true,
+  "status": "SUCCESS",
+  "steps_status": {
+    "Authentication": true,
+    "Data Extraction": true,
+    "Bronze to Silver Transformation": true,
+    "Silver to Gold Transformation": true,
+    "Validation": true
+  },
+  "end_timestamp": "2025-05-20T08:38:10.936917"
+}

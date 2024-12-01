@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATLAS Engine JWKS Endpoint</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .container {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ATLAS Engine JWKS Endpoint</h1>
+    <p>This page hosts the JSON Web Key Set (JWKS) for ATLAS Engine's Epic FHIR API integration.</p>
+    
+    <div class="container">
+        <h2>JWKS Endpoint URL</h2>
+        <p>The JWKS endpoint is available at:</p>
+        <code>https://gsiegel14.github.io/ATLAS-EPIC/.well-known/jwks.json</code>
+    </div>
+
+    <div class="container">
+        <h2>How to Use</h2>
+        <p>In Epic's developer portal:</p>
+        <ol>
+            <li>Use this URL for both Production and Non-Production JWK Set URL fields</li>
+            <li>Make sure "Backend Systems" is selected as the user type</li>
+            <li>Check "Uses OAuth 2.0"</li>
+        </ol>
+    </div>
+
+    <div class="container">
+        <h2>JWT Configuration</h2>
+        <p>When generating JWT tokens, include the JKU header pointing to this URL:</p>
+        <code>python generate_jwt.py --jwks-url "https://gsiegel14.github.io/ATLAS-EPIC/.well-known/jwks.json"</code>
+    </div>
+</body>
+</html> 

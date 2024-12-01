@@ -1,0 +1,11 @@
+name: Encounter_Clean_Silver
+type: table
+format: delta
+mode: append
+description: Cleaned and conformed Encounter data from Epic FHIR API
+tags:
+  - silver
+  - clean
+  - fhir
+  - epic
+  - encounter 

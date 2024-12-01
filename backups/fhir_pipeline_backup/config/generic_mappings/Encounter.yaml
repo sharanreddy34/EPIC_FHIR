@@ -1,0 +1,48 @@
+resourceType: Encounter
+version: 1
+validate: true
+columns:
+  # Basic identifiers
+  encounter_id: id
+  patient_id: subject.reference.replace('Patient/','')
+  
+  # Encounter metadata
+  status: status
+  class_code: class.code
+  class_system: class.system
+  class_display: class.display
+  type_code: type[0].coding[0].code
+  type_system: type[0].coding[0].system
+  type_display: type[0].coding[0].display
+  
+  # Timing
+  start_datetime: period.start
+  end_datetime: period.end
+  
+  # Location
+  location_reference: location[0].location.reference
+  location_display: location[0].location.display
+  service_provider: serviceProvider.reference
+  
+  # Clinical details
+  priority_code: priority.coding[0].code
+  priority_display: priority.coding[0].display
+  reason_code: reasonCode[0].coding[0].code
+  reason_display: reasonCode[0].coding[0].display | reasonCode[0].text
+  
+  # Disposition and outcome
+  hospitalization_disposition: hospitalization.dischargeDisposition.coding[0].display
+  discharge_diagnosis: diagnosis[0].condition.reference
+  discharge_diagnosis_rank: diagnosis[0].rank
+  
+  # Duration (calculated)
+  length_of_stay_hours: "{{(resource.get('period', {}).get('end', '') and resource.get('period', {}).get('start', '') and (pd.to_datetime(resource.get('period', {}).get('end')) - pd.to_datetime(resource.get('period', {}).get('start'))).total_seconds() / 3600) or None}}"
+  
+  # Narrative
+  narrative: text.div
+  
+  # Combined clinical text (for embeddings/search)
+  clinical_text: "Encounter: {{resource.get('type', [{}])[0].get('coding', [{}])[0].get('display', '') if resource.get('type') and resource.get('type')[0].get('coding') else ''}}. Status: {{resource.get('status', '')}}. {{\"Started: \" + resource.get('period', {}).get('start', '') if resource.get('period', {}) and resource.get('period', {}).get('start') else ''}}. {{\"Ended: \" + resource.get('period', {}).get('end', '') if resource.get('period', {}) and resource.get('period', {}).get('end') else ''}}. {{\"Reason: \" + (resource.get('reasonCode', [{}])[0].get('text', '') or resource.get('reasonCode', [{}])[0].get('coding', [{}])[0].get('display', '')) if resource.get('reasonCode') else ''}}"
+
+extras:
+  partition_by: [start_year] 

@@ -1,0 +1,11 @@
+name: Observation_Clean_Silver
+type: table
+format: delta
+mode: append
+description: Cleaned and conformed Observation data from Epic FHIR API
+tags:
+  - silver
+  - clean
+  - fhir
+  - epic
+  - observation 

@@ -1,0 +1,59 @@
+{
+  "resourceType": "Condition",
+  "id": "eVXgt8XKBT-OD2HjhOCPLnbgVV4k5Rt.kmNO98wBI0qaKFWkHxbhUiUpb3rmhkfjjTVgVDRIK8AiVGADBQS4Ogw3",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
+        }
+      ],
+      "text": "Encounter Diagnosis"
+    },
+    {
+      "coding": [
+        {
+          "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+          "code": "visit-diagnosis",
+          "display": "Visit Diagnosis"
+        }
+      ],
+      "text": "Visit Diagnosis"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "45369008",
+        "display": "Neurohypophyseal diabetes insipidus (disorder)"
+      },
+      {
+        "system": "http://hl7.org/fhir/sid/icd-9-cm",
+        "code": "253.5",
+        "display": "Diabetes insipidus (CMS/HCC)"
+      },
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "code": "E23.2",
+        "display": "Diabetes insipidus"
+      }
+    ],
+    "text": "Diabetes insipidus, neurohypophyseal (CMS/HCC)"
+  },
+  "subject": {
+    "reference": "Patient/eOPSKZbz6YIgoilQprzPy0Q3",
+    "display": "Cadence, Anna"
+  },
+  "encounter": {
+    "reference": "Encounter/eAdQmAfZwmdIWvpMiaMSvtA3",
+    "identifier": {
+      "use": "usual",
+      "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+      "value": "27483"
+    },
+    "display": "Office Visit"
+  }
+}

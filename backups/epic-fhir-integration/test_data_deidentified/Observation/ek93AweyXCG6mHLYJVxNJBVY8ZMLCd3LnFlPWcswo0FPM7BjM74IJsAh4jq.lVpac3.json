@@ -1,0 +1,73 @@
+{
+  "resourceType": "Observation",
+  "id": "ek93AweyXCG6mHLYJVxNJBVY8ZMLCd3LnFlPWcswo0FPM7BjM74IJsAh4jq.lVpac3",
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/e1K1TdZmT3wVUr6KRefzeKILjG39LOtQV8V3XfUcGGvs3",
+      "display": "Urinalysis"
+    }
+  ],
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        }
+      ],
+      "text": "Laboratory"
+    },
+    {
+      "coding": [
+        {
+          "system": "urn:oid:1.2.840.114350.1.13.0.1.7.10.798268.30",
+          "code": "Lab",
+          "display": "Lab"
+        }
+      ],
+      "text": "Lab"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "2349-9",
+        "display": "Glucose [Presence] in Urine"
+      },
+      {
+        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282",
+        "code": "1526530",
+        "display": "Glucose, Urine"
+      }
+    ],
+    "text": "Glucose, Urine"
+  },
+  "subject": {
+    "reference": "Patient/eOPSKZbz6YIgoilQprzPy0Q3",
+    "display": "Cadence, Anna"
+  },
+  "encounter": {
+    "reference": "Encounter/e0u1fd.jUCNqz8ZQuTaMtsQ3",
+    "identifier": {
+      "use": "usual",
+      "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+      "value": "23816"
+    },
+    "display": "Hospital Encounter"
+  },
+  "effectiveDateTime": "2016-02-29T21:04:00Z",
+  "issued": "2016-02-29T22:15:03Z",
+  "valueString": "Negative",
+  "specimen": {
+    "reference": "Specimen/eGnSeZnuEBdPmSt0Gb-fTlw3",
+    "display": "Specimen 16H-060U0001"
+  },
+  "referenceRange": [
+    {
+      "text": "Negative"
+    }
+  ]
+}

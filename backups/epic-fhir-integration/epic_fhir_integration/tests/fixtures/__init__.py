@@ -1,0 +1,1 @@
+# This file enables importing fixtures from the fixtures package 

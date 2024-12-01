@@ -1,0 +1,11 @@
+name: Condition_Raw_Bronze
+type: table
+format: delta
+mode: append
+description: Raw Condition resources from Epic FHIR API
+tags: 
+  - bronze
+  - raw
+  - fhir
+  - epic
+  - condition 

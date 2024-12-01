@@ -1,0 +1,50 @@
+resourceType: Observation
+version: 1
+validate: true
+columns:
+  # Basic identifiers
+  observation_id: id
+  patient_id: subject.reference.replace('Patient/','')
+  encounter_id: encounter.reference.replace('Encounter/','')
+  
+  # Observation metadata
+  status: status
+  category_code: category[0].coding[0].code
+  category_system: category[0].coding[0].system
+  category_display: category[0].coding[0].display
+  
+  # Code information (what was measured)
+  code_code: code.coding[0].code
+  code_system: code.coding[0].system
+  code_display: code.coding[0].display
+  code_text: code.text
+  
+  # Dates and timing
+  issued_datetime: issued
+  effective_datetime: effectiveDateTime | effectivePeriod.start
+  
+  # Results - handling different value types
+  value_quantity: valueQuantity.value
+  value_quantity_unit: valueQuantity.unit
+  value_quantity_code: valueQuantity.code
+  value_quantity_system: valueQuantity.system
+  value_string: valueString
+  value_boolean: valueBoolean
+  value_codeable_concept: valueCodeableConcept.coding[0].display | valueCodeableConcept.text
+  
+  # Combined value field (for easier querying)
+  value: valueQuantity.value | valueString | valueBoolean | valueCodeableConcept.text
+  
+  # Reference ranges
+  reference_range_low: referenceRange[0].low.value
+  reference_range_high: referenceRange[0].high.value
+  reference_range_type: referenceRange[0].type.text
+  
+  # Narrative
+  narrative: text.div
+  
+  # Combined clinical text (for embeddings/search)
+  clinical_text: "{{resource.get('code', {}).get('text', '') or (resource.get('code', {}).get('coding', [{}])[0].get('display', '') if resource.get('code', {}).get('coding') else '')}} result: {{str(resource.get('valueQuantity', {}).get('value', '')) + ' ' + resource.get('valueQuantity', {}).get('unit', '') if resource.get('valueQuantity') else resource.get('valueString', '') or str(resource.get('valueBoolean', '')) or (resource.get('valueCodeableConcept', {}).get('text', '') if resource.get('valueCodeableConcept') else '')}}. Issued: {{resource.get('issued', '')}}"
+
+extras:
+  partition_by: [issued_year] 

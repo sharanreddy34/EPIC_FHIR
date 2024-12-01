@@ -1,0 +1,71 @@
+# Foundry Function Configuration
+api-version: 1.0.0
+name: epic-appointment-functions
+description: Functions to interact with Epic FHIR API for appointment data
+visibility: global
+
+# Required secrets
+secrets:
+  - name: additionalSecretEpicClientId
+    description: Epic FHIR API Client ID
+  - name: additionalSecretEpicPrivateKey
+    description: RSA private key for JWT signing
+
+# Function declarations
+functions:
+  - name: refresh_epic_token
+    file: epic_auth.py
+    entrypoint: refresh_epic_token
+    description: Refreshes the Epic API access token
+    parameters: []
+    return:
+      type: string
+      description: A fresh access token for Epic API
+    memory: 1Gi
+    timeout: 60s
+    secrets:
+      - additionalSecretEpicClientId
+      - additionalSecretEpicPrivateKey
+
+  - name: fetch_appointment_data
+    file: fetch_appointment.py
+    entrypoint: fetch_appointment_data
+    description: Fetches appointment data for a patient from Epic FHIR API
+    parameters:
+      - name: patientId
+        type: string
+        description: Epic patient ID to fetch appointments for
+    return:
+      type: dataset
+      description: Dataset containing the appointment data
+    dependencies:
+      - pandas>=1.0.0
+      - requests>=2.25.0
+    memory: 2Gi
+    timeout: 300s
+    sources:
+      - EpicFHIRPatientID
+    secrets:
+      - additionalSecretEpicClientId
+      - additionalSecretEpicPrivateKey
+    
+  - name: get_appointment_by_id
+    file: fetch_appointment.py
+    entrypoint: get_appointment_by_id
+    description: Gets a specific appointment by ID
+    parameters:
+      - name: appointment_id
+        type: string
+        description: The Epic appointment ID
+    return:
+      type: object
+      description: Dictionary containing the appointment details
+    dependencies:
+      - requests>=2.25.0
+    memory: 1Gi
+    timeout: 60s
+    sources:
+      - EpicFHIRPatientID
+    secrets:
+      - additionalSecretEpicClientId
+      - additionalSecretEpicPrivateKey 

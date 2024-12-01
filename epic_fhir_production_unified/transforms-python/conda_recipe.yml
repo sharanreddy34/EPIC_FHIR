@@ -1,0 +1,37 @@
+name: epic-fhir-pipeline
+channels:
+  - conda-forge
+  - defaults
+
+# core dependencies -----------------------------------------------------
+# These are required at runtime both locally and in Foundry
+dependencies:
+  - python=3.10.12            # Match Foundry runtime version
+  - pip=23.2.1
+  - pyspark=3.3.2             # Align with Foundry runtime
+  - requests=2.31.0
+  - pyyaml=6.0.1
+  - cryptography=41.0.5
+  - pyjwt=2.8.0
+  - pydantic=1.10.13          # Pre-v2 to match imports
+  - fhir.resources=6.4.0
+  - fhirpathpy=0.2.2
+  - pandas=1.5.3              # Last 1.x release
+  - matplotlib=3.7.2
+  - tenacity=8.2.3            # Retry logic
+  - urllib3=2.0.7             # Compatible with requests
+  - typing_extensions=4.8.0
+  - python-dateutil=2.8.2     # Robust date parsing
+  - pytest=7.4.3
+  - pytest-cov=4.1.0
+  - black=23.10.1
+  - isort=5.12.0
+  - pylint=2.17.5
+  - pip:
+      # Foundry simulation for local testing
+      - foundry-dev-tools==0.8.4
+      # FHIR processing libraries
+      - pathling-client==6.0.0
+      - great-expectations==0.17.22
+      - fhirpath==0.10.5
+      - deltalake==0.9.0       # Delta Lake Python client 

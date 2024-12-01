@@ -1,0 +1,52 @@
+{
+  "expectation_suite_name": "condition_silver_expectations",
+  "expectations": [
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "resourceType"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "resourceType",
+        "value_set": [
+          "Condition"
+        ]
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "id"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "code"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "subject"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "clinicalStatus"
+      }
+    }
+  ],
+  "meta": {
+    "resource_type": "Condition",
+    "tier": "silver",
+    "notes": {
+      "content": "Expectations for Condition in silver tier",
+      "format": "markdown"
+    }
+  }
+}

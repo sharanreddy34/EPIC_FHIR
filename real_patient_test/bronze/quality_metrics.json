@@ -1,0 +1,178 @@
+{
+  "tier": "bronze",
+  "resource_counts": {
+    "Patient": 1,
+    "Observation": 5,
+    "Condition": 1,
+    "Encounter": 1
+  },
+  "total_resources": 8,
+  "quality_scores": {
+    "Patient": 0.0,
+    "Observation": 0.0,
+    "Condition": 0.0,
+    "Encounter": 0.0
+  },
+  "overall_quality": 0.0,
+  "resource_types": [
+    "Patient",
+    "Observation",
+    "Condition",
+    "Encounter"
+  ],
+  "detailed_results": {
+    "Patient": {
+      "timestamp": "2025-05-21T07:36:27.899031",
+      "pipeline_stage": "bronze_quality_assessment",
+      "validation_type": "custom",
+      "resources_total": 1,
+      "resources_valid": 0,
+      "validation_rate": 0.0,
+      "total_issues": 1,
+      "issues_per_resource": 1.0,
+      "results": [
+        {
+          "resource_type": "Patient",
+          "resource_id": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB",
+          "is_valid": false,
+          "validation_type": "custom",
+          "issues": [
+            {
+              "severity": "error",
+              "category": "unknown",
+              "message": "Expectation suite 'patient_bronze_expectations' not found"
+            }
+          ]
+        }
+      ]
+    },
+    "Observation": {
+      "timestamp": "2025-05-21T07:36:27.899558",
+      "pipeline_stage": "bronze_quality_assessment",
+      "validation_type": "custom",
+      "resources_total": 5,
+      "resources_valid": 0,
+      "validation_rate": 0.0,
+      "total_issues": 5,
+      "issues_per_resource": 1.0,
+      "results": [
+        {
+          "resource_type": "Observation",
+          "resource_id": "obs-1",
+          "is_valid": false,
+          "validation_type": "custom",
+          "issues": [
+            {
+              "severity": "error",
+              "category": "unknown",
+              "message": "Expectation suite 'observation_bronze_expectations' not found"
+            }
+          ]
+        },
+        {
+          "resource_type": "Observation",
+          "resource_id": "obs-2",
+          "is_valid": false,
+          "validation_type": "custom",
+          "issues": [
+            {
+              "severity": "error",
+              "category": "unknown",
+              "message": "Expectation suite 'observation_bronze_expectations' not found"
+            }
+          ]
+        },
+        {
+          "resource_type": "Observation",
+          "resource_id": "obs-3",
+          "is_valid": false,
+          "validation_type": "custom",
+          "issues": [
+            {
+              "severity": "error",
+              "category": "unknown",
+              "message": "Expectation suite 'observation_bronze_expectations' not found"
+            }
+          ]
+        },
+        {
+          "resource_type": "Observation",
+          "resource_id": "obs-4",
+          "is_valid": false,
+          "validation_type": "custom",
+          "issues": [
+            {
+              "severity": "error",
+              "category": "unknown",
+              "message": "Expectation suite 'observation_bronze_expectations' not found"
+            }
+          ]
+        },
+        {
+          "resource_type": "Observation",
+          "resource_id": "obs-5",
+          "is_valid": false,
+          "validation_type": "custom",
+          "issues": [
+            {
+              "severity": "error",
+              "category": "unknown",
+              "message": "Expectation suite 'observation_bronze_expectations' not found"
+            }
+          ]
+        }
+      ]
+    },
+    "Condition": {
+      "timestamp": "2025-05-21T07:36:27.899634",
+      "pipeline_stage": "bronze_quality_assessment",
+      "validation_type": "custom",
+      "resources_total": 1,
+      "resources_valid": 0,
+      "validation_rate": 0.0,
+      "total_issues": 1,
+      "issues_per_resource": 1.0,
+      "results": [
+        {
+          "resource_type": "Condition",
+          "resource_id": "cond-1",
+          "is_valid": false,
+          "validation_type": "custom",
+          "issues": [
+            {
+              "severity": "error",
+              "category": "unknown",
+              "message": "Expectation suite 'condition_bronze_expectations' not found"
+            }
+          ]
+        }
+      ]
+    },
+    "Encounter": {
+      "timestamp": "2025-05-21T07:36:27.899713",
+      "pipeline_stage": "bronze_quality_assessment",
+      "validation_type": "custom",
+      "resources_total": 1,
+      "resources_valid": 0,
+      "validation_rate": 0.0,
+      "total_issues": 1,
+      "issues_per_resource": 1.0,
+      "results": [
+        {
+          "resource_type": "Encounter",
+          "resource_id": "enc-1",
+          "is_valid": false,
+          "validation_type": "custom",
+          "issues": [
+            {
+              "severity": "error",
+              "category": "unknown",
+              "message": "Expectation suite 'encounter_bronze_expectations' not found"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "mock_mode": false
+}

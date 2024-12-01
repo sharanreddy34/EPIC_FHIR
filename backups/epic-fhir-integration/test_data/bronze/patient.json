@@ -1,0 +1,32 @@
+{
+  "resourceType": "Patient",
+  "id": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB",
+  "name": [
+    {
+      "use": "official",
+      "family": "Smith",
+      "given": ["John", "Samuel"]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "555-123-4567"
+    },
+    {
+      "system": "email",
+      "value": "john.smith@example.com"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1970-01-25",
+  "address": [
+    {
+      "line": ["123 Main St"],
+      "city": "Anytown",
+      "state": "CA",
+      "postalCode": "12345"
+    }
+  ],
+  "active": true
+}

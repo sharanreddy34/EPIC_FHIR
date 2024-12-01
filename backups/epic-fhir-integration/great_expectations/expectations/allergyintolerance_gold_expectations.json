@@ -1,0 +1,197 @@
+{
+  "expectation_suite_name": "allergyintolerance_gold_expectations",
+  "ge_cloud_id": null,
+  "expectations": [
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "resourceType"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "resourceType",
+        "value_set": [
+          "AllergyIntolerance"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "patient.reference"
+      },
+      "meta": {
+        "notes": "Check for the reference to the patient."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "code.text"
+      },
+      "meta": {
+        "notes": "Check for the text representation of the allergy code."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "code.coding"
+      },
+      "meta": {
+        "notes": "Gold tier requires coded values for allergy code."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "code.coding[0].system"
+      },
+      "meta": {
+        "notes": "Gold tier requires a coding system for the allergy code."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "code.coding[0].code"
+      },
+      "meta": {
+        "notes": "Gold tier requires a coded value for the allergy code."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "clinicalStatus"
+      },
+      "meta": {
+        "notes": "Gold tier requires clinical status."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "clinicalStatus.coding"
+      },
+      "meta": {
+        "notes": "Gold tier requires coded clinical status."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "clinicalStatus.coding[0].system"
+      },
+      "meta": {
+        "notes": "Gold tier requires a coding system for clinical status."
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "clinicalStatus.coding[0].system",
+        "value_set": [
+          "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"
+        ]
+      },
+      "meta": {
+        "notes": "Gold tier requires standard coding system for clinical status."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "verificationStatus"
+      },
+      "meta": {
+        "notes": "Gold tier requires verification status."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "verificationStatus.coding"
+      },
+      "meta": {
+        "notes": "Gold tier requires coded verification status."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "verificationStatus.coding[0].system"
+      },
+      "meta": {
+        "notes": "Gold tier requires a coding system for verification status."
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "verificationStatus.coding[0].system",
+        "value_set": [
+          "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification"
+        ]
+      },
+      "meta": {
+        "notes": "Gold tier requires standard coding system for verification status."
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "category",
+        "value_set": [
+          ["food"], 
+          ["medication"], 
+          ["environment"], 
+          ["biologic"],
+          ["food", "medication"],
+          ["food", "environment"],
+          ["medication", "environment"],
+          ["food", "medication", "environment"],
+          ["food", "biologic"],
+          ["medication", "biologic"],
+          ["environment", "biologic"],
+          ["food", "medication", "biologic"],
+          ["food", "environment", "biologic"],
+          ["medication", "environment", "biologic"],
+          ["food", "medication", "environment", "biologic"]
+        ]
+      },
+      "meta": {
+        "notes": "Check that category contains valid values."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "text"
+      },
+      "meta": {
+        "notes": "Gold tier requires narrative text."
+      }
+    }
+  ],
+  "meta": {
+    "great_expectations_version": "0.18.14",
+    "resource_type": "AllergyIntolerance",
+    "tier": "gold",
+    "notes": {
+      "content": "Gold tier expectations for AllergyIntolerance resources.",
+      "format": "markdown"
+    }
+  }
+} 

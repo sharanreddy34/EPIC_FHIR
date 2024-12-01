@@ -1,0 +1,30 @@
+apiVersion: 1.0.0
+kind: Transform
+name: transform-resources
+profile: FHIR_RESOURCE_TRANSFORM
+file: pipelines/03_transform_load.py
+entrypoint: transform_resources
+inputs:
+  - path: /bronze/fhir_raw
+  - path: /config/resources_config.yaml
+outputs:
+  - path: /silver/fhir_normalized
+  - path: /metrics/transform_metrics
+resources:
+  memory: 8Gi
+  timeout: 3600s  # 1 hour
+schedule:
+  cron: "0 3 * * *"   # Run daily at 3 AM, after extraction
+dependencies:
+  - transform: extract-resources
+description: |
+  Transforms FHIR resources from JSON bundles in the bronze layer into 
+  analytics-ready tabular format in the silver layer. This transform flattens 
+  the nested FHIR resources and applies resource-specific transformations
+  to create a normalized dataset for each resource type.
+parameters:
+  - name: resource_type
+    type: string
+    required: false
+    description: Optional specific resource type to transform (e.g. "patient", "encounter").
+                 If not provided, all available resources in the bronze layer will be transformed. 

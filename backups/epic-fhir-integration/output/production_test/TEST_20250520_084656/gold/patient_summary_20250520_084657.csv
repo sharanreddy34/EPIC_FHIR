@@ -1,0 +1,2 @@
+id,name,gender,birthDate,address,phone,email,language,maritalStatus,multipleBirth,telecom,identifier,active,deceasedBoolean,deceasedDateTime,contact,age,age_group
++1 608-271-9000,sleeplessinseattle@ymail.com,English,,,"[{system"": ""phone"""," ""value"": ""+1 608-271-9000"""," ""use"": ""home""}"," {""system"": ""email"""," ""value"": ""sleeplessinseattle@ymail.com"""," ""rank"": 1}]""",urn:oid:1.2.840.114350.1.13.0.1.7.3.688884.100|FHRT86S6TW5LPGC,True,False,,", ",,Unknown

@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "patient_id": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB",
+    "resource_type": "MedicationRequest",
+    "created_at": "2025-05-18T14:34:35.472747",
+    "entry_count": 5
+  },
+  "bundle": {
+    "resourceType": "Bundle",
+    "type": "searchset",
+    "total": 5,
+    "entry": [
+      {
+        "resource": {
+          "resourceType": "MedicationRequest",
+          "id": "mock-medicationrequest-0",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472740"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "status": "active",
+          "intent": "order",
+          "medicationCodeableConcept": {
+            "text": "Test Medication 0"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "MedicationRequest",
+          "id": "mock-medicationrequest-1",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472743"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "status": "active",
+          "intent": "order",
+          "medicationCodeableConcept": {
+            "text": "Test Medication 1"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "MedicationRequest",
+          "id": "mock-medicationrequest-2",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472744"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "status": "active",
+          "intent": "order",
+          "medicationCodeableConcept": {
+            "text": "Test Medication 2"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "MedicationRequest",
+          "id": "mock-medicationrequest-3",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472745"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "status": "active",
+          "intent": "order",
+          "medicationCodeableConcept": {
+            "text": "Test Medication 3"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "MedicationRequest",
+          "id": "mock-medicationrequest-4",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472746"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "status": "active",
+          "intent": "order",
+          "medicationCodeableConcept": {
+            "text": "Test Medication 4"
+          }
+        }
+      }
+    ]
+  }
+}

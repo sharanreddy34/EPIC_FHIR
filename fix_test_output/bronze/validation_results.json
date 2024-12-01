@@ -1,0 +1,42 @@
+{
+  "Patient": {
+    "is_valid": true,
+    "error_count": 0,
+    "warning_count": 1,
+    "info_count": 1,
+    "errors": []
+  },
+  "Observation": {
+    "is_valid": false,
+    "error_count": 1,
+    "warning_count": 1,
+    "info_count": 0,
+    "errors": [
+      "{'level': 'ERROR', 'code': 'VALIDATION_ERROR', 'message': 'Resource is missing essential elements required by the profile'}"
+    ]
+  },
+  "Condition": {
+    "is_valid": false,
+    "error_count": 1,
+    "warning_count": 1,
+    "info_count": 0,
+    "errors": [
+      "{'level': 'ERROR', 'code': 'VALIDATION_ERROR', 'message': 'Resource is missing essential elements required by the profile'}"
+    ]
+  },
+  "Encounter": {
+    "is_valid": false,
+    "error_count": 1,
+    "warning_count": 1,
+    "info_count": 0,
+    "errors": [
+      "{'level': 'ERROR', 'code': 'VALIDATION_ERROR', 'message': 'Resource is missing essential elements required by the profile'}"
+    ]
+  },
+  "batch": {
+    "total": 8,
+    "valid_count": 1,
+    "invalid_count": 7,
+    "percent_valid": 12.5
+  }
+}

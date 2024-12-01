@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-05-20T22:05:38.242894",
+  "patient_id": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB",
+  "deidentified": false,
+  "api_base": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4",
+  "resources_fetched": [
+    "Patient",
+    "Encounter",
+    "Observation",
+    "Condition",
+    "MedicationRequest",
+    "Procedure"
+  ]
+}

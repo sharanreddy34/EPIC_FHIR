@@ -1,0 +1,119 @@
+{
+  "dashboardName": "Epic FHIR Pipeline Monitoring",
+  "description": "Monitoring dashboard for the Epic FHIR pipeline in Foundry",
+  "layout": {
+    "rows": [
+      {
+        "height": 6,
+        "widgets": [
+          {
+            "type": "MARKDOWN",
+            "title": "Pipeline Status",
+            "properties": {
+              "content": "# Epic FHIR Pipeline Monitoring\n\nThis dashboard provides real-time monitoring of the Epic FHIR pipeline, including extraction status, data quality metrics, and performance indicators.\n\n## Last Updated\n{{lastUpdated}}"
+            },
+            "width": 4
+          },
+          {
+            "type": "STATUS",
+            "title": "Transform Status",
+            "properties": {
+              "transforms": [
+                "patient_bronze",
+                "encounter_bronze", 
+                "condition_bronze",
+                "observation_bronze",
+                "medication_bronze",
+                "patient_silver",
+                "encounter_silver",
+                "condition_silver",
+                "observation_silver",
+                "medication_silver",
+                "patient_timeline"
+              ]
+            },
+            "width": 8
+          }
+        ]
+      },
+      {
+        "height": 8,
+        "widgets": [
+          {
+            "type": "TABLE",
+            "title": "Bronze Layer - Extraction Metrics",
+            "properties": {
+              "query": "SELECT resource_type, COUNT(*) as record_count, MAX(ingest_timestamp) as last_updated \nFROM datasets.bronze.Patient_Raw_Bronze GROUP BY resource_type \nUNION ALL \nSELECT resource_type, COUNT(*) as record_count, MAX(ingest_timestamp) as last_updated \nFROM datasets.bronze.Encounter_Raw_Bronze GROUP BY resource_type \nUNION ALL \nSELECT resource_type, COUNT(*) as record_count, MAX(ingest_timestamp) as last_updated \nFROM datasets.bronze.Condition_Raw_Bronze GROUP BY resource_type \nUNION ALL \nSELECT resource_type, COUNT(*) as record_count, MAX(ingest_timestamp) as last_updated \nFROM datasets.bronze.Observation_Raw_Bronze GROUP BY resource_type \nUNION ALL \nSELECT resource_type, COUNT(*) as record_count, MAX(ingest_timestamp) as last_updated \nFROM datasets.bronze.MedicationRequest_Raw_Bronze GROUP BY resource_type \nORDER BY resource_type"
+            },
+            "width": 6
+          },
+          {
+            "type": "BAR",
+            "title": "Record Counts by Resource Type",
+            "properties": {
+              "query": "SELECT resource_type, COUNT(*) as record_count \nFROM datasets.bronze.Patient_Raw_Bronze GROUP BY resource_type \nUNION ALL \nSELECT resource_type, COUNT(*) as record_count \nFROM datasets.bronze.Encounter_Raw_Bronze GROUP BY resource_type \nUNION ALL \nSELECT resource_type, COUNT(*) as record_count \nFROM datasets.bronze.Condition_Raw_Bronze GROUP BY resource_type \nUNION ALL \nSELECT resource_type, COUNT(*) as record_count \nFROM datasets.bronze.Observation_Raw_Bronze GROUP BY resource_type \nUNION ALL \nSELECT resource_type, COUNT(*) as record_count \nFROM datasets.bronze.MedicationRequest_Raw_Bronze GROUP BY resource_type \nORDER BY resource_type",
+              "xAxisColumn": "resource_type",
+              "yAxisColumn": "record_count"
+            },
+            "width": 6
+          }
+        ]
+      },
+      {
+        "height": 8,
+        "widgets": [
+          {
+            "type": "TABLE",
+            "title": "Data Quality Metrics",
+            "properties": {
+              "query": "SELECT resource_type, success_ratio, success_count, total_count, timestamp \nFROM datasets.Patient_GE_Results \nUNION ALL \nSELECT resource_type, success_ratio, success_count, total_count, timestamp \nFROM datasets.Encounter_GE_Results \nUNION ALL \nSELECT resource_type, success_ratio, success_count, total_count, timestamp \nFROM datasets.Condition_GE_Results \nUNION ALL \nSELECT resource_type, success_ratio, success_count, total_count, timestamp \nFROM datasets.Observation_GE_Results \nORDER BY resource_type, timestamp DESC"
+            },
+            "width": 6
+          },
+          {
+            "type": "LINE",
+            "title": "Data Quality Trends",
+            "properties": {
+              "query": "SELECT resource_type, success_ratio, timestamp \nFROM datasets.Patient_GE_Results \nUNION ALL \nSELECT resource_type, success_ratio, timestamp \nFROM datasets.Encounter_GE_Results \nUNION ALL \nSELECT resource_type, success_ratio, timestamp \nFROM datasets.Condition_GE_Results \nUNION ALL \nSELECT resource_type, success_ratio, timestamp \nFROM datasets.Observation_GE_Results \nORDER BY resource_type, timestamp",
+              "xAxisColumn": "timestamp",
+              "yAxisColumn": "success_ratio",
+              "seriesColumn": "resource_type"
+            },
+            "width": 6
+          }
+        ]
+      },
+      {
+        "height": 8,
+        "widgets": [
+          {
+            "type": "TABLE",
+            "title": "Transform Performance",
+            "properties": {
+              "query": "SELECT transform_name, last_run_duration_seconds, last_run_status, last_run_timestamp \nFROM system.transforms \nWHERE transform_name IN ('patient_bronze', 'encounter_bronze', 'condition_bronze', 'observation_bronze', 'medication_bronze', 'patient_silver', 'encounter_silver', 'condition_silver', 'observation_silver', 'medication_silver', 'patient_timeline') \nORDER BY last_run_timestamp DESC"
+            },
+            "width": 6
+          },
+          {
+            "type": "LINE",
+            "title": "Transform Duration Trends",
+            "properties": {
+              "query": "SELECT transform_name, run_duration_seconds, run_timestamp \nFROM system.transform_history \nWHERE transform_name IN ('patient_bronze', 'encounter_bronze', 'condition_bronze', 'observation_bronze', 'medication_bronze', 'patient_silver', 'encounter_silver', 'condition_silver', 'observation_silver', 'medication_silver', 'patient_timeline') \nORDER BY transform_name, run_timestamp",
+              "xAxisColumn": "run_timestamp",
+              "yAxisColumn": "run_duration_seconds",
+              "seriesColumn": "transform_name"
+            },
+            "width": 6
+          }
+        ]
+      }
+    ]
+  },
+  "parameters": [
+    {
+      "name": "lastUpdated",
+      "type": "DATE_TIME",
+      "value": "{{now()}}"
+    }
+  ]
+} 

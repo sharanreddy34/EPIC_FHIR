@@ -1,0 +1,453 @@
+{
+  "Patient": [
+    {
+      "resourceType": "Patient",
+      "id": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2024-05-20T08:15:00Z",
+        "tag": [
+          {
+            "system": "http://atlaspalantir.com/fhir/data-tier",
+            "code": "silver",
+            "display": "Silver"
+          }
+        ]
+      },
+      "identifier": [
+        {
+          "system": "urn:oid:1.2.36.146.595.217.0.1",
+          "value": "12345"
+        }
+      ],
+      "name": [
+        {
+          "use": "official",
+          "family": "Smith",
+          "given": [
+            "John",
+            "Samuel"
+          ]
+        }
+      ],
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "555-123-4567",
+          "use": "home"
+        },
+        {
+          "system": "email",
+          "value": "john.smith@example.com"
+        }
+      ],
+      "gender": "male",
+      "birthDate": "1970-01-25",
+      "address": [
+        {
+          "use": "home",
+          "line": [
+            "123 Main St"
+          ],
+          "city": "Anytown",
+          "state": "CA",
+          "postalCode": "12345"
+        }
+      ],
+      "active": true,
+      "extension": [
+        {
+          "url": "http://atlaspalantir.com/fhir/StructureDefinition/data-quality-tier",
+          "valueString": "silver"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+          "extension": [
+            {
+              "url": "ombCategory",
+              "valueCoding": {
+                "system": "urn:oid:2.16.840.1.113883.6.238",
+                "code": "2106-3",
+                "display": "White"
+              }
+            },
+            {
+              "url": "text",
+              "valueString": "White"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Observation": [
+    {
+      "resourceType": "Observation",
+      "id": "obs-1",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2024-05-20T08:30:00Z",
+        "tag": [
+          {
+            "system": "http://atlaspalantir.com/fhir/data-tier",
+            "code": "silver",
+            "display": "Silver"
+          }
+        ]
+      },
+      "status": "final",
+      "category": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+              "code": "vital-signs",
+              "display": "Vital Signs"
+            }
+          ]
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "8480-6",
+            "display": "Systolic blood pressure"
+          }
+        ],
+        "text": "Systolic blood pressure"
+      },
+      "subject": {
+        "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+      },
+      "effectiveDateTime": "2024-05-15T09:30:00Z",
+      "valueQuantity": {
+        "value": 120,
+        "unit": "mmHg",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      },
+      "extension": [
+        {
+          "url": "http://atlaspalantir.com/fhir/StructureDefinition/data-quality-tier",
+          "valueString": "silver"
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "obs-2",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2024-05-20T08:30:00Z",
+        "tag": [
+          {
+            "system": "http://atlaspalantir.com/fhir/data-tier",
+            "code": "silver",
+            "display": "Silver"
+          }
+        ]
+      },
+      "status": "final",
+      "category": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+              "code": "vital-signs",
+              "display": "Vital Signs"
+            }
+          ]
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "8480-6",
+            "display": "Systolic blood pressure"
+          }
+        ],
+        "text": "Systolic blood pressure"
+      },
+      "subject": {
+        "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+      },
+      "effectiveDateTime": "2024-05-16T09:30:00Z",
+      "valueQuantity": {
+        "value": 122,
+        "unit": "mmHg",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      },
+      "extension": [
+        {
+          "url": "http://atlaspalantir.com/fhir/StructureDefinition/data-quality-tier",
+          "valueString": "silver"
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "obs-3",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2024-05-20T08:30:00Z",
+        "tag": [
+          {
+            "system": "http://atlaspalantir.com/fhir/data-tier",
+            "code": "silver",
+            "display": "Silver"
+          }
+        ]
+      },
+      "status": "final",
+      "category": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+              "code": "vital-signs",
+              "display": "Vital Signs"
+            }
+          ]
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "8480-6",
+            "display": "Systolic blood pressure"
+          }
+        ],
+        "text": "Systolic blood pressure"
+      },
+      "subject": {
+        "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+      },
+      "effectiveDateTime": "2024-05-17T09:30:00Z",
+      "valueQuantity": {
+        "value": 124,
+        "unit": "mmHg",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      },
+      "extension": [
+        {
+          "url": "http://atlaspalantir.com/fhir/StructureDefinition/data-quality-tier",
+          "valueString": "silver"
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "obs-4",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2024-05-20T08:30:00Z",
+        "tag": [
+          {
+            "system": "http://atlaspalantir.com/fhir/data-tier",
+            "code": "silver",
+            "display": "Silver"
+          }
+        ]
+      },
+      "status": "final",
+      "category": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+              "code": "vital-signs",
+              "display": "Vital Signs"
+            }
+          ]
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "8480-6",
+            "display": "Systolic blood pressure"
+          }
+        ],
+        "text": "Systolic blood pressure"
+      },
+      "subject": {
+        "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+      },
+      "effectiveDateTime": "2024-05-18T09:30:00Z",
+      "valueQuantity": {
+        "value": 126,
+        "unit": "mmHg",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      },
+      "extension": [
+        {
+          "url": "http://atlaspalantir.com/fhir/StructureDefinition/data-quality-tier",
+          "valueString": "silver"
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "obs-5",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2024-05-20T08:30:00Z",
+        "tag": [
+          {
+            "system": "http://atlaspalantir.com/fhir/data-tier",
+            "code": "silver",
+            "display": "Silver"
+          }
+        ]
+      },
+      "status": "final",
+      "category": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+              "code": "vital-signs",
+              "display": "Vital Signs"
+            }
+          ]
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "8480-6",
+            "display": "Systolic blood pressure"
+          }
+        ],
+        "text": "Systolic blood pressure"
+      },
+      "subject": {
+        "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+      },
+      "effectiveDateTime": "2024-05-19T09:30:00Z",
+      "valueQuantity": {
+        "value": 128,
+        "unit": "mmHg",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      },
+      "extension": [
+        {
+          "url": "http://atlaspalantir.com/fhir/StructureDefinition/data-quality-tier",
+          "valueString": "silver"
+        }
+      ]
+    }
+  ],
+  "Condition": [
+    {
+      "resourceType": "Condition",
+      "id": "cond-1",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2024-05-20T08:45:00Z",
+        "tag": [
+          {
+            "system": "http://atlaspalantir.com/fhir/data-tier",
+            "code": "silver",
+            "display": "Silver"
+          }
+        ]
+      },
+      "clinicalStatus": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+            "code": "active",
+            "display": "Active"
+          }
+        ]
+      },
+      "verificationStatus": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+            "code": "confirmed",
+            "display": "Confirmed"
+          }
+        ]
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "38341003",
+            "display": "Hypertension"
+          }
+        ],
+        "text": "Hypertension"
+      },
+      "subject": {
+        "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+      },
+      "onsetDateTime": "2023-01-15T00:00:00Z",
+      "extension": [
+        {
+          "url": "http://atlaspalantir.com/fhir/StructureDefinition/data-quality-tier",
+          "valueString": "silver"
+        }
+      ]
+    }
+  ],
+  "Encounter": [
+    {
+      "resourceType": "Encounter",
+      "id": "enc-1",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2024-05-20T09:00:00Z",
+        "tag": [
+          {
+            "system": "http://atlaspalantir.com/fhir/data-tier",
+            "code": "silver",
+            "display": "Silver"
+          }
+        ]
+      },
+      "status": "finished",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory"
+      },
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "185349003",
+              "display": "Encounter for check up"
+            }
+          ],
+          "text": "Checkup"
+        }
+      ],
+      "subject": {
+        "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+      },
+      "period": {
+        "start": "2024-05-20T08:00:00Z",
+        "end": "2024-05-20T08:30:00Z"
+      },
+      "extension": [
+        {
+          "url": "http://atlaspalantir.com/fhir/StructureDefinition/data-quality-tier",
+          "valueString": "silver"
+        }
+      ]
+    }
+  ]
+}

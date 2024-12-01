@@ -1,0 +1,13 @@
+version: 1
+type: FILE
+path: MedicationRequest_Raw_Bronze.json
+displayName: MedicationRequest Raw Bronze
+description: Raw FHIR MedicationRequest resources extracted from Epic.
+format: json
+schema:
+  resourceType: string
+  id: string
+  meta:
+    lastUpdated: string
+  # Additional common FHIR fields can be added if known
+  # Actual schema is flexible as it's raw JSON 

@@ -1,0 +1,270 @@
+# Declarative Build configuration for Epic FHIR Pipeline
+version: 1
+
+defaultSparkConf:
+  "spark.sql.extensions": "io.delta.sql.DeltaSparkSessionExtension"
+  "spark.sql.catalog.spark_catalog": "org.apache.spark.sql.delta.catalog.DeltaCatalog"
+
+transforms:
+  # Bronze Layer - Raw Resource extraction transforms
+  patient_bronze:
+    name: "Patient Bronze Extraction"
+    type: python
+    entryPoint: "transforms-python/src/epic_fhir_integration/domain/bronze/patient_bronze_wrapper.py::compute"
+    schedule:
+      type: "cron"
+      cronExpression: "0 1 * * *"  # Daily at 1 AM
+    configuration:
+      max_pages: 100
+      batch_size: 200
+    outputDataset: "datasets/bronze/Patient_Raw_Bronze"
+    computeCluster:
+      type: small
+      autoScaleEnabled: true
+      minWorkers: 1
+      maxWorkers: 4
+      
+  encounter_bronze:
+    name: "Encounter Bronze Extraction"
+    type: python
+    entryPoint: "transforms-python/src/epic_fhir_integration/domain/bronze/encounter_bronze_wrapper.py::compute"
+    schedule:
+      type: "cron"
+      cronExpression: "0 2 * * *"  # Daily at 2 AM
+    configuration:
+      max_pages: 100
+      batch_size: 200
+    outputDataset: "datasets/bronze/Encounter_Raw_Bronze"
+    computeCluster:
+      type: small
+      autoScaleEnabled: true
+      minWorkers: 1
+      maxWorkers: 4
+      
+  condition_bronze:
+    name: "Condition Bronze Extraction"
+    type: python
+    entryPoint: "transforms-python/src/epic_fhir_integration/domain/bronze/condition_bronze_wrapper.py::compute"
+    schedule:
+      type: "cron"
+      cronExpression: "0 3 * * *"  # Daily at 3 AM
+    configuration:
+      max_pages: 100
+      batch_size: 200
+    outputDataset: "datasets/bronze/Condition_Raw_Bronze"
+    computeCluster:
+      type: small
+      autoScaleEnabled: true
+      minWorkers: 1
+      maxWorkers: 4
+      
+  observation_bronze:
+    name: "Observation Bronze Extraction"
+    type: python
+    entryPoint: "transforms-python/src/epic_fhir_integration/domain/bronze/observation_bronze_wrapper.py::compute"
+    schedule:
+      type: "cron"
+      cronExpression: "0 4 * * *"  # Daily at 4 AM
+    configuration:
+      max_pages: 100
+      batch_size: 200
+    outputDataset: "datasets/bronze/Observation_Raw_Bronze"
+    computeCluster:
+      type: small
+      autoScaleEnabled: true
+      minWorkers: 1
+      maxWorkers: 4
+      
+  medication_bronze:
+    name: "MedicationRequest Bronze Extraction"
+    type: python
+    entryPoint: "transforms-python/src/epic_fhir_integration/domain/bronze/medication_bronze_wrapper.py::compute"
+    schedule:
+      type: "cron"
+      cronExpression: "0 5 * * *"  # Daily at 5 AM
+    configuration:
+      max_pages: 100
+      batch_size: 200
+    outputDataset: "datasets/bronze/MedicationRequest_Raw_Bronze"
+    computeCluster:
+      type: small
+      autoScaleEnabled: true
+      minWorkers: 1
+      maxWorkers: 4
+  
+  # Silver Layer - Structured data transformations
+  patient_silver:
+    name: "Patient Silver"
+    type: python
+    entryPoint: "transforms-python/src/epic_fhir_integration/domain/silver/patient_silver.py::compute"
+    schedule:
+      type: "cron"
+      cronExpression: "0 6 * * *"  # Daily at 6 AM
+    inputDatasets:
+      - "datasets/bronze/Patient_Raw_Bronze"
+    outputDataset: "datasets/silver/Patient_Clean_Silver"
+    computeCluster:
+      type: medium
+      autoScaleEnabled: true
+      minWorkers: 2
+      maxWorkers: 6
+  
+  encounter_silver:
+    name: "Encounter Silver"
+    type: python
+    entryPoint: "transforms-python/src/epic_fhir_integration/domain/silver/fhir_silver_transform.py::compute"
+    schedule:
+      type: "cron"
+      cronExpression: "0 6 15 * *"  # Daily at 6:15 AM
+    configuration:
+      resource_type: "Encounter"
+    inputDatasets:
+      - "datasets/bronze/Encounter_Raw_Bronze"
+    outputDataset: "datasets/silver/Encounter_Clean_Silver"
+    computeCluster:
+      type: medium
+      autoScaleEnabled: true
+      minWorkers: 2
+      maxWorkers: 6
+  
+  condition_silver:
+    name: "Condition Silver"
+    type: python
+    entryPoint: "transforms-python/src/epic_fhir_integration/domain/silver/fhir_silver_transform.py::compute"
+    schedule:
+      type: "cron"
+      cronExpression: "0 6 30 * *"  # Daily at 6:30 AM
+    configuration:
+      resource_type: "Condition"
+    inputDatasets:
+      - "datasets/bronze/Condition_Raw_Bronze"
+    outputDataset: "datasets/silver/Condition_Clean_Silver"
+    computeCluster:
+      type: medium
+      autoScaleEnabled: true
+      minWorkers: 2
+      maxWorkers: 6
+  
+  observation_silver:
+    name: "Observation Silver"
+    type: python
+    entryPoint: "transforms-python/src/epic_fhir_integration/domain/silver/fhir_silver_transform.py::compute"
+    schedule:
+      type: "cron"
+      cronExpression: "0 6 45 * *"  # Daily at 6:45 AM
+    configuration:
+      resource_type: "Observation"
+    inputDatasets:
+      - "datasets/bronze/Observation_Raw_Bronze"
+    outputDataset: "datasets/silver/Observation_Clean_Silver"
+    computeCluster:
+      type: medium
+      autoScaleEnabled: true
+      minWorkers: 2
+      maxWorkers: 6
+  
+  medication_silver:
+    name: "MedicationRequest Silver"
+    type: python
+    entryPoint: "transforms-python/src/epic_fhir_integration/domain/silver/fhir_silver_transform.py::compute"
+    schedule:
+      type: "cron"
+      cronExpression: "0 7 * * *"  # Daily at 7 AM
+    configuration:
+      resource_type: "MedicationRequest"
+    inputDatasets:
+      - "datasets/bronze/MedicationRequest_Raw_Bronze"
+    outputDataset: "datasets/silver/MedicationRequest_Clean_Silver"
+    computeCluster:
+      type: medium
+      autoScaleEnabled: true
+      minWorkers: 2
+      maxWorkers: 6
+  
+  # Gold Layer - Analytics-ready
+  patient_timeline:
+    name: "Patient Timeline Gold"
+    type: python
+    entryPoint: "transforms-python/src/epic_fhir_integration/domain/gold/patient_timeline.py::compute"
+    schedule:
+      type: "cron"
+      cronExpression: "0 8 * * *"  # Daily at 8 AM
+    inputDatasets:
+      - "datasets/silver/Patient_Clean_Silver"
+      - "datasets/silver/Encounter_Clean_Silver"
+      - "datasets/silver/Condition_Clean_Silver"
+      - "datasets/silver/Observation_Clean_Silver"
+      - "datasets/silver/MedicationRequest_Clean_Silver"
+    outputDataset: "datasets/gold/Patient_Timeline_Gold"
+    computeCluster:
+      type: large
+      autoScaleEnabled: true
+      minWorkers: 2
+      maxWorkers: 8
+    sparkConf:
+      "spark.jars.packages": "au.csiro.pathling:pathling-spark-6.0.0"
+
+  # Data Validation
+  patient_validation:
+    name: "Patient FHIR Validation"
+    type: python
+    entryPoint: "transforms-python/src/epic_fhir_integration/domain/validation/validate_patient.py::compute"
+    schedule:
+      type: "cron"
+      cronExpression: "0 9 * * *"  # Daily at 9 AM
+    inputDatasets:
+      - "datasets/bronze/Patient_Raw_Bronze"
+    outputDataset: "datasets/Patient_GE_Results"
+    computeCluster:
+      type: small
+      autoScaleEnabled: true
+      minWorkers: 1
+      maxWorkers: 3
+
+  # Delta Lake Optimization - New transform for performance
+  delta_optimize:
+    name: "Delta Lake Optimization"
+    type: sql
+    query: |
+      -- Optimize Patient data with Z-ordering
+      OPTIMIZE datasets.silver.Patient_Clean_Silver
+      ZORDER BY (id);
+      
+      -- Optimize Encounter data with Z-ordering
+      OPTIMIZE datasets.silver.Encounter_Clean_Silver
+      ZORDER BY (id, subject_reference);
+      
+      -- Optimize Condition data with Z-ordering
+      OPTIMIZE datasets.silver.Condition_Clean_Silver
+      ZORDER BY (id, subject_reference);
+      
+      -- Optimize Observation data with Z-ordering
+      OPTIMIZE datasets.silver.Observation_Clean_Silver
+      ZORDER BY (id, subject_reference);
+      
+      -- Optimize MedicationRequest data with Z-ordering
+      OPTIMIZE datasets.silver.MedicationRequest_Clean_Silver
+      ZORDER BY (id, subject_reference);
+      
+      -- Optimize Gold data with Z-ordering
+      OPTIMIZE datasets.gold.Patient_Timeline_Gold
+      ZORDER BY (patient_id);
+    schedule:
+      type: "cron"
+      cronExpression: "0 1 * * 0"  # Weekly on Sunday at 1 AM
+    computeCluster:
+      type: medium
+      autoScaleEnabled: true
+      minWorkers: 1
+      maxWorkers: 4
+
+secretScopes:
+  - name: epic-fhir-api
+    description: "Epic FHIR API credentials"
+    secrets:
+      - name: EPIC_CLIENT_ID
+        description: "Epic FHIR API client ID"
+      - name: EPIC_PRIVATE_KEY
+        description: "Epic FHIR API JWT private key"
+      - name: EPIC_BASE_URL
+        description: "Epic FHIR API base URL" 

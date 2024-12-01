@@ -1,0 +1,12 @@
+runtime: python:3.9-spark:3.3
+entrypoint: patient_silver.compute
+resources:
+  memory: "8G"
+  cpu: "2"
+sparkConf:
+  spark.sql.shuffle.partitions: "200"
+  spark.default.parallelism: "100"
+  spark.sql.autoBroadcastJoinThreshold: "100m"
+schedule:
+  cron: "30 * * * *"   # 30 minutes past each hour
+incremental: true 

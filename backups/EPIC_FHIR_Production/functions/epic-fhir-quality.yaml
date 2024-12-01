@@ -1,0 +1,9 @@
+runtime:
+  kind: container
+  image: epic-fhir-tools
+  command: [ "epic-fhir", "quality", "--input", "$DATA_ROOT/gold" ]
+  env:
+    DATA_ROOT: "/foundry/objects"
+    LOG_LEVEL: "INFO"
+    PYTHONUNBUFFERED: "1"
+# No schedule - triggered manually or after transform job completes 

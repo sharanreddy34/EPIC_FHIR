@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "resource_type": "MedicationRequest",
+    "extracted_at": "2025-05-19T21:20:38.430588",
+    "page_number": 0,
+    "entry_count": 1
+  },
+  "bundle": {
+    "resourceType": "Bundle",
+    "type": "searchset",
+    "total": 0,
+    "link": [
+      {
+        "relation": "self",
+        "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/MedicationRequest?patient=T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB&_count=100"
+      }
+    ],
+    "entry": [
+      {
+        "fullUrl": "urn:uuid:2604112e-34ff-4b3f-a36a-1b45dde99b69",
+        "resource": {
+          "resourceType": "OperationOutcome",
+          "issue": [
+            {
+              "severity": "warning",
+              "code": "processing",
+              "details": {
+                "coding": [
+                  {
+                    "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.657369",
+                    "code": "4101",
+                    "display": "Resource request returns no results."
+                  }
+                ],
+                "text": "Resource request returns no results."
+              }
+            }
+          ]
+        },
+        "search": {
+          "mode": "outcome"
+        }
+      }
+    ]
+  }
+}

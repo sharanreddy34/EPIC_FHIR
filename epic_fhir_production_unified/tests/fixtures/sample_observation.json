@@ -1,0 +1,101 @@
+{
+  "resourceType": "Observation",
+  "id": "example-observation-1",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2023-05-15T15:30:00Z"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "vital-signs",
+          "display": "Vital Signs"
+        }
+      ],
+      "text": "Vital Signs"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "8867-4",
+        "display": "Heart rate"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "364075005",
+        "display": "Heart rate"
+      }
+    ],
+    "text": "Heart rate"
+  },
+  "subject": {
+    "reference": "Patient/example-patient-1",
+    "display": "John Doe"
+  },
+  "encounter": {
+    "reference": "Encounter/example-encounter-1"
+  },
+  "effectiveDateTime": "2023-05-15T15:00:00Z",
+  "issued": "2023-05-15T15:05:00Z",
+  "performer": [
+    {
+      "reference": "Practitioner/example-practitioner-1",
+      "display": "Dr. Jane Smith"
+    }
+  ],
+  "valueQuantity": {
+    "value": 80,
+    "unit": "beats/minute",
+    "system": "http://unitsofmeasure.org",
+    "code": "/min"
+  },
+  "interpretation": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+          "code": "N",
+          "display": "Normal"
+        }
+      ],
+      "text": "Normal"
+    }
+  ],
+  "referenceRange": [
+    {
+      "low": {
+        "value": 60,
+        "unit": "beats/minute",
+        "system": "http://unitsofmeasure.org",
+        "code": "/min"
+      },
+      "high": {
+        "value": 100,
+        "unit": "beats/minute",
+        "system": "http://unitsofmeasure.org",
+        "code": "/min"
+      },
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/referencerange-meaning",
+            "code": "normal",
+            "display": "Normal Range"
+          }
+        ],
+        "text": "Normal Range"
+      }
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://epic.com/fhir/extensions/observation/result-notes",
+      "valueString": "Patient was at rest during measurement"
+    }
+  ]
+} 

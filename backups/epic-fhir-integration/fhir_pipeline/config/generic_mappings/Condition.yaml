@@ -1,0 +1,34 @@
+resourceType: Condition
+version: 1
+validate: true
+columns:
+  # Identifiers
+  condition_id: id
+  patient_id: subject.reference.replace('Patient/','')
+  encounter_id: encounter.reference.replace('Encounter/','')
+  # Status
+  clinical_status: clinicalStatus.coding[0].code
+  verification_status: verificationStatus.coding[0].code
+  # Condition details
+  code_code: code.coding[0].code
+  code_system: code.coding[0].system
+  code_display: code.coding[0].display
+  code_text: code.text
+  # Category and severity
+  category_code: category[0].coding[0].code
+  category_display: category[0].coding[0].display
+  severity_code: severity.coding[0].code
+  severity_display: severity.coding[0].display
+  # Timing
+  onset_datetime: onsetDateTime
+  onset_period_start: onsetPeriod.start
+  onset_period_end: onsetPeriod.end
+  recorded_date: recordedDate
+  abatement_datetime: abatementDateTime
+  # Recorder
+  recorder_id: recorder.reference.replace('Practitioner/','')
+  recorder_display: recorder.display
+  # Narrative
+  clinical_text: text.div
+extras:
+  partition_by: [recorded_year] 

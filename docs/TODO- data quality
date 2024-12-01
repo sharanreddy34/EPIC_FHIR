@@ -1,0 +1,145 @@
+To-Do List: API Data Extraction Improvements
+Fix Resource-Specific API Errors
+[✓] Create resource-specific parameter maps in custom_fhir_client.py
+[✓] Add date filter for Observations (date=ge2010-01-01)
+[✓] Add status parameter for CarePlan (status=active,completed,draft)
+[✓] Implement error recovery logic with alternate query parameters
+Complete Pagination Implementation
+[✓] Create get_all_resources method in FHIRClient
+[✓] Implement bundle navigation with next links
+[✓] Add configurable pagination limits (default 50 pages)
+[✓] Track and log pagination statistics
+Resource Relationship Traversal
+[✓] Create resolve_references method to follow resource links
+[✓] Implement reference detection function
+[✓] Add depth-limited recursion control
+[✓] Create option to include/exclude specific reference types
+Expanded Resource Types
+[✓] Add 10 additional critical resources to extraction list
+[✓] Create resource priority tiers for selective extraction
+[✓] Add DocumentReference support for clinical notes
+[✓] Implement RelatedPerson extraction for family context
+Advanced FHIR Search Parameters
+[✓] Create resource-specific parameter configurations
+[✓] Implement sorting parameters (_sort)
+[✓] Add support for filtering by date ranges
+[✓] Create named parameter sets (e.g., "comprehensive", "recent-only")
+FHIR Extensions Support
+[✓] Create extract_extensions utility function
+[✓] Add Epic-specific extension mappings
+[✓] Implement extension flattening for LLM consumption
+[✓] Add extension metadata for context
+Smart Batching
+[✓] Implement FHIR batch request method
+[✓] Create automatic batching based on resource types
+[✓] Add parallel processing option for batch responses
+[✓] Implement batch error handling
+Semantic Data Enrichment
+[✓] Create comprehensive resource descriptions
+[✓] Add code system mappings (LOINC, SNOMED, etc.)
+[✓] Implement resource relationship explanations
+[✓] Add clinical context descriptions
+Epic-Specific Optimizations
+[ ] Implement $everything operation support
+[ ] Add Epic-specific header optimizations
+[✓] Create Epic resource extension mappings
+[ ] Implement custom Epic FHIR endpoints
+Demographics Data Quality Plan
+Fix Field Mapping Issues
+[✓] Debug patient data extraction
+[✓] Correct field mapping in silver transformation (gender currently showing "English")
+[✓] Verify correct patient properties are extracted from FHIR resource
+[✓] Add data type validation for each field
+Age Calculation Improvements
+[✓] Fix birthDate extraction from FHIR resource
+[✓] Create robust date parsing with multiple format support
+[✓] Add fallback age calculation using other fields if birthDate missing
+[✓] Implement age verification using other temporal data
+Missing Data Recovery
+[✓] Add extraction of patient extensions for additional demographic data
+[✓] Implement cross-reference validation with Encounter data
+[✓] Add confidence scores for extracted demographic values
+[✓] Create "data completeness" metrics for patient records
+Data Transformation Quality Control
+[✓] Add validation rules for each demographic field
+[✓] Implement data consistency checks across resources
+[✓] Create logging of suspicious/invalid values
+[✓] Add data correction suggestions for common errors
+Enhanced Demographic Analytics
+[✓] Add ethnicity and race extraction (often in extensions)
+[✓] Implement socioeconomic indicators extraction
+[✓] Add geographic analysis based on address data
+[✓] Create longitudinal demographic change analysis
+This implementation plan provides a comprehensive framework to enhance both the quantity and quality of data extracted from the FHIR API, addressing specific issues with demographic data quality while maximizing information available to the LLM.
+
+Critical Data Quality Issues and Solutions
+Fix Data Parsing Pipeline
+[✓] Create formal schema definitions for each resource type
+[✓] Implement schema validation before CSV generation
+[✓] Create test fixtures with sample FHIR resources
+[✓] Refactor transformation pipeline to use schema-based mapping
+[✓] Implement explicit type conversion for each field
+[✓] Add null handling strategy for each field type
+[✓] Fix specific mapping issues (gender/language confusion)
+[✓] Add multiple path extraction for critical fields
+[✓] Implement fallback paths for essential information
+[✓] Create field presence validation before transformation
+
+Implement Reference Resolution
+[✓] Create utility functions to identify reference fields
+[✓] Implement reference type classification (Patient, Encounter, etc.)
+[✓] Build reference tracking system to prevent circular references
+[✓] Implement prioritized reference resolution strategy
+[✓] Create depth-limited resolution to prevent excessive API calls
+[✓] Add caching for resolved references
+[✓] Implement batch reference resolution for performance
+[✓] Create specific handlers for patient→observation links
+[✓] Build comprehensive lab result and vital sign extractors
+[✓] Implement encounter context linking for observations
+
+Data Validation Rules
+[✓] Create validator functions for each field type
+[✓] Implement date format and range validation
+[✓] Add code system validation (LOINC, SNOMED)
+[✓] Create demographic data validators
+[✓] Implement logical consistency checks across fields
+[✓] Create dependency validation between related fields
+[✓] Build validation rules for resource completeness
+[✓] Add validation reporting to identify data quality issues
+[✓] Implement validation across related resources
+[✓] Create consistency checks between patient and observations
+
+Error Recovery Mechanisms
+[✓] Create fallback extraction paths for critical fields
+[✓] Implement intelligent default values
+[✓] Add extraction from extensions for missing core fields
+[✓] Add confidence scores for extracted values
+[✓] Implement data provenance tracking
+[✓] Create quality metrics for each resource
+[✓] Add data completeness reporting
+[✓] Implement common error pattern detection
+[✓] Create correction suggestions for likely errors
+[✓] Build self-healing mechanisms for format issues
+
+Testing and Monitoring
+[✓] Create comprehensive test fixtures with FHIR examples
+[✓] Implement unit tests for each component
+[ ] Build integration tests for the full pipeline
+[✓] Create validation reports to track improvement
+[✓] Add detailed logging at each stage of the pipeline
+[✓] Implement metrics collection for data quality
+[ ] Create dashboards for monitoring extraction success
+[ ] Add alerting for critical failures
+
+Codebase Structure and Integration Plan
+[✓] Define overall module structure for `epic-fhir-integration` (e.g., `client/`, `transformers/`, `validators/`, `utils/`, `schemas/`, `config/`)
+[✓] Designate location for FHIR resource schema definitions (e.g., `epic-fhir-integration/schemas/` or `epic-fhir-integration/config/schemas/`)
+[✓] Integrate schema validation into the data parsing pipeline, loading schemas from their defined location.
+[✓] Determine placement for transformation logic (e.g., `epic-fhir-integration/transformers/`)
+[✓] Integrate `resolve_references` method into `custom_fhir_client.py` or a new `epic-fhir-integration/fhir_utils.py` module.
+[✓] Place data validation functions in a dedicated module (e.g., `epic-fhir-integration/validators/data_validators.py`).
+[✓] Integrate validation rules into the transformation pipeline, calling the dedicated validation module.
+[✓] Consolidate utility functions (e.g., `extract_with_fallback`, date parsers, reference extractors) into `epic-fhir-integration/utils/`.
+[✓] Organize test files within `epic-fhir-integration/tests/` using subdirectories (e.g., `tests/unit/`, `tests/integration/`, `tests/fixtures/`).
+[✓] Implement a centralized configuration system (e.g., using `epic-fhir-integration/config.py` or YAML/JSON files in `epic-fhir-integration/config/`) for API endpoints, schema paths, pagination limits, and other parameters.
+[✓] Establish a consistent logging framework and configuration (e.g., a `logging_config.py` or setup within the main application entry point) to be used across all modules.

@@ -1,0 +1,244 @@
+{
+  "metadata": {
+    "resource_type": "Condition",
+    "extracted_at": "2025-05-19T21:20:38.306736",
+    "page_number": 0,
+    "entry_count": 3
+  },
+  "bundle": {
+    "resourceType": "Bundle",
+    "type": "searchset",
+    "total": 3,
+    "link": [
+      {
+        "relation": "self",
+        "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition?patient=T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB&_count=100"
+      }
+    ],
+    "entry": [
+      {
+        "link": [
+          {
+            "relation": "self",
+            "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eWD-4WkAozOD.bpp-5ZfboA3"
+          }
+        ],
+        "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eWD-4WkAozOD.bpp-5ZfboA3",
+        "resource": {
+          "resourceType": "Condition",
+          "id": "eWD-4WkAozOD.bpp-5ZfboA3",
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "version": "4.0.0",
+                "code": "active",
+                "display": "Active"
+              }
+            ],
+            "text": "Active"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "version": "4.0.0",
+                "code": "confirmed",
+                "display": "Confirmed"
+              }
+            ],
+            "text": "Confirmed"
+          },
+          "category": [
+            {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                  "code": "problem-list-item",
+                  "display": "Problem List Item"
+                }
+              ],
+              "text": "Problem List Item"
+            }
+          ],
+          "code": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "Z33.1",
+                "display": "Pregnant state, incidental"
+              },
+              {
+                "system": "http://snomed.info/sct",
+                "code": "77386006",
+                "display": "Patient Currently Pregnant"
+              },
+              {
+                "system": "http://hl7.org/fhir/sid/icd-9-cm",
+                "code": "V22.2",
+                "display": "Pregnant"
+              },
+              {
+                "system": "urn:oid:2.16.840.1.113883.3.247.1.1",
+                "code": "300815",
+                "display": "Pregnant"
+              }
+            ],
+            "text": "Pregnant"
+          },
+          "subject": {
+            "reference": "Patient/eOPSKZbz6YIgoilQprzPy0Q3",
+            "display": "Cadence, Anna"
+          },
+          "onsetDateTime": "2015-11-09",
+          "recordedDate": "2018-11-09"
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "link": [
+          {
+            "relation": "self",
+            "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eVXgt8XKBT-OD2HjhOCPLnbgVV4k5Rt.kmNO98wBI0qaKFWkHxbhUiUpb3rmhkfjjTVgVDRIK8AiVGADBQS4Ogw3"
+          }
+        ],
+        "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eVXgt8XKBT-OD2HjhOCPLnbgVV4k5Rt.kmNO98wBI0qaKFWkHxbhUiUpb3rmhkfjjTVgVDRIK8AiVGADBQS4Ogw3",
+        "resource": {
+          "resourceType": "Condition",
+          "id": "eVXgt8XKBT-OD2HjhOCPLnbgVV4k5Rt.kmNO98wBI0qaKFWkHxbhUiUpb3rmhkfjjTVgVDRIK8AiVGADBQS4Ogw3",
+          "category": [
+            {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                  "code": "encounter-diagnosis",
+                  "display": "Encounter Diagnosis"
+                }
+              ],
+              "text": "Encounter Diagnosis"
+            },
+            {
+              "coding": [
+                {
+                  "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                  "code": "visit-diagnosis",
+                  "display": "Visit Diagnosis"
+                }
+              ],
+              "text": "Visit Diagnosis"
+            }
+          ],
+          "code": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "45369008",
+                "display": "Neurohypophyseal diabetes insipidus (disorder)"
+              },
+              {
+                "system": "http://hl7.org/fhir/sid/icd-9-cm",
+                "code": "253.5",
+                "display": "Diabetes insipidus (CMS/HCC)"
+              },
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "E23.2",
+                "display": "Diabetes insipidus"
+              }
+            ],
+            "text": "Diabetes insipidus, neurohypophyseal (CMS/HCC)"
+          },
+          "subject": {
+            "reference": "Patient/eOPSKZbz6YIgoilQprzPy0Q3",
+            "display": "Cadence, Anna"
+          },
+          "encounter": {
+            "reference": "Encounter/eAdQmAfZwmdIWvpMiaMSvtA3",
+            "identifier": {
+              "use": "usual",
+              "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+              "value": "27483"
+            },
+            "display": "Office Visit"
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "link": [
+          {
+            "relation": "self",
+            "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eOSfNEct3ILrRXXGnp5O76kRk0cwybPR9d4UVjHY9Iwdxb6Q1rxoroZWMx1K-zh7bYZ37C5UWMzfQM6-.hYy5vA3"
+          }
+        ],
+        "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eOSfNEct3ILrRXXGnp5O76kRk0cwybPR9d4UVjHY9Iwdxb6Q1rxoroZWMx1K-zh7bYZ37C5UWMzfQM6-.hYy5vA3",
+        "resource": {
+          "resourceType": "Condition",
+          "id": "eOSfNEct3ILrRXXGnp5O76kRk0cwybPR9d4UVjHY9Iwdxb6Q1rxoroZWMx1K-zh7bYZ37C5UWMzfQM6-.hYy5vA3",
+          "category": [
+            {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                  "code": "encounter-diagnosis",
+                  "display": "Encounter Diagnosis"
+                }
+              ],
+              "text": "Encounter Diagnosis"
+            },
+            {
+              "coding": [
+                {
+                  "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                  "code": "visit-diagnosis",
+                  "display": "Visit Diagnosis"
+                }
+              ],
+              "text": "Visit Diagnosis"
+            }
+          ],
+          "code": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "127026004",
+                "display": "Neoplasm of pineal gland (disorder)"
+              },
+              {
+                "system": "http://hl7.org/fhir/sid/icd-9-cm",
+                "code": "239.7",
+                "display": "Neoplasm of unspecified nature of endocrine glands and other parts of nervous system"
+              },
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "D49.7",
+                "display": "Neoplasm of unspecified behavior of endocrine glands and other parts of nervous system"
+              }
+            ],
+            "text": "Brain tumor, pineal gland"
+          },
+          "subject": {
+            "reference": "Patient/eOPSKZbz6YIgoilQprzPy0Q3",
+            "display": "Cadence, Anna"
+          },
+          "encounter": {
+            "reference": "Encounter/erdjAv3DV6zYC2R6mhbsJzw3",
+            "identifier": {
+              "use": "usual",
+              "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+              "value": "27390"
+            },
+            "display": "Transcribe Orders"
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      }
+    ]
+  }
+}

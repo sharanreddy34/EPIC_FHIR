@@ -1,0 +1,10 @@
+name: Observation_GE_Results
+type: table
+mode: overwrite
+description: Great Expectations validation results for Observation data
+tags:
+  - validation
+  - quality
+  - fhir
+  - epic
+  - observation 

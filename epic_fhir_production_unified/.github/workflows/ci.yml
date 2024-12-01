@@ -1,0 +1,167 @@
+name: Epic FHIR Pipeline CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  test:
+    name: Test and Lint
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Set up Conda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        activate-environment: epic-fhir-pipeline
+        environment-file: epic_fhir_production_unified/transforms-python/conda_recipe.yml
+        auto-activate-base: false
+        
+    - name: Install dev dependencies
+      shell: bash -l {0}
+      run: |
+        pip install pytest pytest-cov black isort pylint
+        
+    - name: Install package in development mode
+      shell: bash -l {0}
+      working-directory: epic_fhir_production_unified/transforms-python
+      run: |
+        pip install -e ".[dev,foundry]"
+        
+    - name: Run tests with coverage
+      shell: bash -l {0}
+      working-directory: epic_fhir_production_unified/transforms-python
+      run: |
+        python -m pytest --cov=src --cov-report=xml
+        
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: epic_fhir_production_unified/transforms-python/coverage.xml
+        
+    - name: Run linters
+      shell: bash -l {0}
+      working-directory: epic_fhir_production_unified/transforms-python
+      run: |
+        black --check src tests
+        isort --check-only --profile black src tests
+        pylint src
+        
+  license-check:
+    name: License Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Set up Conda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        activate-environment: epic-fhir-pipeline
+        environment-file: epic_fhir_production_unified/transforms-python/conda_recipe.yml
+        auto-activate-base: false
+        
+    - name: Install license checker
+      shell: bash -l {0}
+      run: |
+        pip install pip-licenses
+        
+    - name: Generate license report
+      shell: bash -l {0}
+      working-directory: epic_fhir_production_unified/transforms-python
+      run: |
+        pip-licenses --format=markdown --with-authors --with-urls --with-license-file --no-license-path > license-report.md
+        
+    - name: Check for disallowed licenses
+      shell: bash -l {0}
+      working-directory: epic_fhir_production_unified/transforms-python
+      run: |
+        # Fail if GPL, AGPL, or other disallowed licenses are found
+        ! pip-licenses --format=json | grep -E '"GPL|AGPL"'
+        
+    - name: Upload license report
+      uses: actions/upload-artifact@v3
+      with:
+        name: license-report
+        path: epic_fhir_production_unified/transforms-python/license-report.md
+
+  integration-test:
+    name: Integration Tests
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Set up Conda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        activate-environment: epic-fhir-pipeline
+        environment-file: epic_fhir_production_unified/transforms-python/conda_recipe.yml
+        auto-activate-base: false
+        
+    - name: Install dev dependencies
+      shell: bash -l {0}
+      run: |
+        pip install pytest-integration foundry-dev-tools
+        
+    - name: Install package in development mode
+      shell: bash -l {0}
+      working-directory: epic_fhir_production_unified/transforms-python
+      run: |
+        pip install -e ".[dev,foundry]"
+        
+    - name: Run integration tests
+      shell: bash -l {0}
+      working-directory: epic_fhir_production_unified/transforms-python
+      run: |
+        python -m pytest tests/integration --integration
+        
+  build:
+    name: Build Package
+    runs-on: ubuntu-latest
+    needs: [test, license-check]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Build package
+      working-directory: epic_fhir_production_unified/transforms-python
+      run: |
+        pip install build
+        python -m build
+        
+    - name: Upload package
+      uses: actions/upload-artifact@v3
+      with:
+        name: package
+        path: epic_fhir_production_unified/transforms-python/dist/ 

@@ -1,0 +1,25 @@
+{
+  "execution_time": 0.14112401008605957,
+  "patient_id": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB",
+  "steps": {
+    "token": {
+      "success": false,
+      "duration_seconds": 0.02593088150024414
+    },
+    "orchestrator": {
+      "success": false,
+      "duration_seconds": 0.0002608299255371094
+    }
+  },
+  "overall_success": false,
+  "timestamp": "2025-05-18T16:56:12.515045",
+  "command_line_args": {
+    "patient_id": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB",
+    "output_dir": "./local_output",
+    "steps": "token,extract",
+    "debug": true,
+    "mock": false,
+    "no_spark": false
+  },
+  "mock_mode": false
+}

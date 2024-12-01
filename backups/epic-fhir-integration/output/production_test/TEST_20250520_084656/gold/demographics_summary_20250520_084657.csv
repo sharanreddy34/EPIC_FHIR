@@ -1,0 +1,9 @@
+# Patient Demographics Summary
+
+## Gender Distribution
+gender,count,percentage
+English,1,100.0
+
+## Age Group Distribution
+age_group,count,percentage
+Unknown,1,100.0

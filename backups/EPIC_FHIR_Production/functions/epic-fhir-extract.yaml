@@ -1,0 +1,10 @@
+runtime:
+  kind: container
+  image: epic-fhir-tools  # This must match the name used in `foundry container-image import`
+  command: [ "epic-fhir", "extract", "--output-uri", "$DATA_ROOT/bronze" ]
+  env:
+    EPIC_BASE_URL: "$EPIC_BASE_URL"  # External variable to be configured in Foundry
+    DATA_ROOT: "/foundry/objects"    # Standard Foundry path
+  secrets:
+    - name: epic-oauth-secret        # Secret with Epic API credentials
+schedule: "0 * * * *"                # Optional: Run hourly 

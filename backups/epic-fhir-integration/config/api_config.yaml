@@ -1,0 +1,24 @@
+# Epic FHIR API Configuration
+
+api:
+  # Base URL for Epic FHIR R4 API
+  base_url: "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4"
+  
+  # OAuth token endpoint
+  token_url: "https://fhir.epic.com/interconnect-fhir-oauth/oauth2/token"
+  
+  # Request parameters
+  timeout: 30  # seconds
+  max_retries: 3
+  retry_backoff: 2  # exponential backoff factor
+  page_size: 100  # _count parameter for pagination
+  
+  # Connectivity settings
+  verify_ssl: true
+  
+  # Rate limiting
+  requests_per_minute: 300  # Adjust based on Epic's rate limits
+  
+  # Monitoring
+  log_level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  metrics_enabled: true

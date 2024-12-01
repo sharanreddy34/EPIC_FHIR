@@ -1,0 +1,168 @@
+{
+  "expectation_suite_name": "documentreference_gold_expectations",
+  "ge_cloud_id": null,
+  "expectations": [
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "resourceType"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "resourceType",
+        "value_set": [
+          "DocumentReference"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "status"
+      },
+      "meta": {
+        "notes": "Check for document status."
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "status",
+        "value_set": [
+          "current", "superseded", "entered-in-error"
+        ]
+      },
+      "meta": {
+        "notes": "DocumentReference status must be a valid FHIR code."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "type.coding"
+      },
+      "meta": {
+        "notes": "Gold tier requires coded values for document type."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "type.coding[0].system"
+      },
+      "meta": {
+        "notes": "Gold tier requires a coding system for the document type."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "type.coding[0].code"
+      },
+      "meta": {
+        "notes": "Gold tier requires a coded value for the document type."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "subject.reference"
+      },
+      "meta": {
+        "notes": "Check for the reference to the patient."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "content"
+      },
+      "meta": {
+        "notes": "Check for content element containing the document's location or data."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "content[0].attachment"
+      },
+      "meta": {
+        "notes": "Gold tier requires attachment details."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "content[0].attachment.contentType"
+      },
+      "meta": {
+        "notes": "Gold tier requires content type information."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "date"
+      },
+      "meta": {
+        "notes": "Gold tier requires date information."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "context"
+      },
+      "meta": {
+        "notes": "Gold tier requires context information."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "author"
+      },
+      "meta": {
+        "notes": "Gold tier requires author information."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "description"
+      },
+      "meta": {
+        "notes": "Gold tier requires document description."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "text"
+      },
+      "meta": {
+        "notes": "Gold tier requires narrative text."
+      }
+    }
+  ],
+  "meta": {
+    "great_expectations_version": "0.18.14",
+    "resource_type": "DocumentReference",
+    "tier": "gold",
+    "notes": {
+      "content": "Gold tier expectations for DocumentReference resources.",
+      "format": "markdown"
+    }
+  }
+} 

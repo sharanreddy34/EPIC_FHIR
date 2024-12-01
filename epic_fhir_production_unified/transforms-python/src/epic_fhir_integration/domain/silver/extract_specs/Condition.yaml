@@ -1,0 +1,30 @@
+# Pathling extract specification for Condition resources
+select:
+  - path: id
+  - path: clinicalStatus.coding.code.first() ; as: clinical_status_code
+  - path: clinicalStatus.coding.display.first() ; as: clinical_status_display
+  - path: verificationStatus.coding.code.first() ; as: verification_status_code
+  - path: verificationStatus.coding.display.first() ; as: verification_status_display
+  - path: category.coding.code.first() ; as: category_code
+  - path: category.coding.display.first() ; as: category_display
+  - path: severity.coding.code.first() ; as: severity_code
+  - path: severity.coding.display.first() ; as: severity_display
+  - path: code.coding.system.first() ; as: code_system
+  - path: code.coding.code.first() ; as: code
+  - path: code.coding.display.first() ; as: code_display
+  - path: code.text ; as: code_text
+  - path: subject.reference ; as: patient_reference
+  - path: subject.reference.substring(8) ; as: patient_id
+  - path: encounter.reference ; as: encounter_reference
+  - path: encounter.reference.substring(10) ; as: encounter_id
+  - path: onsetDateTime.toString() ; as: onset_date_time
+  - path: onsetString ; as: onset_string
+  - path: abatementDateTime.toString() ; as: abatement_date_time
+  - path: abatementString ; as: abatement_string
+  - path: recordedDate.toString() ; as: recorded_date
+  - path: recorder.reference ; as: recorder_reference
+  - path: recorder.display ; as: recorder_display
+  - path: asserter.reference ; as: asserter_reference
+  - path: asserter.display ; as: asserter_display
+  - path: note.text.first() ; as: note
+  - path: meta.lastUpdated.toString() ; as: last_updated 

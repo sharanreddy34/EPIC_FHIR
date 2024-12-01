@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up environment
+      run: echo "Setting up environment"
+    
+    - name: Build
+      run: echo "Building project"
+    
+    - name: Test
+      run: echo "Running tests"
+
+  build-foundry:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Build Python wheel
+        run: |
+          pip install build
+          python -m build --wheel --outdir dist/
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Foundry image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ops/foundry/Dockerfile
+          push: false
+          tags: epic-fhir-foundry:latest
+          outputs: type=docker,dest=/tmp/foundry.tar
+
+      - name: Compress image for artifact upload
+        run: gzip -c /tmp/foundry.tar > epic-fhir-foundry.tar.gz
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: foundry-image
+          path: epic-fhir-foundry.tar.gz 

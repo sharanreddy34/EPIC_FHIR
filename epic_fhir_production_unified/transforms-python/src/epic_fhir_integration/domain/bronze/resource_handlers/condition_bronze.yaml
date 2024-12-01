@@ -1,0 +1,23 @@
+runtime: python:3.9-spark:3.3
+entrypoint: fhir_bronze_transform.compute
+resources:
+  memory: "6G"
+  cpu: "2"
+sparkConf:
+  spark.jars.packages: "au.csiro.pathling:pathling-spark-assembly_2.12:5.0.0"
+  spark.sql.shuffle.partitions: "200"
+  spark.default.parallelism: "100"
+  spark.sql.autoBroadcastJoinThreshold: "50m"
+environment:
+  variables:
+    EPIC_BASE_URL: ${flat:EPIC_BASE_URL}
+  secrets:
+    - EPIC_CLIENT_ID
+    - EPIC_PRIVATE_KEY
+schedule:
+  cron: "45 * * * *"   # 45 minutes past the hour
+incremental: true
+config:
+  resource_type: "Condition"
+  max_pages: 50
+  batch_size: 100 

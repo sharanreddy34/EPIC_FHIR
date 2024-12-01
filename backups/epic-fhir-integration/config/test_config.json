@@ -1,0 +1,7 @@
+{
+  "client_id": "test_client_id",
+  "fhir_base_url": "https://apporchard.epic.com/interconnect-aocurprd-oauth/api/FHIR/R4",
+  "token_url": "https://apporchard.epic.com/interconnect-aocurprd-oauth/oauth2/token",
+  "private_key_path": "secrets/private_key.pem",
+  "private_key_password": null
+}

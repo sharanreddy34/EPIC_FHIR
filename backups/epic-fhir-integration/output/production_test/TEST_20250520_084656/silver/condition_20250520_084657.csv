@@ -1,0 +1,4 @@
+id,patient,code,code_display,category,severity,onset_date,recorded_date,clinical_status,verification_status,encounter
+eWD-4WkAozOD.bpp-5ZfboA3,eOPSKZbz6YIgoilQprzPy0Q3,Z33.1,"Pregnant state, incidental",Problem List Item,,2015-11-09,2018-11-09,active,confirmed,
+eVXgt8XKBT-OD2HjhOCPLnbgVV4k5Rt.kmNO98wBI0qaKFWkHxbhUiUpb3rmhkfjjTVgVDRIK8AiVGADBQS4Ogw3,eOPSKZbz6YIgoilQprzPy0Q3,45369008,Neurohypophyseal diabetes insipidus (disorder),Encounter Diagnosis,,,,,,eAdQmAfZwmdIWvpMiaMSvtA3
+eOSfNEct3ILrRXXGnp5O76kRk0cwybPR9d4UVjHY9Iwdxb6Q1rxoroZWMx1K-zh7bYZ37C5UWMzfQM6-.hYy5vA3,eOPSKZbz6YIgoilQprzPy0Q3,127026004,Neoplasm of pineal gland (disorder),Encounter Diagnosis,,,,,,erdjAv3DV6zYC2R6mhbsJzw3

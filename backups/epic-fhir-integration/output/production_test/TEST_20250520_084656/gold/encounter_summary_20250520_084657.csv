@@ -1,0 +1,5 @@
+type,count,avg_length_hours,min_length_hours,max_length_hours,common_status,service_types
+Appointment,2,0.375,0.25,0.5,arrived,
+Inpatient,1,,,,in-progress,General Medicine
+Office Visit,3,0.25,0.25,0.25,arrived,
+Transcribe Orders,1,0.0,0.0,0.0,in-progress,

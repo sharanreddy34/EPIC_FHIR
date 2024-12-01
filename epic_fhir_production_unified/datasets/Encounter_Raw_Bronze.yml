@@ -1,0 +1,11 @@
+name: Encounter_Raw_Bronze
+type: table
+format: delta
+mode: append
+description: Raw Encounter resources from Epic FHIR API
+tags: 
+  - bronze
+  - raw
+  - fhir
+  - epic
+  - encounter 

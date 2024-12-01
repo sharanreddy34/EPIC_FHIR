@@ -1,0 +1,22 @@
+id: epic-fhir-profiles
+canonical: http://example.org/fhir/epic
+name: EpicFHIRProfiles
+title: Epic FHIR Profiles
+status: draft
+version: 0.1.0
+fhirVersion: 4.0.1
+copyrightYear: 2023+
+releaseLabel: ci-build
+
+dependencies:
+  hl7.fhir.us.core: 3.1.1
+
+pages:
+  index.md:
+    title: Home
+  profiles.md:
+    title: Profiles
+
+parameters:
+  apply-jurisdiction: false
+  apply-publisher: false 

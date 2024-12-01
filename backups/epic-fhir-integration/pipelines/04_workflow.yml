@@ -1,0 +1,30 @@
+apiVersion: 1.0.0
+kind: Transform
+name: fhir-workflow-orchestrator
+profile: FHIR_PIPELINE_ORCHESTRATOR
+file: pipelines/workflow.py
+entrypoint: orchestrate_pipeline
+inputs:
+  - path: /config/resources_config.yaml
+  - path: /config/api_config.yaml
+  - path: /secrets/epic_token
+  - path: /control/fhir_cursors
+  - path: /metrics/transform_metrics
+    optional: true
+  - path: /silver/fhir_normalized/patient
+    optional: true
+outputs:
+  - path: /control/workflow_status
+resources:
+  memory: 2Gi
+  timeout: 600s  # 10 minutes
+schedule:
+  cron: "0 0 * * *"   # Run daily at midnight, before other transforms
+description: |
+  Orchestrates the FHIR pipeline by coordinating the execution of extraction,
+  transformation, and gold layer transforms. This transform tracks the overall
+  pipeline status, determines which resources need to be refreshed, and provides
+  status information for monitoring and troubleshooting.
+  
+  Note: In Foundry, this transform is typically used to control or monitor the
+  pipeline, while the actual orchestration is done through the Workflow UI. 

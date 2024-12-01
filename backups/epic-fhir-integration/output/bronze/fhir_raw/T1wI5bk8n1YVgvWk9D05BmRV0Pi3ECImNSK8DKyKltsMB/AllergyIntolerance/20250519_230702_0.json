@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "resource_type": "AllergyIntolerance",
+    "extracted_at": "2025-05-19T23:07:02.549210",
+    "page_number": 0,
+    "entry_count": 1
+  },
+  "bundle": {
+    "resourceType": "Bundle",
+    "type": "searchset",
+    "total": 1,
+    "link": [
+      {
+        "relation": "self",
+        "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/AllergyIntolerance?patient=T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB&_count=100"
+      }
+    ],
+    "entry": [
+      {
+        "link": [
+          {
+            "relation": "self",
+            "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/AllergyIntolerance/eARZpey6BWRZxRZkRpc8OFJ46j3QOFrduk77hYQKWRQnkaCrKg91iziDIiRL2X4o4TxSOciRUwhDVUbDv-POE.Q3"
+          }
+        ],
+        "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/AllergyIntolerance/eARZpey6BWRZxRZkRpc8OFJ46j3QOFrduk77hYQKWRQnkaCrKg91iziDIiRL2X4o4TxSOciRUwhDVUbDv-POE.Q3",
+        "resource": {
+          "resourceType": "AllergyIntolerance",
+          "id": "eARZpey6BWRZxRZkRpc8OFJ46j3QOFrduk77hYQKWRQnkaCrKg91iziDIiRL2X4o4TxSOciRUwhDVUbDv-POE.Q3",
+          "clinicalStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+                "version": "4.0.0",
+                "code": "active",
+                "display": "Active"
+              }
+            ]
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+                "version": "4.0.0",
+                "code": "unconfirmed",
+                "display": "Unconfirmed"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "1631000175102",
+                "display": "Patient not asked"
+              }
+            ],
+            "text": "Not on File"
+          },
+          "patient": {
+            "reference": "Patient/eOPSKZbz6YIgoilQprzPy0Q3",
+            "display": "Cadence, Anna"
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      }
+    ]
+  }
+}

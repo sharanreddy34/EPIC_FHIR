@@ -1,0 +1,808 @@
+config_version: 3.0
+datasources: {}
+plugins_directory: plugins/
+stores:
+  expectations_store:
+    class_name: ExpectationsStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: expectations/
+  validations_store:
+    class_name: ValidationsStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: uncommitted/validations/
+  evaluation_parameter_store:
+    class_name: EvaluationParameterStore
+  checkpoint_store:
+    class_name: CheckpointStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: checkpoints/
+evaluation_parameter_store_name: evaluation_parameter_store
+checkpoint_store_name: checkpoint_store
+expectations_store_name: expectations_store
+validations_store_name: validations_store
+data_docs_sites:
+  local_site:
+    class_name: SiteBuilder
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: uncommitted/data_docs/local_site/
+    site_index_builder:
+      class_name: DefaultSiteIndexBuilder
+anonymous_usage_statistics:
+  data_context_id: f0128c40-6498-404c-8933-54a0ab44176b
+  enabled: false
+fluent_datasources:
+  runtime_datasource:
+    type: pandas
+    assets:
+      runtime_asset_Patient_T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB_1747865636:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_obs-1_1747865636:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Condition_cond-1_1747865636:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_enc-1_1747865636:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Patient_T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB_1747865759:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_obs-1_1747865759:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Condition_cond-1_1747865759:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_enc-1_1747865759:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Patient_eOPSKZbz6YIgoilQprzPy0Q3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWtNfHPwN4eSA6K1ad0xbSjEUSoDehy.gJz3q2j1uWYTw3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Condition_eWD-4WkAozOD.bpp-5ZfboA3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eVffiE7SavpOc0PtATuBQWg3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_enb5apqJHQNdqIkfnQRZbQg3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eAdQmAfZwmdIWvpMiaMSvtA3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_erdjAv3DV6zYC2R6mhbsJzw3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ePpUEnlC6rPErMuNx76j9MA3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_e0u1fd.jUCNqz8ZQuTaMtsQ3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eUBDi9n3Gqoi7P75EXp0hAg3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ef8Zll7Hf7ivseNbljQB0EA3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ecAOz5WeLbJFsjt0peNbB0Q3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ebmnrisTGM09CfKIBikgZLQ3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ef-RT2jWzdJgy-3kEpbrYuA3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_egSNcJqbRccVY3U6oqPOZhg3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eTB6QjlJKmfqGCGdHdX0Aag3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ePWMBpTHo7DIer7EWoRtY9w3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eAhw3pPwVC17lCh1yrvZP9w3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eed.EjYadMdpjSKJlvDQ0eA3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ey5tg.wj7zbKys7q6DP5kuA3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eE3hKdNCmYm2ekkJlE1fGHA3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_e886Lh9gcA4wXU5J5-tfIdA3_1747865975:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Patient_eOPSKZbz6YIgoilQprzPy0Q3_1747867082:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWtNfHPwN4eSA6K1ad0xbSjEUSoDehy.gJz3q2j1uWYTw3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Condition_eWD-4WkAozOD.bpp-5ZfboA3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eVffiE7SavpOc0PtATuBQWg3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_enb5apqJHQNdqIkfnQRZbQg3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eAdQmAfZwmdIWvpMiaMSvtA3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_erdjAv3DV6zYC2R6mhbsJzw3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ePpUEnlC6rPErMuNx76j9MA3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_e0u1fd.jUCNqz8ZQuTaMtsQ3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eUBDi9n3Gqoi7P75EXp0hAg3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ef8Zll7Hf7ivseNbljQB0EA3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ecAOz5WeLbJFsjt0peNbB0Q3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ebmnrisTGM09CfKIBikgZLQ3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ef-RT2jWzdJgy-3kEpbrYuA3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_egSNcJqbRccVY3U6oqPOZhg3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eTB6QjlJKmfqGCGdHdX0Aag3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ePWMBpTHo7DIer7EWoRtY9w3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eAhw3pPwVC17lCh1yrvZP9w3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eed.EjYadMdpjSKJlvDQ0eA3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ey5tg.wj7zbKys7q6DP5kuA3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eE3hKdNCmYm2ekkJlE1fGHA3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_e886Lh9gcA4wXU5J5-tfIdA3_1747867083:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Patient_eOPSKZbz6YIgoilQprzPy0Q3_1747868150:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWtNfHPwN4eSA6K1ad0xbSjEUSoDehy.gJz3q2j1uWYTw3_1747868150:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWg8yewHVz8x4-O-s0NxYBzRbKeM9.uNavIcyCYFCWaSp3_1747868150:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyBbFIif9IwXVesM7E2XbV36arm2e6MTR1bogSemCWaP-3_1747868150:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWlBoh85id-T89m6Hcqcbj0NzT7pUMIgs4Egdt4TfP6of3_1747868150:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWhYf5ndKc-ihdUZx2udDWOfZtVT1dS0jkkNo6re0bzi33_1747868150:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyMvtcHEZt3AHBQq9bxrL5-RFRjpF8rZeLRQfFglgM7Y03_1747868150:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWlcQMoQdtaQN2oGUXNWlUGIOyWfN2vqpImuepDGz2ZQH3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWu6MjIOt.14ByXdEZ1Ly.teI7ZNLelE0a8diT0vIr6Tk3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyLxAt6x0Qc6vSCGvOpVBufqEVVYAvvSKgF9hgP2dPaDQ3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyA.3Fqn3w9dkP.gZRge8Km2ZjYwAuojuZUOizvVr07aI3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyBKpa13iOkUzY0tHoGRiXvg54JOlO68JapaPk3AhgYrh3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWv41WFRrBO5Z3OyqKi6ePV704BSi44lG7HNwBOh.gITm3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWgqAwtiAh6-eTdJCntscUUh.HupqA2s8GHk-5MqZZSIa3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Condition_eWD-4WkAozOD.bpp-5ZfboA3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      ? runtime_asset_Condition_eVXgt8XKBT-OD2HjhOCPLnbgVV4k5Rt.kmNO98wBI0qaKFWkHxbhUiUpb3rmhkfjjTVgVDRIK8AiVGADBQS4Ogw3_1747868151
+      : type: dataframe
+        batch_metadata: {}
+      ? runtime_asset_Condition_eOSfNEct3ILrRXXGnp5O76kRk0cwybPR9d4UVjHY9Iwdxb6Q1rxoroZWMx1K-zh7bYZ37C5UWMzfQM6-.hYy5vA3_1747868151
+      : type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eVffiE7SavpOc0PtATuBQWg3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_enb5apqJHQNdqIkfnQRZbQg3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eAdQmAfZwmdIWvpMiaMSvtA3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_erdjAv3DV6zYC2R6mhbsJzw3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ePpUEnlC6rPErMuNx76j9MA3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_e0u1fd.jUCNqz8ZQuTaMtsQ3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eUBDi9n3Gqoi7P75EXp0hAg3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ef8Zll7Hf7ivseNbljQB0EA3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ecAOz5WeLbJFsjt0peNbB0Q3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ebmnrisTGM09CfKIBikgZLQ3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ef-RT2jWzdJgy-3kEpbrYuA3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_egSNcJqbRccVY3U6oqPOZhg3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eTB6QjlJKmfqGCGdHdX0Aag3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ePWMBpTHo7DIer7EWoRtY9w3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eAhw3pPwVC17lCh1yrvZP9w3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eed.EjYadMdpjSKJlvDQ0eA3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ey5tg.wj7zbKys7q6DP5kuA3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eE3hKdNCmYm2ekkJlE1fGHA3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_e886Lh9gcA4wXU5J5-tfIdA3_1747868151:
+        type: dataframe
+        batch_metadata: {}
+      ? runtime_asset_AllergyIntolerance_eARZpey6BWRZxRZkRpc8OFJ46j3QOFrduk77hYQKWRQnkaCrKg91iziDIiRL2X4o4TxSOciRUwhDVUbDv-POE.Q3_1747868151
+      : type: dataframe
+        batch_metadata: {}
+      runtime_asset_Patient_eOPSKZbz6YIgoilQprzPy0Q3_1747868594:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWtNfHPwN4eSA6K1ad0xbSjEUSoDehy.gJz3q2j1uWYTw3_1747868594:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWg8yewHVz8x4-O-s0NxYBzRbKeM9.uNavIcyCYFCWaSp3_1747868594:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyBbFIif9IwXVesM7E2XbV36arm2e6MTR1bogSemCWaP-3_1747868594:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWlBoh85id-T89m6Hcqcbj0NzT7pUMIgs4Egdt4TfP6of3_1747868594:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWhYf5ndKc-ihdUZx2udDWOfZtVT1dS0jkkNo6re0bzi33_1747868594:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyMvtcHEZt3AHBQq9bxrL5-RFRjpF8rZeLRQfFglgM7Y03_1747868594:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWlcQMoQdtaQN2oGUXNWlUGIOyWfN2vqpImuepDGz2ZQH3_1747868594:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWu6MjIOt.14ByXdEZ1Ly.teI7ZNLelE0a8diT0vIr6Tk3_1747868594:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyLxAt6x0Qc6vSCGvOpVBufqEVVYAvvSKgF9hgP2dPaDQ3_1747868594:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyA.3Fqn3w9dkP.gZRge8Km2ZjYwAuojuZUOizvVr07aI3_1747868594:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyBKpa13iOkUzY0tHoGRiXvg54JOlO68JapaPk3AhgYrh3_1747868594:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWv41WFRrBO5Z3OyqKi6ePV704BSi44lG7HNwBOh.gITm3_1747868594:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWgqAwtiAh6-eTdJCntscUUh.HupqA2s8GHk-5MqZZSIa3_1747868594:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Condition_eWD-4WkAozOD.bpp-5ZfboA3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      ? runtime_asset_Condition_eVXgt8XKBT-OD2HjhOCPLnbgVV4k5Rt.kmNO98wBI0qaKFWkHxbhUiUpb3rmhkfjjTVgVDRIK8AiVGADBQS4Ogw3_1747868595
+      : type: dataframe
+        batch_metadata: {}
+      ? runtime_asset_Condition_eOSfNEct3ILrRXXGnp5O76kRk0cwybPR9d4UVjHY9Iwdxb6Q1rxoroZWMx1K-zh7bYZ37C5UWMzfQM6-.hYy5vA3_1747868595
+      : type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eVffiE7SavpOc0PtATuBQWg3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_enb5apqJHQNdqIkfnQRZbQg3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eAdQmAfZwmdIWvpMiaMSvtA3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_erdjAv3DV6zYC2R6mhbsJzw3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ePpUEnlC6rPErMuNx76j9MA3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_e0u1fd.jUCNqz8ZQuTaMtsQ3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eUBDi9n3Gqoi7P75EXp0hAg3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ef8Zll7Hf7ivseNbljQB0EA3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ecAOz5WeLbJFsjt0peNbB0Q3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ebmnrisTGM09CfKIBikgZLQ3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ef-RT2jWzdJgy-3kEpbrYuA3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_egSNcJqbRccVY3U6oqPOZhg3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eTB6QjlJKmfqGCGdHdX0Aag3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ePWMBpTHo7DIer7EWoRtY9w3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eAhw3pPwVC17lCh1yrvZP9w3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eed.EjYadMdpjSKJlvDQ0eA3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ey5tg.wj7zbKys7q6DP5kuA3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eE3hKdNCmYm2ekkJlE1fGHA3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_e886Lh9gcA4wXU5J5-tfIdA3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      ? runtime_asset_AllergyIntolerance_eARZpey6BWRZxRZkRpc8OFJ46j3QOFrduk77hYQKWRQnkaCrKg91iziDIiRL2X4o4TxSOciRUwhDVUbDv-POE.Q3_1747868595
+      : type: dataframe
+        batch_metadata: {}
+      runtime_asset_Patient_eOPSKZbz6YIgoilQprzPy0Q3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWtNfHPwN4eSA6K1ad0xbSjEUSoDehy.gJz3q2j1uWYTw3_1747868595:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Patient_eOPSKZbz6YIgoilQprzPy0Q3_1747868681:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWtNfHPwN4eSA6K1ad0xbSjEUSoDehy.gJz3q2j1uWYTw3_1747868681:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWg8yewHVz8x4-O-s0NxYBzRbKeM9.uNavIcyCYFCWaSp3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyBbFIif9IwXVesM7E2XbV36arm2e6MTR1bogSemCWaP-3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWlBoh85id-T89m6Hcqcbj0NzT7pUMIgs4Egdt4TfP6of3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWhYf5ndKc-ihdUZx2udDWOfZtVT1dS0jkkNo6re0bzi33_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyMvtcHEZt3AHBQq9bxrL5-RFRjpF8rZeLRQfFglgM7Y03_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWlcQMoQdtaQN2oGUXNWlUGIOyWfN2vqpImuepDGz2ZQH3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWu6MjIOt.14ByXdEZ1Ly.teI7ZNLelE0a8diT0vIr6Tk3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyLxAt6x0Qc6vSCGvOpVBufqEVVYAvvSKgF9hgP2dPaDQ3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyA.3Fqn3w9dkP.gZRge8Km2ZjYwAuojuZUOizvVr07aI3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyBKpa13iOkUzY0tHoGRiXvg54JOlO68JapaPk3AhgYrh3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWv41WFRrBO5Z3OyqKi6ePV704BSi44lG7HNwBOh.gITm3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWgqAwtiAh6-eTdJCntscUUh.HupqA2s8GHk-5MqZZSIa3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Condition_eWD-4WkAozOD.bpp-5ZfboA3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      ? runtime_asset_Condition_eVXgt8XKBT-OD2HjhOCPLnbgVV4k5Rt.kmNO98wBI0qaKFWkHxbhUiUpb3rmhkfjjTVgVDRIK8AiVGADBQS4Ogw3_1747868682
+      : type: dataframe
+        batch_metadata: {}
+      ? runtime_asset_Condition_eOSfNEct3ILrRXXGnp5O76kRk0cwybPR9d4UVjHY9Iwdxb6Q1rxoroZWMx1K-zh7bYZ37C5UWMzfQM6-.hYy5vA3_1747868682
+      : type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eVffiE7SavpOc0PtATuBQWg3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_enb5apqJHQNdqIkfnQRZbQg3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eAdQmAfZwmdIWvpMiaMSvtA3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_erdjAv3DV6zYC2R6mhbsJzw3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ePpUEnlC6rPErMuNx76j9MA3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_e0u1fd.jUCNqz8ZQuTaMtsQ3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eUBDi9n3Gqoi7P75EXp0hAg3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ef8Zll7Hf7ivseNbljQB0EA3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ecAOz5WeLbJFsjt0peNbB0Q3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ebmnrisTGM09CfKIBikgZLQ3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ef-RT2jWzdJgy-3kEpbrYuA3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_egSNcJqbRccVY3U6oqPOZhg3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eTB6QjlJKmfqGCGdHdX0Aag3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ePWMBpTHo7DIer7EWoRtY9w3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eAhw3pPwVC17lCh1yrvZP9w3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eed.EjYadMdpjSKJlvDQ0eA3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ey5tg.wj7zbKys7q6DP5kuA3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eE3hKdNCmYm2ekkJlE1fGHA3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_e886Lh9gcA4wXU5J5-tfIdA3_1747868682:
+        type: dataframe
+        batch_metadata: {}
+      ? runtime_asset_AllergyIntolerance_eARZpey6BWRZxRZkRpc8OFJ46j3QOFrduk77hYQKWRQnkaCrKg91iziDIiRL2X4o4TxSOciRUwhDVUbDv-POE.Q3_1747868682
+      : type: dataframe
+        batch_metadata: {}
+      runtime_asset_Patient_eOPSKZbz6YIgoilQprzPy0Q3_1747868683:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWtNfHPwN4eSA6K1ad0xbSjEUSoDehy.gJz3q2j1uWYTw3_1747868683:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Condition_eWD-4WkAozOD.bpp-5ZfboA3_1747868683:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eVffiE7SavpOc0PtATuBQWg3_1747868683:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWg8yewHVz8x4-O-s0NxYBzRbKeM9.uNavIcyCYFCWaSp3_1747868683:
+        type: dataframe
+        batch_metadata: {}
+      ? runtime_asset_Condition_eVXgt8XKBT-OD2HjhOCPLnbgVV4k5Rt.kmNO98wBI0qaKFWkHxbhUiUpb3rmhkfjjTVgVDRIK8AiVGADBQS4Ogw3_1747868683
+      : type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_enb5apqJHQNdqIkfnQRZbQg3_1747868683:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Patient_eOPSKZbz6YIgoilQprzPy0Q3_1747868964:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWtNfHPwN4eSA6K1ad0xbSjEUSoDehy.gJz3q2j1uWYTw3_1747868964:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWg8yewHVz8x4-O-s0NxYBzRbKeM9.uNavIcyCYFCWaSp3_1747868964:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyBbFIif9IwXVesM7E2XbV36arm2e6MTR1bogSemCWaP-3_1747868964:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWlBoh85id-T89m6Hcqcbj0NzT7pUMIgs4Egdt4TfP6of3_1747868964:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWhYf5ndKc-ihdUZx2udDWOfZtVT1dS0jkkNo6re0bzi33_1747868964:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyMvtcHEZt3AHBQq9bxrL5-RFRjpF8rZeLRQfFglgM7Y03_1747868964:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWlcQMoQdtaQN2oGUXNWlUGIOyWfN2vqpImuepDGz2ZQH3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWu6MjIOt.14ByXdEZ1Ly.teI7ZNLelE0a8diT0vIr6Tk3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyLxAt6x0Qc6vSCGvOpVBufqEVVYAvvSKgF9hgP2dPaDQ3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyA.3Fqn3w9dkP.gZRge8Km2ZjYwAuojuZUOizvVr07aI3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyBKpa13iOkUzY0tHoGRiXvg54JOlO68JapaPk3AhgYrh3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWv41WFRrBO5Z3OyqKi6ePV704BSi44lG7HNwBOh.gITm3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWgqAwtiAh6-eTdJCntscUUh.HupqA2s8GHk-5MqZZSIa3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Condition_eWD-4WkAozOD.bpp-5ZfboA3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      ? runtime_asset_Condition_eVXgt8XKBT-OD2HjhOCPLnbgVV4k5Rt.kmNO98wBI0qaKFWkHxbhUiUpb3rmhkfjjTVgVDRIK8AiVGADBQS4Ogw3_1747868965
+      : type: dataframe
+        batch_metadata: {}
+      ? runtime_asset_Condition_eOSfNEct3ILrRXXGnp5O76kRk0cwybPR9d4UVjHY9Iwdxb6Q1rxoroZWMx1K-zh7bYZ37C5UWMzfQM6-.hYy5vA3_1747868965
+      : type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eVffiE7SavpOc0PtATuBQWg3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_enb5apqJHQNdqIkfnQRZbQg3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eAdQmAfZwmdIWvpMiaMSvtA3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_erdjAv3DV6zYC2R6mhbsJzw3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ePpUEnlC6rPErMuNx76j9MA3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_e0u1fd.jUCNqz8ZQuTaMtsQ3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eUBDi9n3Gqoi7P75EXp0hAg3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ef8Zll7Hf7ivseNbljQB0EA3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ecAOz5WeLbJFsjt0peNbB0Q3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ebmnrisTGM09CfKIBikgZLQ3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ef-RT2jWzdJgy-3kEpbrYuA3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_egSNcJqbRccVY3U6oqPOZhg3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eTB6QjlJKmfqGCGdHdX0Aag3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ePWMBpTHo7DIer7EWoRtY9w3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eAhw3pPwVC17lCh1yrvZP9w3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eed.EjYadMdpjSKJlvDQ0eA3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ey5tg.wj7zbKys7q6DP5kuA3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eE3hKdNCmYm2ekkJlE1fGHA3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_e886Lh9gcA4wXU5J5-tfIdA3_1747868965:
+        type: dataframe
+        batch_metadata: {}
+      ? runtime_asset_AllergyIntolerance_eARZpey6BWRZxRZkRpc8OFJ46j3QOFrduk77hYQKWRQnkaCrKg91iziDIiRL2X4o4TxSOciRUwhDVUbDv-POE.Q3_1747868965
+      : type: dataframe
+        batch_metadata: {}
+      runtime_asset_Patient_eOPSKZbz6YIgoilQprzPy0Q3_1747868966:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWtNfHPwN4eSA6K1ad0xbSjEUSoDehy.gJz3q2j1uWYTw3_1747868966:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Condition_eWD-4WkAozOD.bpp-5ZfboA3_1747868966:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eVffiE7SavpOc0PtATuBQWg3_1747868966:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Patient_eOPSKZbz6YIgoilQprzPy0Q3_1747869111:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWtNfHPwN4eSA6K1ad0xbSjEUSoDehy.gJz3q2j1uWYTw3_1747869111:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWg8yewHVz8x4-O-s0NxYBzRbKeM9.uNavIcyCYFCWaSp3_1747869111:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyBbFIif9IwXVesM7E2XbV36arm2e6MTR1bogSemCWaP-3_1747869111:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWlBoh85id-T89m6Hcqcbj0NzT7pUMIgs4Egdt4TfP6of3_1747869111:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWhYf5ndKc-ihdUZx2udDWOfZtVT1dS0jkkNo6re0bzi33_1747869111:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyMvtcHEZt3AHBQq9bxrL5-RFRjpF8rZeLRQfFglgM7Y03_1747869111:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWlcQMoQdtaQN2oGUXNWlUGIOyWfN2vqpImuepDGz2ZQH3_1747869111:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWu6MjIOt.14ByXdEZ1Ly.teI7ZNLelE0a8diT0vIr6Tk3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyLxAt6x0Qc6vSCGvOpVBufqEVVYAvvSKgF9hgP2dPaDQ3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyA.3Fqn3w9dkP.gZRge8Km2ZjYwAuojuZUOizvVr07aI3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e0Xw4IdjCNEUC5RCJQCjhyBKpa13iOkUzY0tHoGRiXvg54JOlO68JapaPk3AhgYrh3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWv41WFRrBO5Z3OyqKi6ePV704BSi44lG7HNwBOh.gITm3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWgqAwtiAh6-eTdJCntscUUh.HupqA2s8GHk-5MqZZSIa3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Condition_eWD-4WkAozOD.bpp-5ZfboA3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      ? runtime_asset_Condition_eVXgt8XKBT-OD2HjhOCPLnbgVV4k5Rt.kmNO98wBI0qaKFWkHxbhUiUpb3rmhkfjjTVgVDRIK8AiVGADBQS4Ogw3_1747869112
+      : type: dataframe
+        batch_metadata: {}
+      ? runtime_asset_Condition_eOSfNEct3ILrRXXGnp5O76kRk0cwybPR9d4UVjHY9Iwdxb6Q1rxoroZWMx1K-zh7bYZ37C5UWMzfQM6-.hYy5vA3_1747869112
+      : type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eVffiE7SavpOc0PtATuBQWg3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_enb5apqJHQNdqIkfnQRZbQg3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eAdQmAfZwmdIWvpMiaMSvtA3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_erdjAv3DV6zYC2R6mhbsJzw3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ePpUEnlC6rPErMuNx76j9MA3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_e0u1fd.jUCNqz8ZQuTaMtsQ3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eUBDi9n3Gqoi7P75EXp0hAg3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ef8Zll7Hf7ivseNbljQB0EA3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ecAOz5WeLbJFsjt0peNbB0Q3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ebmnrisTGM09CfKIBikgZLQ3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ef-RT2jWzdJgy-3kEpbrYuA3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_egSNcJqbRccVY3U6oqPOZhg3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eTB6QjlJKmfqGCGdHdX0Aag3_1747869112:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ePWMBpTHo7DIer7EWoRtY9w3_1747869113:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eAhw3pPwVC17lCh1yrvZP9w3_1747869113:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eed.EjYadMdpjSKJlvDQ0eA3_1747869113:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_ey5tg.wj7zbKys7q6DP5kuA3_1747869113:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eE3hKdNCmYm2ekkJlE1fGHA3_1747869113:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_e886Lh9gcA4wXU5J5-tfIdA3_1747869113:
+        type: dataframe
+        batch_metadata: {}
+      ? runtime_asset_AllergyIntolerance_eARZpey6BWRZxRZkRpc8OFJ46j3QOFrduk77hYQKWRQnkaCrKg91iziDIiRL2X4o4TxSOciRUwhDVUbDv-POE.Q3_1747869113
+      : type: dataframe
+        batch_metadata: {}
+      runtime_asset_Patient_eOPSKZbz6YIgoilQprzPy0Q3_1747869113:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Observation_e-YO59Gkf53ih5AQXG8LmWtNfHPwN4eSA6K1ad0xbSjEUSoDehy.gJz3q2j1uWYTw3_1747869113:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Condition_eWD-4WkAozOD.bpp-5ZfboA3_1747869113:
+        type: dataframe
+        batch_metadata: {}
+      runtime_asset_Encounter_eVffiE7SavpOc0PtATuBQWg3_1747869113:
+        type: dataframe
+        batch_metadata: {}
+notebooks:
+config_variables_file_path:
+include_rendered_content:
+  globally: false
+  expectation_suite: false
+  expectation_validation_result: false

@@ -1,0 +1,31 @@
+apiVersion: 1.0.0
+kind: Transform
+name: gold-medication-summary
+profile: FHIR_GOLD_MEDICATION_SUMMARY
+file: pipelines/gold/medication_summary.py
+entrypoint: create_medication_summary
+inputs:
+  - path: /silver/fhir_normalized/medicationrequest
+  - path: /silver/fhir_normalized/medication
+    optional: true
+  - path: /silver/fhir_normalized/patient
+    optional: true
+  - path: /silver/fhir_normalized/encounter
+    optional: true
+  - path: /silver/fhir_normalized/practitioner
+    optional: true
+outputs:
+  - path: /gold/medication_summary
+resources:
+  memory: 8Gi
+  timeout: 1800s  # 30 minutes
+schedule:
+  cron: "0 5 * * *"   # Run daily at 5 AM, after silver layer is ready
+dependencies:
+  - transform: transform-resources
+description: |
+  Creates a comprehensive medication summary dataset that integrates medication
+  request data with medication, patient, encounter, and prescriber information.
+  This gold layer dataset provides insights into medication usage patterns,
+  prescribing practices, and patient medication histories in a denormalized
+  format optimized for analytics and reporting. 

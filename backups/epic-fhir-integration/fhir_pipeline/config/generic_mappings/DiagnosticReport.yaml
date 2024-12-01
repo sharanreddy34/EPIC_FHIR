@@ -1,0 +1,34 @@
+resourceType: DiagnosticReport
+version: 1
+validate: true
+columns:
+  # Identifiers
+  report_id: id
+  patient_id: subject.reference.replace('Patient/','')
+  encounter_id: encounter.reference.replace('Encounter/','')
+  # Status and category
+  status: status
+  category_code: category[0].coding[0].code
+  category_system: category[0].coding[0].system
+  category_display: category[0].coding[0].display
+  # Test/report type  
+  code_code: code.coding[0].code
+  code_system: code.coding[0].system
+  code_display: code.coding[0].display
+  code_text: code.text
+  # Dates
+  issued_datetime: issued
+  effective_datetime: effectiveDateTime | effectivePeriod.start
+  # Results
+  conclusion: conclusion
+  has_results: result.exists()
+  result_references: result[*].reference
+  # Imaging
+  imaging_study: imagingStudy[0].reference
+  # Performers
+  performer_id: performer[0].reference.replace('Practitioner/','')
+  performer_display: performer[0].display
+  # Narrative
+  clinical_text: text.div
+extras:
+  partition_by: [issued_year] 

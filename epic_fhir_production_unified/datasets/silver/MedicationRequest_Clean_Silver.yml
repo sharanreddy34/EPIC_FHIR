@@ -1,0 +1,18 @@
+version: 1
+type: FILE
+path: MedicationRequest_Clean_Silver.parquet
+displayName: MedicationRequest Clean Silver
+description: Cleaned and structured FHIR MedicationRequest resources.
+format: parquet
+# Schema would be defined by the silver transformation output
+# Example schema (adjust as needed):
+schema:
+  id: string
+  status: string
+  intent: string
+  medicationCodeableConcept_text: string
+  subject_reference: string
+  encounter_reference: string
+  authoredOn: timestamp
+  requester_reference: string
+  # Add other relevant flattened fields 

@@ -1,0 +1,49 @@
+api-version: 1.0.0
+name: foundry-template-function
+description: Template function demonstrating best practices for Palantir Foundry
+
+# Required secrets (injected as environment variables in Foundry)
+secrets:
+  - name: MY_API_KEY
+    description: API key for external service
+
+# Dependencies - specify exact versions for reproducibility
+dependencies:
+  - pandas==1.5.3
+  - numpy==1.23.5
+  - requests==2.31.0
+
+# Resource requirements
+memory: 2Gi
+timeout: 300s
+
+# Functions defined in this module
+functions:
+  - name: process_data
+    file: foundry_template.py
+    entrypoint: process_data
+    description: Processes input data with API enrichment
+    parameters:
+      - name: param1
+        type: string
+        description: First parameter example
+        required: true
+      - name: param2
+        type: integer
+        description: Optional threshold value
+        required: false
+        default: 0
+    return:
+      type: dataset
+      description: Processed dataset with enriched data
+    sources:
+      - InputDataset
+    memory: 4Gi  # Override default memory for this specific function
+    timeout: 600s  # Override default timeout for this specific function
+
+# Example usage:
+# This function can be called from a pipeline or transformation using:
+# function: foundry-template-function.process_data
+# parameters:
+#   param1: "value1"
+#   param2: 50 

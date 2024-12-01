@@ -1,0 +1,21 @@
+runtime: python:3.9-spark:3.3
+entrypoint: patient_bronze.compute
+resources:
+  memory: "6G"
+  cpu: "2"
+sparkConf:
+  spark.sql.shuffle.partitions: "200"
+  spark.default.parallelism: "100"
+  spark.sql.autoBroadcastJoinThreshold: "50m"
+environment:
+  variables:
+    EPIC_BASE_URL: ${flat:EPIC_BASE_URL}
+  secrets:
+    - EPIC_CLIENT_ID
+    - EPIC_PRIVATE_KEY
+schedule:
+  cron: "0 * * * *"   # hourly
+incremental: true
+config:
+  max_pages: 50
+  batch_size: 100 

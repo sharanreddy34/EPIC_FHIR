@@ -1,0 +1,65 @@
+{
+  "patient_id": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB",
+  "timestamp": "2025-05-21T01:03:03.947344",
+  "steps": {
+    "authentication": {
+      "success": true,
+      "duration": 2.5122621059417725,
+      "token_type": "string",
+      "timestamp": "2025-05-21T01:03:06.459652"
+    },
+    "fetch_data": {
+      "success": true,
+      "duration": 0.0022521018981933594,
+      "resource_counts": {
+        "Patient": 1,
+        "Observation": 5,
+        "Condition": 1,
+        "Encounter": 1
+      },
+      "timestamp": "2025-05-21T01:03:06.461942",
+      "output_file": "gold_tier_test/gold/resources.json"
+    },
+    "fhirpath": {
+      "success": true,
+      "duration": 0.0003108978271484375,
+      "query_count": 8,
+      "timestamp": "2025-05-21T01:03:06.462284",
+      "output_file": "gold_tier_test/results/fhirpath_results.json"
+    },
+    "pathling": {
+      "success": true,
+      "duration": 0.0041468143463134766,
+      "timestamp": "2025-05-21T01:03:06.466456",
+      "output_file": "gold_tier_test/results/pathling_results.json"
+    },
+    "datascience": {
+      "success": true,
+      "duration": 0.00024819374084472656,
+      "timestamp": "2025-05-21T01:03:06.466740",
+      "output_file": "gold_tier_test/results/datascience_results.json"
+    },
+    "validation": {
+      "success": true,
+      "duration": 0.0003628730773925781,
+      "timestamp": "2025-05-21T01:03:06.467127",
+      "output_file": "gold_tier_test/gold/validation_results.json",
+      "validation_stats": {
+        "total": 8,
+        "valid_count": 1,
+        "invalid_count": 7,
+        "percent_valid": 12.5
+      }
+    },
+    "dashboards": {
+      "success": true,
+      "duration": 0.05006909370422363,
+      "timestamp": "2025-05-21T01:03:06.517220",
+      "output_dir": "gold_tier_test/dashboard"
+    }
+  },
+  "overall_success": true,
+  "mock_mode": true,
+  "tier": "gold",
+  "quality_metrics": {}
+}

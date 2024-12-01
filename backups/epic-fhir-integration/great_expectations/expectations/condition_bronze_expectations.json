@@ -1,0 +1,40 @@
+{
+  "expectation_suite_name": "condition_bronze_expectations",
+  "expectations": [
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "resourceType"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "resourceType",
+        "value_set": [
+          "Condition"
+        ]
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "id"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "code.text"
+      }
+    }
+  ],
+  "meta": {
+    "resource_type": "Condition",
+    "tier": "bronze",
+    "notes": {
+      "content": "Expectations for Condition in bronze tier",
+      "format": "markdown"
+    }
+  }
+}

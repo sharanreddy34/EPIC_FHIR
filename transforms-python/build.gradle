@@ -1,0 +1,18 @@
+plugins {
+    id 'com.palantir.foundry.python.pylint'
+    id 'com.palantir.foundry.python.mypy'
+    id 'com.palantir.foundry.python.black'
+}
+
+pylint {
+    enabled = true
+    failOnWarning = false
+}
+
+mypy {
+    enabled = true
+}
+
+black {
+    enabled = true
+} 
