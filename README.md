@@ -22,7 +22,7 @@ This repository contains code for the ATLAS project that runs in Palantir Foundr
 4. Install dependencies: `pip install -r requirements.txt`
 5. Test locally before deploying to Foundry
 
-## Local Testing
+## Local
 
 The template includes a `main()` function that allows for local testing:
 
