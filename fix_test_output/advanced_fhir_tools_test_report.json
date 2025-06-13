@@ -1,0 +1,64 @@
+{
+  "patient_id": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB",
+  "timestamp": "2025-05-21T01:16:12.171950",
+  "steps": {
+    "authentication": {
+      "success": true,
+      "duration": 1.1205673217773438e-05,
+      "token_type": "Bearer",
+      "timestamp": "2025-05-21T01:16:12.171999"
+    },
+    "fetch_data": {
+      "success": true,
+      "duration": 0.0004608631134033203,
+      "resource_counts": {
+        "Patient": 1,
+        "Observation": 5,
+        "Condition": 1,
+        "Encounter": 1
+      },
+      "timestamp": "2025-05-21T01:16:12.172495",
+      "output_file": "fix_test_output/bronze/raw_resources.json"
+    },
+    "fhirpath": {
+      "success": false,
+      "error": "Object of type date is not JSON serializable",
+      "duration": 0.012588739395141602,
+      "timestamp": "2025-05-21T01:16:12.185095"
+    },
+    "pathling": {
+      "success": true,
+      "duration": 0.004262208938598633,
+      "timestamp": "2025-05-21T01:16:12.189387",
+      "output_file": "fix_test_output/results/pathling_results.json"
+    },
+    "datascience": {
+      "success": true,
+      "duration": 0.00041794776916503906,
+      "timestamp": "2025-05-21T01:16:12.189860",
+      "output_file": "fix_test_output/results/datascience_results.json"
+    },
+    "validation": {
+      "success": true,
+      "duration": 0.00038504600524902344,
+      "timestamp": "2025-05-21T01:16:12.190284",
+      "output_file": "fix_test_output/bronze/validation_results.json",
+      "validation_stats": {
+        "total": 8,
+        "valid_count": 1,
+        "invalid_count": 7,
+        "percent_valid": 12.5
+      }
+    },
+    "dashboards": {
+      "success": true,
+      "duration": 0.3739309310913086,
+      "timestamp": "2025-05-21T01:16:12.564239",
+      "output_dir": "fix_test_output/dashboard"
+    }
+  },
+  "overall_success": false,
+  "mock_mode": true,
+  "tier": "bronze",
+  "quality_metrics": {}
+}

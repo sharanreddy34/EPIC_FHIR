@@ -1,0 +1,22 @@
+{
+  "start_timestamp": "2025-05-20T08:46:24.608627",
+  "system": {
+    "python_version": "3.13.3 (main, Apr  8 2025, 13:54:08) [Clang 16.0.0 (clang-1600.0.26.6)]",
+    "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "hostname": "MacBook-Pro-2.local"
+  },
+  "params": {
+    "patient_id": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB",
+    "debug_mode": true,
+    "retry_count": 3,
+    "disk_space": {
+      "initial_free_gb": 15.426231384277344,
+      "min_required_gb": 4.0
+    }
+  },
+  "end_run": true,
+  "status": "FAILED",
+  "error": "Bronze to silver transformation failed",
+  "end_timestamp": "2025-05-20T08:46:26.419041"
+}

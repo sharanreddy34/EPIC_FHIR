@@ -1,0 +1,10 @@
+{
+  "patient_name": null,
+  "gender": "male",
+  "birth_date": "1970-01-25",
+  "address": null,
+  "telecom": null,
+  "observation_count": 5,
+  "has_loinc_codes": false,
+  "observation_values": []
+}

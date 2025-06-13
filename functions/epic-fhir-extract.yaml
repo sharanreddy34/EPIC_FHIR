@@ -1,0 +1,10 @@
+runtime:
+  kind: container
+  image: epic-fhir-tools
+  command: ["epic-fhir", "extract", "--output-uri", "$DATA_ROOT/bronze"]
+  env:
+    EPIC_BASE_URL: "https://sandbox.epic.com/fhir"
+    DATA_ROOT: "/foundry/objects"
+  secrets:
+    - name: epic-oauth-secret
+schedule: "0 * * * *" 

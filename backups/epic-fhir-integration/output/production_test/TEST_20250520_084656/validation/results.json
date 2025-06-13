@@ -1,0 +1,69 @@
+{
+  "timestamp": "2025-05-20T08:46:57.454833",
+  "run_dir": "output/production_test/TEST_20250520_084656",
+  "validation_status": "SUCCESS",
+  "checks": [
+    {
+      "status": "SKIPPED",
+      "message": "Missing bronze or silver count metrics",
+      "name": "bronze_to_silver_row_parity",
+      "description": "Check that row counts are preserved from bronze to silver",
+      "severity": "error"
+    },
+    {
+      "status": "SKIPPED",
+      "message": "Missing silver or gold count metrics",
+      "name": "silver_to_gold_row_parity",
+      "description": "Check that row counts are properly aggregated from silver to gold",
+      "severity": "warning"
+    },
+    {
+      "status": "SUCCESS",
+      "message": "Extract completed in 1.20 seconds (threshold: 300.00s)",
+      "details": {
+        "duration": 1.203226089477539,
+        "threshold": 300
+      },
+      "name": "extract_performance",
+      "description": "Check extraction performance",
+      "severity": "warning"
+    },
+    {
+      "status": "SKIPPED",
+      "message": "No duration metrics found for transform",
+      "name": "transform_performance",
+      "description": "Check transformation performance",
+      "severity": "warning"
+    },
+    {
+      "status": "SKIPPED",
+      "message": "No resource usage metrics found",
+      "name": "resource_usage",
+      "description": "Check resource usage",
+      "severity": "warning"
+    }
+  ],
+  "overall_result": {
+    "success": 1,
+    "warning": 0,
+    "failure": 0,
+    "skipped": 4
+  },
+  "thresholds_used": {
+    "row_count_threshold": 0.99,
+    "performance_thresholds": {
+      "extract": 300,
+      "transform": 600,
+      "load": 300
+    },
+    "data_quality_thresholds": {
+      "completeness": 0.95,
+      "accuracy": 0.98,
+      "consistency": 0.97
+    },
+    "resource_usage_thresholds": {
+      "memory_percent_max": 90,
+      "cpu_percent_max": 95
+    }
+  }
+}

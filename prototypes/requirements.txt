@@ -1,0 +1,23 @@
+# Common dependencies
+pandas>=1.5.3
+numpy>=1.24.0
+jupyterlab>=3.6.0
+
+# FHIR Resources
+fhir.resources>=8.0.0  # FHIR R4 model support with Pydantic V2
+
+# Current implementation
+fhirpathpy>=0.2.3
+
+# Advanced FHIR tools to evaluate
+# Note: These should be installed separately for each prototype
+
+# New FHIRPath implementation
+# pip install fhirpath>=1.0.0
+
+# Pathling dependencies
+# pip install pathling>=6.3.0
+# pip install jpype1>=1.4.1  # Java bridge
+
+# FHIR-PYrate
+# pip install fhir-pyrate>=0.8.0 

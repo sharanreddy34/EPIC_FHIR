@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "epic-fhir-integration"
+version = "0.1.0"
+authors = [
+    { name = "Test", email = "test@example.com" },
+]
+description = "FHIR Pipeline for Epic integration"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10,<3.13"
+# Core, lightweight runtime deps only – heavy analytics libs moved to extras
+dependencies = [
+    "pyyaml",
+    "requests",
+    "pyjwt",
+    "cryptography",
+    "psutil",
+    "pydantic>=1.10.11,<2.0.0",
+    "fhir.resources==6.0.0",
+    "fhirpath>=0.10.5",
+    "fhirpathpy<0.3.0,>=0.2.2",
+]
+
+[project.optional-dependencies]
+analytics = [
+    "pyspark",
+    "pathling",
+]
+science = [
+    "pandas>=1.5.3,<2",
+    "dask",
+]
+
+[project.scripts]
+epic-fhir-extract = "epic_fhir_integration.cli.extract:main"
+epic-fhir-transform-bronze = "epic_fhir_integration.cli.transform_bronze:main"
+epic-fhir-transform-gold = "epic_fhir_integration.cli.transform_gold:main"
+epic-fhir-run-pipeline = "epic_fhir_integration.cli.run_pipeline:main"
+epic-fhir-refresh-token = "epic_fhir_integration.cli.refresh_token:main"
+epic-fhir-e2e-test = "epic_fhir_integration.cli.e2e_test:main"
+epic-fhir-get-token = "epic_fhir_integration.cli.auth_token:main"
+epic-fhir-patient-test = "epic_fhir_integration.cli.patient_test:main"
+epic-fhir-validate-run = "epic_fhir_integration.cli.validate_run:main"
+epic-fhir-analytics = "epic_fhir_integration.cli.analytics:analytics"
+epic-fhir-datascience = "epic_fhir_integration.cli.datascience_commands:main"
+epic-fhir-validation = "epic_fhir_integration.cli.validation_commands:main"
+epic-fhir-dashboard = "epic_fhir_integration.cli.dashboard_commands:dashboard_group"
+
+[tool.setuptools]
+packages = ["epic_fhir_integration"]
+
+[tool.ruff]
+select = ["E", "F", "W", "I", "S"]
+ignore = []
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.ruff.isort]
+known-first-party = ["epic_fhir_integration"] 

@@ -1,0 +1,16 @@
+version: 1
+steps:
+  - name: lint-ruff
+    run: ruff check transforms-python/src
+  - name: lint-pylint
+    run: pylint --disable=C,R --enable=E,W transforms-python/src/epic_fhir_integration
+  - name: type-check
+    run: mypy transforms-python/src
+  - name: test
+    run: pytest -q --cov=epic_fhir_integration transforms-python/tests
+  - name: test-import-all
+    run: pytest -xvs tests/test_import_all.py
+  - name: security-scan
+    run: bandit -r transforms-python/src
+  - name: build
+    run: foundry build 

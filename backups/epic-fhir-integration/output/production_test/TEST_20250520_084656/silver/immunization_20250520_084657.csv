@@ -1,0 +1,2 @@
+id,resourceType,patient_id,issued_date,json_data
+,Immunization,,,"{\"resourceType\": \"OperationOutcome\", \"issue\": [{\"severity\": \"warning\", \"code\": \"processing\", \"details\": {\"coding\": [{\"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.2.657369\", \"code\": \"4101\", \"display\": \"Resource request returns no results.\"}], \"text\": \"Resource request returns no results.\"}}]}"

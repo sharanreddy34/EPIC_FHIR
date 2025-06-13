@@ -1,0 +1,7 @@
+base_url: "https://fhir.epic.com"
+batch_size: 200
+max_pages: 100
+spark:
+  conf:
+    spark.sql.extensions: "io.delta.sql.DeltaSparkSessionExtension"
+    spark.sql.catalog.spark_catalog: "org.apache.spark.sql.delta.catalog.DeltaCatalog" 

@@ -1,0 +1,75 @@
+name: Patient_Clean_Silver
+type: table
+format: delta
+mode: append
+description: Cleaned and conformed Patient data from Epic FHIR API
+tags:
+  - silver
+  - clean
+  - fhir
+  - epic
+  - patient
+columns:
+  - name: id
+    type: string
+    description: FHIR resource ID
+  - name: identifier
+    type: string
+    description: Patient identifier in system|value format
+  - name: active
+    type: string
+    description: Whether the patient record is active
+  - name: name_given
+    type: string
+    description: Patient's given name(s)
+  - name: name_family
+    type: string
+    description: Patient's family name
+  - name: name_text
+    type: string
+    description: Patient's full name
+  - name: gender
+    type: string
+    description: Patient's gender
+  - name: birthDate
+    type: date
+    description: Patient's date of birth
+  - name: address_line
+    type: string
+    description: Patient's street address
+  - name: address_city
+    type: string
+    description: Patient's city
+  - name: address_state
+    type: string
+    description: Patient's state/province
+  - name: address_postalCode
+    type: string
+    description: Patient's postal code
+  - name: address_country
+    type: string
+    description: Patient's country
+  - name: telecom_phone
+    type: string
+    description: Patient's phone number
+  - name: telecom_email
+    type: string
+    description: Patient's email address
+  - name: maritalStatus
+    type: string
+    description: Patient's marital status code
+  - name: communication_language
+    type: string
+    description: Patient's preferred language code
+  - name: meta_lastUpdated
+    type: timestamp
+    description: Last update timestamp from FHIR server
+  - name: source
+    type: string
+    description: Source system for this patient record
+  - name: ingest_timestamp
+    type: timestamp
+    description: Timestamp when this record was ingested
+  - name: ingest_date
+    type: date
+    description: Date when this record was ingested 

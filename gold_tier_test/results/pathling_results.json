@@ -1,0 +1,21 @@
+{
+  "patient_count": {
+    "count": 1
+  },
+  "observations_by_code": {
+    "code.coding.code": {
+      "8480-6": 5
+    }
+  },
+  "patient_dataset": {
+    "id": {
+      "0": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+    },
+    "gender": {
+      "0": "male"
+    },
+    "birthDate": {
+      "0": "1970-01-25"
+    }
+  }
+}

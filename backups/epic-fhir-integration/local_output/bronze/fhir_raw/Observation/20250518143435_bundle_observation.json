@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "patient_id": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB",
+    "resource_type": "Observation",
+    "created_at": "2025-05-18T14:34:35.472382",
+    "entry_count": 5
+  },
+  "bundle": {
+    "resourceType": "Bundle",
+    "type": "searchset",
+    "total": 5,
+    "entry": [
+      {
+        "resource": {
+          "resourceType": "Observation",
+          "id": "mock-observation-0",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472372"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "status": "final",
+          "code": {
+            "text": "Test Observation 0"
+          },
+          "valueQuantity": {
+            "value": 100,
+            "unit": "mg/dL"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Observation",
+          "id": "mock-observation-1",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472375"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "status": "final",
+          "code": {
+            "text": "Test Observation 1"
+          },
+          "valueQuantity": {
+            "value": 101,
+            "unit": "mg/dL"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Observation",
+          "id": "mock-observation-2",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472377"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "status": "final",
+          "code": {
+            "text": "Test Observation 2"
+          },
+          "valueQuantity": {
+            "value": 102,
+            "unit": "mg/dL"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Observation",
+          "id": "mock-observation-3",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472379"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "status": "final",
+          "code": {
+            "text": "Test Observation 3"
+          },
+          "valueQuantity": {
+            "value": 103,
+            "unit": "mg/dL"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Observation",
+          "id": "mock-observation-4",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472380"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "status": "final",
+          "code": {
+            "text": "Test Observation 4"
+          },
+          "valueQuantity": {
+            "value": 104,
+            "unit": "mg/dL"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "resourceType": "Encounter",
+  "id": "eAhw3pPwVC17lCh1yrvZP9w3",
+  "identifier": [
+    {
+      "use": "usual",
+      "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+      "value": "1460"
+    }
+  ],
+  "status": "unknown",
+  "class": {
+    "system": "urn:oid:1.2.840.114350.1.72.1.7.7.10.696784.13260",
+    "code": "13",
+    "display": "Support OP Encounter"
+  },
+  "subject": {
+    "reference": "Patient/eOPSKZbz6YIgoilQprzPy0Q3",
+    "display": "Cadence, Anna"
+  },
+  "period": {
+    "start": "2011-02-14",
+    "end": "2011-02-14"
+  }
+}

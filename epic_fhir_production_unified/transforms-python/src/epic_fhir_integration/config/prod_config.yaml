@@ -1,0 +1,103 @@
+# Production configuration for Epic FHIR Integration
+# This file provides production-specific overrides of default settings
+
+# Environment settings
+environment: prod
+log_level: INFO  # Keep INFO in prod for visibility
+
+# API Configuration
+api:
+  timeout_seconds: 60  # Increased timeout for production
+  max_retries: 5      # More retries in production
+  retry_backoff_factor: 2.0
+
+# Bronze Layer Configurations - production settings
+bronze:
+  Patient:
+    max_pages: 500      # Increased for production
+    batch_size: 200     # Balanced for performance
+    api_retry_attempts: 5  # More retries in production
+  
+  Encounter:
+    max_pages: 500
+    batch_size: 200
+    api_retry_attempts: 5
+  
+  Condition:
+    max_pages: 500
+    batch_size: 200
+    api_retry_attempts: 5
+  
+  Observation:
+    max_pages: 500
+    batch_size: 200
+    api_retry_attempts: 5
+  
+  MedicationRequest:
+    max_pages: 500
+    batch_size: 200
+    api_retry_attempts: 5
+
+# Silver Layer Configurations - production settings
+silver:
+  Patient:
+    validate_schema: true       # Enforce schema validation in prod
+    enforce_data_types: true    # Enforce data types in prod
+  
+  Encounter:
+    validate_schema: true
+    enforce_data_types: true
+  
+  Condition:
+    validate_schema: true
+    enforce_data_types: true
+  
+  Observation:
+    validate_schema: true
+    enforce_data_types: true
+  
+  MedicationRequest:
+    validate_schema: true
+    enforce_data_types: true
+
+# Gold Layer Configuration - production settings
+gold:
+  default:
+    time_window_days: 730  # 2 years for production
+
+# Validation Configurations - stricter for production
+validation:
+  Patient:
+    schema_validation: true
+    content_validation: true
+    reference_validation: true  # Enable reference validation in prod
+    fail_on_error: true        # Fail on errors in prod
+    error_threshold: 0.01      # Lower error threshold in prod
+  
+  Encounter:
+    schema_validation: true
+    content_validation: true
+    reference_validation: true
+    fail_on_error: true
+    error_threshold: 0.01
+  
+  Condition:
+    schema_validation: true
+    content_validation: true
+    reference_validation: true
+    fail_on_error: true
+    error_threshold: 0.01
+  
+  Observation:
+    schema_validation: true
+    content_validation: true
+    reference_validation: true
+    fail_on_error: true
+    error_threshold: 0.01
+  
+  MedicationRequest:
+    schema_validation: true
+    content_validation: true
+    reference_validation: true
+    fail_on_error: true
+    error_threshold: 0.01 

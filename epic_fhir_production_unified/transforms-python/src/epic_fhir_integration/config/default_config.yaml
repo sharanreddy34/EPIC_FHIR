@@ -1,0 +1,159 @@
+# Default configuration for Epic FHIR Integration
+# This file provides defaults that can be overridden by environment-specific configs
+
+# Environment settings
+environment: dev
+log_level: INFO
+
+# API Configuration
+api:
+  base_url: ""  # Will be loaded from secrets
+  client_id: ""  # Will be loaded from secrets
+  token_endpoint: "/oauth2/token"
+  timeout_seconds: 30
+  max_retries: 3
+  retry_backoff_factor: 2.0
+
+# Bronze Layer Configurations
+bronze:
+  Patient:
+    resource_type: Patient
+    max_pages: 100
+    batch_size: 200
+    incremental: true
+    default_watermark: "1900-01-01T00:00:00Z"
+    api_retry_attempts: 3
+    api_retry_backoff_factor: 2.0
+  
+  Encounter:
+    resource_type: Encounter
+    max_pages: 100
+    batch_size: 200
+    incremental: true
+    default_watermark: "1900-01-01T00:00:00Z"
+    api_retry_attempts: 3
+    api_retry_backoff_factor: 2.0
+  
+  Condition:
+    resource_type: Condition
+    max_pages: 100
+    batch_size: 200
+    incremental: true
+    default_watermark: "1900-01-01T00:00:00Z"
+    api_retry_attempts: 3
+    api_retry_backoff_factor: 2.0
+  
+  Observation:
+    resource_type: Observation
+    max_pages: 100
+    batch_size: 200
+    incremental: true
+    default_watermark: "1900-01-01T00:00:00Z"
+    api_retry_attempts: 3
+    api_retry_backoff_factor: 2.0
+  
+  MedicationRequest:
+    resource_type: MedicationRequest
+    max_pages: 100
+    batch_size: 200
+    incremental: true
+    default_watermark: "1900-01-01T00:00:00Z"
+    api_retry_attempts: 3
+    api_retry_backoff_factor: 2.0
+
+# Silver Layer Configurations
+silver:
+  Patient:
+    resource_type: Patient
+    flatten_arrays: true
+    max_array_size: 10
+    validate_schema: true
+    enforce_data_types: true
+    handle_missing_fields: true
+  
+  Encounter:
+    resource_type: Encounter
+    flatten_arrays: true
+    max_array_size: 10
+    validate_schema: true
+    enforce_data_types: true
+    handle_missing_fields: true
+  
+  Condition:
+    resource_type: Condition
+    flatten_arrays: true
+    max_array_size: 10
+    validate_schema: true
+    enforce_data_types: true
+    handle_missing_fields: true
+  
+  Observation:
+    resource_type: Observation
+    flatten_arrays: true
+    max_array_size: 10
+    validate_schema: true
+    enforce_data_types: true
+    handle_missing_fields: true
+  
+  MedicationRequest:
+    resource_type: MedicationRequest
+    flatten_arrays: true
+    max_array_size: 10
+    validate_schema: true
+    enforce_data_types: true
+    handle_missing_fields: true
+
+# Gold Layer Configuration
+gold:
+  default:
+    include_resources:
+      - Patient
+      - Encounter
+      - Condition
+      - Observation
+      - MedicationRequest
+    pathling_enabled: true
+    time_window_days: 365
+    partition_by_year: true
+
+# Validation Configurations
+validation:
+  Patient:
+    resource_type: Patient
+    schema_validation: true
+    content_validation: true
+    reference_validation: false
+    fail_on_error: false
+    error_threshold: 0.05
+  
+  Encounter:
+    resource_type: Encounter
+    schema_validation: true
+    content_validation: true
+    reference_validation: false
+    fail_on_error: false
+    error_threshold: 0.05
+  
+  Condition:
+    resource_type: Condition
+    schema_validation: true
+    content_validation: true
+    reference_validation: false
+    fail_on_error: false
+    error_threshold: 0.05
+  
+  Observation:
+    resource_type: Observation
+    schema_validation: true
+    content_validation: true
+    reference_validation: false
+    fail_on_error: false
+    error_threshold: 0.05
+  
+  MedicationRequest:
+    resource_type: MedicationRequest
+    schema_validation: true
+    content_validation: true
+    reference_validation: false
+    fail_on_error: false
+    error_threshold: 0.05 

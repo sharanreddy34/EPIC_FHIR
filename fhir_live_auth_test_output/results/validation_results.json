@@ -1,0 +1,32 @@
+{
+  "Patient": {
+    "is_valid": false,
+    "error_count": 1,
+    "warning_count": 0,
+    "info_count": 0
+  },
+  "Observation": {
+    "is_valid": false,
+    "error_count": 1,
+    "warning_count": 0,
+    "info_count": 0
+  },
+  "Condition": {
+    "is_valid": false,
+    "error_count": 1,
+    "warning_count": 0,
+    "info_count": 0
+  },
+  "Encounter": {
+    "is_valid": false,
+    "error_count": 1,
+    "warning_count": 0,
+    "info_count": 0
+  },
+  "batch": {
+    "total": 8,
+    "valid_count": 0,
+    "invalid_count": 8,
+    "percent_valid": 0.0
+  }
+}

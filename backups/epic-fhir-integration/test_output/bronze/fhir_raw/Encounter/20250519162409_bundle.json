@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "patient_id": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB",
+    "resource_type": "Encounter",
+    "created_at": "2025-05-19T16:24:09.000Z"
+  },
+  "bundle": {
+    "resourceType": "Bundle",
+    "type": "searchset",
+    "total": 5,
+    "entry": [
+      {
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "mock-encounter-0",
+          "meta": {
+            "lastUpdated": "2025-05-19T16:24:09.000Z"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "mock-encounter-1",
+          "meta": {
+            "lastUpdated": "2025-05-19T16:24:09.000Z"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "mock-encounter-2",
+          "meta": {
+            "lastUpdated": "2025-05-19T16:24:09.000Z"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "mock-encounter-3",
+          "meta": {
+            "lastUpdated": "2025-05-19T16:24:09.000Z"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "mock-encounter-4",
+          "meta": {
+            "lastUpdated": "2025-05-19T16:24:09.000Z"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+runtime: python:3.9-spark:3.3
+entrypoint: ge_validator.compute
+resources:
+  memory: "4G"
+  cpu: "1"
+sparkConf:
+  spark.jars.packages: "au.csiro.pathling:pathling-spark-assembly_2.12:5.0.0"
+  spark.sql.shuffle.partitions: "100"
+  spark.default.parallelism: "50"
+schedule:
+  cron: "35 * * * *"   # 35 minutes past each hour
+config:
+  resource_type: "Observation" 

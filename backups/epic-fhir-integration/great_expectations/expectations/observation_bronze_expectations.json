@@ -1,0 +1,46 @@
+{
+  "expectation_suite_name": "observation_bronze_expectations",
+  "expectations": [
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "resourceType"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "resourceType",
+        "value_set": [
+          "Observation"
+        ]
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "id"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "status"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "code.text"
+      }
+    }
+  ],
+  "meta": {
+    "resource_type": "Observation",
+    "tier": "bronze",
+    "notes": {
+      "content": "Expectations for Observation in bronze tier",
+      "format": "markdown"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+apiVersion: 1.0.0
+kind: Transform
+name: gold-encounter-summary
+profile: FHIR_GOLD_ENCOUNTER_SUMMARY
+file: pipelines/gold/encounter_summary.py
+entrypoint: create_encounter_summary
+inputs:
+  - path: /silver/fhir_normalized/encounter
+  - path: /silver/fhir_normalized/patient
+    optional: true
+  - path: /silver/fhir_normalized/condition
+    optional: true
+  - path: /silver/fhir_normalized/procedure
+    optional: true
+  - path: /silver/fhir_normalized/observation
+    optional: true
+  - path: /silver/fhir_normalized/practitioner
+    optional: true
+outputs:
+  - path: /gold/encounter_summary
+resources:
+  memory: 8Gi
+  timeout: 1800s  # 30 minutes
+schedule:
+  cron: "0 5 * * *"   # Run daily at 5 AM, after silver layer is ready
+dependencies:
+  - transform: transform-resources
+description: |
+  Creates a comprehensive encounter summary dataset that integrates data from
+  multiple FHIR resources. This gold layer dataset includes encounter details,
+  associated diagnoses, procedures, vitals, and provider information in a
+  denormalized format optimized for analytics and reporting on clinical encounters. 

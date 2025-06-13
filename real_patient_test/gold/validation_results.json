@@ -1,0 +1,44 @@
+{
+  "Patient": {
+    "is_valid": false,
+    "error_count": 1,
+    "warning_count": 0,
+    "info_count": 0,
+    "errors": [
+      "{'level': 'ERROR', 'message': 'Error parsing validator output: FHIR Validation tool Version 6.5.21 (Git# 3aeedf07fdb6). Built 2025-05-08T06:59:47.628Z (12 days old)\\n  Java:   24.0.1 from /Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home on aarch64 (64bit). 12288MB available\\n  Paths:  Current = /Users/gabe/ATLAS Palantir, Package Cache = /Users/gabe/.fhir/packages\\n  Params: /var/folders/qs/j7k4l64j58s9twvjtnltvg580000gn/T/tmpkvynp318.json -output json -version R4 -profile us-core\\n  Locale: /\\n  Jurisdiction: United States of America\\nLoading\\n  Load FHIR v4.0 from hl7.fhir.r4.core#4.0.1  Load hl7.terminology.r4#6.2.0 - 4288 resources (00:02.330)\\n  Load hl7.fhir.uv.extensions.r4#5.2.0 - 759 resources (00:00.669)\\n - 8265 resources (00:00.000)\\n  Load hl7.fhir.uv.extensions.r5#5.2.0 - 759 resources (00:00.563)\\n  Load hl7.terminology#6.3.0 - 4339 resources (00:00.170)\\n  Load hl7.terminology.r5#6.2.0 - 4288 resources (00:00.835)\\n  Load hl7.fhir.uv.extensions#5.2.0 - 759 resources (00:00.002)\\n  Terminology server http://tx.fhir.org - Version Connected to Terminology Server at http://tx.fhir.org (00:00.981)\\n  Package Summary: [hl7.fhir.r4.core#4.0.1, hl7.fhir.xver-extensions#0.1.0, hl7.terminology.r4#6.2.0, hl7.fhir.uv.extensions.r4#5.2.0, hl7.fhir.uv.extensions.r5#5.2.0, hl7.terminology#6.3.0, hl7.terminology.r5#6.2.0, hl7.fhir.uv.extensions#5.2.0]\\n  Terminology Cache at /var/folders/qs/j7k4l64j58s9twvjtnltvg580000gn/T/default-tx-cache\\n  Get set...  go (00:01.159)\\nCached new session. Cache size = 1\\n  Fetch Profile from us-core\\n'}"
+    ]
+  },
+  "Observation": {
+    "is_valid": false,
+    "error_count": 1,
+    "warning_count": 0,
+    "info_count": 0,
+    "errors": [
+      "{'level': 'ERROR', 'message': 'Error parsing validator output: FHIR Validation tool Version 6.5.21 (Git# 3aeedf07fdb6). Built 2025-05-08T06:59:47.628Z (12 days old)\\n  Java:   24.0.1 from /Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home on aarch64 (64bit). 12288MB available\\n  Paths:  Current = /Users/gabe/ATLAS Palantir, Package Cache = /Users/gabe/.fhir/packages\\n  Params: /var/folders/qs/j7k4l64j58s9twvjtnltvg580000gn/T/tmpkexd_kq7.json -output json -version R4 -profile us-core\\n  Locale: /\\n  Jurisdiction: United States of America\\nLoading\\n  Load FHIR v4.0 from hl7.fhir.r4.core#4.0.1  Load hl7.terminology.r4#6.2.0 - 4288 resources (00:01.968)\\n  Load hl7.fhir.uv.extensions.r4#5.2.0 - 759 resources (00:00.526)\\n - 8265 resources (00:00.000)\\n  Load hl7.fhir.uv.extensions.r5#5.2.0 - 759 resources (00:00.392)\\n  Load hl7.terminology#6.3.0 - 4339 resources (00:00.163)\\n  Load hl7.terminology.r5#6.2.0 - 4288 resources (00:00.903)\\n  Load hl7.fhir.uv.extensions#5.2.0 - 759 resources (00:00.002)\\n  Terminology server http://tx.fhir.org - Version Connected to Terminology Server at http://tx.fhir.org (00:00.963)\\n  Package Summary: [hl7.fhir.r4.core#4.0.1, hl7.fhir.xver-extensions#0.1.0, hl7.terminology.r4#6.2.0, hl7.fhir.uv.extensions.r4#5.2.0, hl7.fhir.uv.extensions.r5#5.2.0, hl7.terminology#6.3.0, hl7.terminology.r5#6.2.0, hl7.fhir.uv.extensions#5.2.0]\\n  Terminology Cache at /var/folders/qs/j7k4l64j58s9twvjtnltvg580000gn/T/default-tx-cache\\n  Get set...  go (00:01.048)\\nCached new session. Cache size = 1\\n  Fetch Profile from us-core\\n'}"
+    ]
+  },
+  "Condition": {
+    "is_valid": false,
+    "error_count": 1,
+    "warning_count": 0,
+    "info_count": 0,
+    "errors": [
+      "{'level': 'ERROR', 'message': 'Error parsing validator output: FHIR Validation tool Version 6.5.21 (Git# 3aeedf07fdb6). Built 2025-05-08T06:59:47.628Z (12 days old)\\n  Java:   24.0.1 from /Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home on aarch64 (64bit). 12288MB available\\n  Paths:  Current = /Users/gabe/ATLAS Palantir, Package Cache = /Users/gabe/.fhir/packages\\n  Params: /var/folders/qs/j7k4l64j58s9twvjtnltvg580000gn/T/tmpsn5_l738.json -output json -version R4 -profile us-core\\n  Locale: /\\n  Jurisdiction: United States of America\\nLoading\\n  Load FHIR v4.0 from hl7.fhir.r4.core#4.0.1  Load hl7.terminology.r4#6.2.0 - 4288 resources (00:01.991)\\n  Load hl7.fhir.uv.extensions.r4#5.2.0 - 759 resources (00:00.545)\\n - 8265 resources (00:00.000)\\n  Load hl7.fhir.uv.extensions.r5#5.2.0 - 759 resources (00:00.464)\\n  Load hl7.terminology#6.3.0 - 4339 resources (00:00.179)\\n  Load hl7.terminology.r5#6.2.0 - 4288 resources (00:00.869)\\n  Load hl7.fhir.uv.extensions#5.2.0 - 759 resources (00:00.003)\\n  Terminology server http://tx.fhir.org - Version Connected to Terminology Server at http://tx.fhir.org (00:00.968)\\n  Package Summary: [hl7.fhir.r4.core#4.0.1, hl7.fhir.xver-extensions#0.1.0, hl7.terminology.r4#6.2.0, hl7.fhir.uv.extensions.r4#5.2.0, hl7.fhir.uv.extensions.r5#5.2.0, hl7.terminology#6.3.0, hl7.terminology.r5#6.2.0, hl7.fhir.uv.extensions#5.2.0]\\n  Terminology Cache at /var/folders/qs/j7k4l64j58s9twvjtnltvg580000gn/T/default-tx-cache\\n  Get set...  go (00:01.052)\\nCached new session. Cache size = 1\\n  Fetch Profile from us-core\\n'}"
+    ]
+  },
+  "Encounter": {
+    "is_valid": false,
+    "error_count": 1,
+    "warning_count": 0,
+    "info_count": 0,
+    "errors": [
+      "{'level': 'ERROR', 'message': 'Error parsing validator output: FHIR Validation tool Version 6.5.21 (Git# 3aeedf07fdb6). Built 2025-05-08T06:59:47.628Z (12 days old)\\n  Java:   24.0.1 from /Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home on aarch64 (64bit). 12288MB available\\n  Paths:  Current = /Users/gabe/ATLAS Palantir, Package Cache = /Users/gabe/.fhir/packages\\n  Params: /var/folders/qs/j7k4l64j58s9twvjtnltvg580000gn/T/tmp66043yn4.json -output json -version R4 -profile us-core\\n  Locale: /\\n  Jurisdiction: United States of America\\nLoading\\n  Load FHIR v4.0 from hl7.fhir.r4.core#4.0.1  Load hl7.terminology.r4#6.2.0 - 4288 resources (00:02.023)\\n  Load hl7.fhir.uv.extensions.r4#5.2.0 - 759 resources (00:00.553)\\n - 8265 resources (00:00.000)\\n  Load hl7.fhir.uv.extensions.r5#5.2.0 - 759 resources (00:00.451)\\n  Load hl7.terminology#6.3.0 - 4339 resources (00:00.264)\\n  Load hl7.terminology.r5#6.2.0 - 4288 resources (00:00.757)\\n  Load hl7.fhir.uv.extensions#5.2.0 - 759 resources (00:00.002)\\n  Terminology server http://tx.fhir.org - Version Connected to Terminology Server at http://tx.fhir.org (00:00.941)\\n  Package Summary: [hl7.fhir.r4.core#4.0.1, hl7.fhir.xver-extensions#0.1.0, hl7.terminology.r4#6.2.0, hl7.fhir.uv.extensions.r4#5.2.0, hl7.fhir.uv.extensions.r5#5.2.0, hl7.terminology#6.3.0, hl7.terminology.r5#6.2.0, hl7.fhir.uv.extensions#5.2.0]\\n  Terminology Cache at /var/folders/qs/j7k4l64j58s9twvjtnltvg580000gn/T/default-tx-cache\\n  Get set...  go (00:00.994)\\nCached new session. Cache size = 1\\n  Fetch Profile from us-core\\n'}"
+    ]
+  },
+  "batch": {
+    "total": 8,
+    "valid_count": 0,
+    "invalid_count": 8,
+    "percent_valid": 0.0
+  }
+}

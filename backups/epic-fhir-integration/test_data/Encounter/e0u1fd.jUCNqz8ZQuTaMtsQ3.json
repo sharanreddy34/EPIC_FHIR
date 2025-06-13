@@ -1,0 +1,204 @@
+{
+  "resourceType": "Encounter",
+  "id": "e0u1fd.jUCNqz8ZQuTaMtsQ3",
+  "extension": [
+    {
+      "valueBoolean": false,
+      "url": "http://open.epic.com/FHIR/StructureDefinition/extension/accidentrelated"
+    }
+  ],
+  "identifier": [
+    {
+      "use": "usual",
+      "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+      "value": "23816"
+    }
+  ],
+  "status": "in-progress",
+  "class": {
+    "system": "urn:oid:1.2.840.114350.1.72.1.7.7.10.696784.13260",
+    "code": "3",
+    "display": "Admission"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "urn:oid:1.2.840.114350.1.13.0.1.7.10.698084.10110",
+          "code": "101",
+          "display": "Inpatient"
+        }
+      ],
+      "text": "Inpatient"
+    },
+    {
+      "coding": [
+        {
+          "system": "urn:oid:1.2.840.114350.1.13.0.1.7.10.698084.30",
+          "code": "3",
+          "display": "Hospital Encounter"
+        }
+      ],
+      "text": "Hospital Encounter"
+    },
+    {
+      "coding": [
+        {
+          "system": "urn:oid:1.2.840.114350.1.13.0.1.7.10.698084.18875",
+          "code": "2",
+          "display": "Urgent"
+        }
+      ],
+      "text": "Urgent"
+    }
+  ],
+  "serviceType": {
+    "coding": [
+      {
+        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.10.698084.18886",
+        "code": "106",
+        "display": "General Medicine"
+      }
+    ],
+    "text": "General Medicine"
+  },
+  "subject": {
+    "reference": "Patient/eOPSKZbz6YIgoilQprzPy0Q3",
+    "display": "Cadence, Anna"
+  },
+  "participant": [
+    {
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+              "code": "ADM",
+              "display": "admitter"
+            }
+          ],
+          "text": "admitter"
+        }
+      ],
+      "individual": {
+        "reference": "Practitioner/e7D.u41Zv3VPrLmUp-mWnrQ3",
+        "type": "Practitioner",
+        "display": "Physician Champion, MD"
+      }
+    },
+    {
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+              "code": "ATND",
+              "display": "attender"
+            }
+          ],
+          "text": "attender"
+        }
+      ],
+      "period": {
+        "start": "2016-01-05T05:53:52Z"
+      },
+      "individual": {
+        "reference": "Practitioner/e9s-IdXQOUVywHOVoisd6xQ3",
+        "type": "Practitioner",
+        "display": "Attending Physician Inpatient, MD"
+      }
+    }
+  ],
+  "period": {
+    "start": "2016-01-05T05:53:52Z"
+  },
+  "account": [
+    {
+      "identifier": {
+        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.726582",
+        "value": "1000371"
+      },
+      "display": "CADENCE,ANNA"
+    }
+  ],
+  "hospitalization": {
+    "extension": [
+      {
+        "valueDateTime": "2016-01-05T05:53:52Z",
+        "url": "http://open.epic.com/FHIR/StructureDefinition/extension/ip-admit-datetime"
+      }
+    ],
+    "admitSource": {
+      "coding": [
+        {
+          "system": "urn:oid:1.2.840.114350.1.13.0.1.7.10.698084.10310",
+          "code": "1",
+          "display": "Non-Healthcare Facility"
+        }
+      ],
+      "text": "Non-Healthcare Facility"
+    }
+  },
+  "location": [
+    {
+      "location": {
+        "reference": "Location/eO-3e71xq6A5Xp7leBMrw5X-8sAl6UHIF91p7maQKFdU3",
+        "display": "EMH Medical Surgical"
+      },
+      "period": {
+        "start": "2016-01-05T05:53:00Z"
+      }
+    },
+    {
+      "location": {
+        "reference": "Location/eO-3e71xq6A5Xp7leBMrw5X-8sAl6UHIF91p7maQKFdU3",
+        "display": "EMH Medical Surgical"
+      }
+    },
+    {
+      "location": {
+        "reference": "Location/eQSOrLdbVrMRc68KBcTBG4A3",
+        "display": "Epic Hospital System"
+      }
+    },
+    {
+      "location": {
+        "reference": "Location/eyuxzIu-O0NYXMi6Xv05oeA3",
+        "display": "121"
+      },
+      "physicalType": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
+            "code": "ro",
+            "display": "Room"
+          }
+        ],
+        "text": "Room"
+      }
+    },
+    {
+      "location": {
+        "identifier": {
+          "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.666968",
+          "value": "185"
+        },
+        "display": "121-01"
+      },
+      "physicalType": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
+            "code": "bd",
+            "display": "Bed"
+          }
+        ],
+        "text": "Bed"
+      }
+    }
+  ],
+  "serviceProvider": {
+    "reference": "Organization/enRyWnSP963FYDpoks4NHOA3",
+    "display": "Epic Hospital System"
+  }
+}

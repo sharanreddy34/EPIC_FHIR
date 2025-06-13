@@ -1,0 +1,14 @@
+runtime:
+  kind: container
+  image: epic-fhir-tools
+  command: [ 
+    "epic-fhir", 
+    "transform", 
+    "--bronze", "$DATA_ROOT/bronze", 
+    "--silver", "$DATA_ROOT/silver", 
+    "--gold", "$DATA_ROOT/gold" 
+  ]
+  env:
+    DATA_ROOT: "/foundry/objects"
+    PYTHONUNBUFFERED: "1"
+# No schedule - triggered manually or after extract job completes 

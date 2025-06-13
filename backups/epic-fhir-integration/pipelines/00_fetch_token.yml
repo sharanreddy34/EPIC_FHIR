@@ -1,0 +1,23 @@
+apiVersion: 1.0.0
+kind: Transform
+name: token-refresh
+profile: FHIR_TOKEN_REFRESH
+file: pipelines/01_fetch_token.py
+entrypoint: fetch_token
+inputs:
+  - path: /config/api_config.yaml
+outputs:
+  - path: /secrets/epic_token
+    type: secret
+resources:
+  memory: 1Gi
+  timeout: 120s
+secrets:
+  - EPIC_CLIENT_ID
+  - EPIC_CLIENT_SECRET
+schedule:
+  cron: "0 */4 * * *"   # refresh every 4 hours
+description: |
+  Fetches and stores an OAuth bearer token for use with the Epic FHIR API.
+  This transform runs every 4 hours to ensure a valid token is always available.
+  The token is stored in the secrets storage for secure access by other transforms. 

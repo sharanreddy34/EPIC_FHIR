@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "patient_id": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB",
+    "resource_type": "Condition",
+    "created_at": "2025-05-18T14:34:35.472574",
+    "entry_count": 5
+  },
+  "bundle": {
+    "resourceType": "Bundle",
+    "type": "searchset",
+    "total": 5,
+    "entry": [
+      {
+        "resource": {
+          "resourceType": "Condition",
+          "id": "mock-condition-0",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472566"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "clinicalStatus": {
+            "text": "active"
+          },
+          "code": {
+            "text": "Test Condition 0"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Condition",
+          "id": "mock-condition-1",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472569"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "clinicalStatus": {
+            "text": "active"
+          },
+          "code": {
+            "text": "Test Condition 1"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Condition",
+          "id": "mock-condition-2",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472570"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "clinicalStatus": {
+            "text": "active"
+          },
+          "code": {
+            "text": "Test Condition 2"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Condition",
+          "id": "mock-condition-3",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472572"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "clinicalStatus": {
+            "text": "active"
+          },
+          "code": {
+            "text": "Test Condition 3"
+          }
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Condition",
+          "id": "mock-condition-4",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.472573"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "clinicalStatus": {
+            "text": "active"
+          },
+          "code": {
+            "text": "Test Condition 4"
+          }
+        }
+      }
+    ]
+  }
+}

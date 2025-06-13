@@ -1,0 +1,37 @@
+apiVersion: 1.0.0
+kind: Transform
+name: extract-resources
+profile: FHIR_RESOURCE_EXTRACTION
+file: pipelines/02_extract_resources.py
+entrypoint: extract_resources
+inputs:
+  - path: /config/api_config.yaml
+  - path: /config/resources_config.yaml
+  - path: /secrets/epic_token
+  - path: /control/fhir_cursors
+    optional: true
+outputs:
+  - path: /bronze/fhir_raw
+resources:
+  memory: 4Gi
+  timeout: 3600s  # 1 hour
+secrets:
+  - EPIC_CLIENT_ID
+schedule:
+  cron: "0 1 * * *"   # Run daily at 1 AM
+description: |
+  Extracts FHIR resources from Epic API and stores them in the bronze layer.
+  This transform runs daily and incrementally extracts resources that have been 
+  updated since the last run. It handles pagination and rate limiting to ensure
+  all data is captured without overloading the Epic API.
+parameters:
+  - name: resource_type
+    type: string
+    required: false
+    description: Optional specific resource type to extract (e.g. "Patient", "Encounter").
+                 If not provided, all enabled resources in the configuration will be extracted.
+  - name: max_workers
+    type: integer
+    required: false
+    default: 4
+    description: Maximum number of concurrent workers to use for extraction. 

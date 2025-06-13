@@ -1,0 +1,40 @@
+name: Patient_Timeline_Gold
+type: table
+format: delta
+mode: append
+description: Patient clinical timeline with key events from Epic FHIR API
+tags:
+  - gold
+  - timeline
+  - fhir
+  - epic
+  - patient
+  - llm
+columns:
+  - name: patient_id
+    type: string
+    description: Patient ID
+  - name: id
+    type: string
+    description: Resource ID
+  - name: start_date
+    type: string
+    description: Event start date/time
+  - name: end_date
+    type: string
+    description: Event end date/time
+  - name: event_type
+    type: string
+    description: Type of event (Encounter, Observation, Condition)
+  - name: given_name
+    type: string
+    description: Patient's given name
+  - name: family_name
+    type: string
+    description: Patient's family name
+  - name: gender
+    type: string
+    description: Patient's gender
+  - name: birth_date
+    type: string
+    description: Patient's date of birth 

@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "resource_type": "Encounter",
+    "extracted_at": "2025-05-18T14:22:52.332865",
+    "page_number": 0,
+    "entry_count": 5
+  },
+  "bundle": {
+    "resourceType": "Bundle",
+    "type": "searchset",
+    "total": 5,
+    "entry": [
+      {
+        "fullUrl": "Encounter/mock-encounter-1",
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "mock-encounter-1",
+          "meta": {
+            "versionId": "1",
+            "lastUpdated": "2025-05-18T14:22:52.332843"
+          },
+          "status": "finished",
+          "class": {
+            "code": "AMB",
+            "display": "Ambulatory"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "period": {
+            "start": "2023-01-01T08:00:00Z",
+            "end": "2023-01-01T09:00:00Z"
+          }
+        }
+      },
+      {
+        "fullUrl": "Encounter/mock-encounter-2",
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "mock-encounter-2",
+          "meta": {
+            "versionId": "1",
+            "lastUpdated": "2025-05-18T14:22:52.332846"
+          },
+          "status": "finished",
+          "class": {
+            "code": "AMB",
+            "display": "Ambulatory"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "period": {
+            "start": "2023-01-01T08:00:00Z",
+            "end": "2023-01-01T09:00:00Z"
+          }
+        }
+      },
+      {
+        "fullUrl": "Encounter/mock-encounter-3",
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "mock-encounter-3",
+          "meta": {
+            "versionId": "1",
+            "lastUpdated": "2025-05-18T14:22:52.332848"
+          },
+          "status": "finished",
+          "class": {
+            "code": "AMB",
+            "display": "Ambulatory"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "period": {
+            "start": "2023-01-01T08:00:00Z",
+            "end": "2023-01-01T09:00:00Z"
+          }
+        }
+      },
+      {
+        "fullUrl": "Encounter/mock-encounter-4",
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "mock-encounter-4",
+          "meta": {
+            "versionId": "1",
+            "lastUpdated": "2025-05-18T14:22:52.332850"
+          },
+          "status": "finished",
+          "class": {
+            "code": "AMB",
+            "display": "Ambulatory"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "period": {
+            "start": "2023-01-01T08:00:00Z",
+            "end": "2023-01-01T09:00:00Z"
+          }
+        }
+      },
+      {
+        "fullUrl": "Encounter/mock-encounter-5",
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "mock-encounter-5",
+          "meta": {
+            "versionId": "1",
+            "lastUpdated": "2025-05-18T14:22:52.332851"
+          },
+          "status": "finished",
+          "class": {
+            "code": "AMB",
+            "display": "Ambulatory"
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "period": {
+            "start": "2023-01-01T08:00:00Z",
+            "end": "2023-01-01T09:00:00Z"
+          }
+        }
+      }
+    ]
+  }
+}

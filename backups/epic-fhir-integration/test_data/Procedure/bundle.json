@@ -1,0 +1,53 @@
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 0,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Procedure?patient=T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB&_count=50"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:c32c119b-0d2b-4b79-bff5-cbb805e51979",
+      "resource": {
+        "resourceType": "OperationOutcome",
+        "issue": [
+          {
+            "severity": "warning",
+            "code": "suppressed",
+            "details": {
+              "coding": [
+                {
+                  "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.657369",
+                  "code": "59204",
+                  "display": "The authenticated client's search request applies to a sub-resource that the client is not authorized for. Results of this sub-type will not be returned."
+                }
+              ],
+              "text": "The authenticated client's search request applies to a sub-resource that the client is not authorized for. Results of this sub-type will not be returned."
+            },
+            "diagnostics": "Client not authorized for Procedure - External Radiotherapy Summary. Search results of this type have not been included."
+          },
+          {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+              "coding": [
+                {
+                  "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.657369",
+                  "code": "4101",
+                  "display": "Resource request returns no results."
+                }
+              ],
+              "text": "Resource request returns no results."
+            }
+          }
+        ]
+      },
+      "search": {
+        "mode": "outcome"
+      }
+    }
+  ]
+}

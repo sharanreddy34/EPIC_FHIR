@@ -1,0 +1,141 @@
+{
+  "expectation_suite_name": "immunization_gold_expectations",
+  "ge_cloud_id": null,
+  "expectations": [
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "resourceType"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "resourceType",
+        "value_set": [
+          "Immunization"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "status"
+      },
+      "meta": {
+        "notes": "Check for immunization status."
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "status",
+        "value_set": [
+          "completed", "entered-in-error", "not-done"
+        ]
+      },
+      "meta": {
+        "notes": "Immunization status must be a valid FHIR code."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "patient.reference"
+      },
+      "meta": {
+        "notes": "Check for the reference to the patient."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "vaccineCode.coding"
+      },
+      "meta": {
+        "notes": "Gold tier requires coded values for vaccine code."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "vaccineCode.coding[0].system"
+      },
+      "meta": {
+        "notes": "Gold tier requires a coding system for the vaccine code."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "vaccineCode.coding[0].code"
+      },
+      "meta": {
+        "notes": "Gold tier requires a coded value for the vaccine code."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "occurrenceDateTime"
+      },
+      "meta": {
+        "notes": "Gold tier requires occurrence date/time."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "primarySource"
+      },
+      "meta": {
+        "notes": "Gold tier requires information about the primary source of the immunization record."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "lotNumber"
+      },
+      "meta": {
+        "notes": "Gold tier requires lot number information."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "performer"
+      },
+      "meta": {
+        "notes": "Gold tier requires performer information."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "text"
+      },
+      "meta": {
+        "notes": "Gold tier requires narrative text."
+      }
+    }
+  ],
+  "meta": {
+    "great_expectations_version": "0.18.14",
+    "resource_type": "Immunization",
+    "tier": "gold",
+    "notes": {
+      "content": "Gold tier expectations for Immunization resources.",
+      "format": "markdown"
+    }
+  }
+} 

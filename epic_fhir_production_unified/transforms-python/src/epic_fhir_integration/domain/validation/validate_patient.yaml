@@ -1,0 +1,10 @@
+runtime: python:3.9-spark:3.3
+entrypoint: validate_patient.compute
+resources:
+  memory: "4G"
+  cpu: "1"
+sparkConf:
+  spark.sql.shuffle.partitions: "100"
+  spark.default.parallelism: "50"
+schedule:
+  cron: "45 * * * *"   # 45 minutes past each hour 

@@ -1,0 +1,117 @@
+[
+  {
+    "id": "alert_completeness_001",
+    "name": "Patient Data Completeness Alert",
+    "description": "Critical patient demographic data is missing",
+    "category": "completeness",
+    "severity": "high",
+    "status": "active",
+    "metric_value": 0.65,
+    "timestamp": "2023-11-15T10:30:00Z",
+    "details": {
+      "resource_type": "Patient",
+      "resource_id": "patient-001",
+      "missing_fields": ["birthDate", "gender"],
+      "quality_score": 0.65
+    }
+  },
+  {
+    "id": "alert_conformance_001",
+    "name": "Observation Conformance Alert",
+    "description": "Observations fail to conform to profile requirements",
+    "category": "conformance",
+    "severity": "critical",
+    "status": "active",
+    "metric_value": 0.45,
+    "timestamp": "2023-11-15T11:15:00Z",
+    "details": {
+      "resource_type": "Observation",
+      "resource_id": "observation-group-bp",
+      "resource_count": 35,
+      "validation_failures": 18,
+      "quality_score": 0.45,
+      "issues": [
+        {"severity": "error", "message": "Missing required code element"},
+        {"severity": "error", "message": "Invalid status value"}
+      ]
+    }
+  },
+  {
+    "id": "alert_consistency_001",
+    "name": "Medication Request Consistency Alert",
+    "description": "Inconsistent medication information across resources",
+    "category": "consistency",
+    "severity": "medium",
+    "status": "active",
+    "metric_value": 0.72,
+    "timestamp": "2023-11-15T14:22:00Z",
+    "details": {
+      "resource_type": "MedicationRequest",
+      "resource_id": "medication-batch-nov15",
+      "resource_count": 42,
+      "inconsistency_count": 12,
+      "quality_score": 0.72,
+      "inconsistency_types": [
+        "medication code vs display mismatch",
+        "conflicting dosage instructions"
+      ]
+    }
+  },
+  {
+    "id": "alert_pipeline_001",
+    "name": "ETL Pipeline Error Rate Alert",
+    "description": "High error rate in bronze to silver transformation",
+    "category": "pipeline",
+    "severity": "critical",
+    "status": "active",
+    "metric_value": 0.09,
+    "timestamp": "2023-11-15T16:05:00Z",
+    "details": {
+      "pipeline_stage": "bronze_to_silver",
+      "resource_types": ["Patient", "Observation", "MedicationRequest"],
+      "total_resources": 1240,
+      "failed_resources": 112,
+      "error_rate": 0.09,
+      "error_types": [
+        "transformation errors",
+        "invalid references",
+        "schema validation failures"
+      ]
+    }
+  },
+  {
+    "id": "alert_completeness_002",
+    "name": "Encounter Data Completeness Alert",
+    "description": "Missing encounter details",
+    "category": "completeness",
+    "severity": "low",
+    "status": "active",
+    "metric_value": 0.85,
+    "timestamp": "2023-11-16T09:15:00Z",
+    "details": {
+      "resource_type": "Encounter",
+      "resource_id": "encounter-batch-nov15",
+      "resource_count": 78,
+      "incomplete_resources": 12,
+      "quality_score": 0.85,
+      "missing_fields": ["serviceProvider", "reasonCode"]
+    }
+  },
+  {
+    "id": "alert_timeliness_001",
+    "name": "Data Timeliness Alert",
+    "description": "Data is older than expected threshold",
+    "category": "timeliness",
+    "severity": "medium",
+    "status": "resolved",
+    "metric_value": 0.62,
+    "timestamp": "2023-11-14T08:30:00Z",
+    "details": {
+      "resource_types": ["Observation", "Condition"],
+      "resource_count": 245,
+      "average_age_hours": 72.4,
+      "threshold_hours": 48.0,
+      "quality_score": 0.62
+    }
+  }
+] 

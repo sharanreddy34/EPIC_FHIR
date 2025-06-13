@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  pathling:
+    build: ./ops/pathling
+    ports:
+      - "8080:8080"
+    volumes:
+      - "${PWD}/pathling_data:/app/data"
+    environment:
+      - JAVA_TOOL_OPTIONS=-Xmx4g

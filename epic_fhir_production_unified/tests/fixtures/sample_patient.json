@@ -1,0 +1,145 @@
+{
+  "resourceType": "Patient",
+  "id": "example-patient-1",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2023-05-15T14:30:00Z"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">John Doe</div>"
+  },
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://example.org/fhir/mrn",
+      "value": "MRN12345"
+    },
+    {
+      "use": "secondary",
+      "system": "http://example.org/fhir/id",
+      "value": "456789"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Doe",
+      "given": [
+        "John",
+        "Robert"
+      ],
+      "prefix": [
+        "Mr."
+      ]
+    },
+    {
+      "use": "nickname",
+      "given": [
+        "Johnny"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "555-123-4567",
+      "use": "home"
+    },
+    {
+      "system": "email",
+      "value": "john.doe@example.com"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1980-06-15",
+  "address": [
+    {
+      "use": "home",
+      "type": "physical",
+      "line": [
+        "123 Main St",
+        "Apt 4B"
+      ],
+      "city": "Anytown",
+      "state": "CA",
+      "postalCode": "12345",
+      "country": "USA"
+    }
+  ],
+  "maritalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+        "code": "M",
+        "display": "Married"
+      }
+    ],
+    "text": "Married"
+  },
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English"
+          }
+        ],
+        "text": "English"
+      },
+      "preferred": true
+    },
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "es",
+            "display": "Spanish"
+          }
+        ],
+        "text": "Spanish"
+      },
+      "preferred": false
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName",
+      "valueString": "Smith"
+    },
+    {
+      "url": "http://epic.com/fhir/extensions/patient/ethnicity",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2135-2",
+            "display": "Hispanic or Latino"
+          }
+        ],
+        "text": "Hispanic or Latino"
+      }
+    },
+    {
+      "url": "http://epic.com/fhir/extensions/patient/race",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2106-3",
+            "display": "White"
+          }
+        ],
+        "text": "White"
+      }
+    }
+  ],
+  "managingOrganization": {
+    "reference": "Organization/123",
+    "display": "Example Healthcare"
+  }
+} 

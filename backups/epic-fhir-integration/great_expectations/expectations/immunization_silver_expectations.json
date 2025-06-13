@@ -1,0 +1,96 @@
+{
+  "expectation_suite_name": "immunization_silver_expectations",
+  "ge_cloud_id": null,
+  "expectations": [
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "resourceType"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "resourceType",
+        "value_set": [
+          "Immunization"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "status"
+      },
+      "meta": {
+        "notes": "Check for immunization status."
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "status",
+        "value_set": [
+          "completed", "entered-in-error", "not-done"
+        ]
+      },
+      "meta": {
+        "notes": "Immunization status must be a valid FHIR code."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "patient.reference"
+      },
+      "meta": {
+        "notes": "Check for the reference to the patient."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "vaccineCode.coding"
+      },
+      "meta": {
+        "notes": "Silver tier requires coded values for vaccine code."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "occurrenceDateTime"
+      },
+      "meta": {
+        "notes": "Silver tier requires occurrence date/time."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "primarySource"
+      },
+      "meta": {
+        "notes": "Silver tier requires information about the primary source of the immunization record."
+      }
+    }
+  ],
+  "meta": {
+    "great_expectations_version": "0.18.14",
+    "resource_type": "Immunization",
+    "tier": "silver",
+    "notes": {
+      "content": "Silver tier expectations for Immunization resources.",
+      "format": "markdown"
+    }
+  }
+} 

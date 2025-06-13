@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+# Note: All dependencies are defined in transforms-python/conda_recipe.yml
+# This is the single source of truth for dependency management in Foundry. 
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "isort",
+    "flake8",
+    "pytest",
+    "pytest-cov",
+    "pip-audit"
+]
+docs = [
+    "mkdocs",
+    "mkdocs-material"
+] 

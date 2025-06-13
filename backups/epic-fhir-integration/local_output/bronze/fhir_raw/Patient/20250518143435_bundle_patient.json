@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "patient_id": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB",
+    "resource_type": "Patient",
+    "created_at": "2025-05-18T14:34:35.471883",
+    "entry_count": 5
+  },
+  "bundle": {
+    "resourceType": "Bundle",
+    "type": "searchset",
+    "total": 5,
+    "entry": [
+      {
+        "resource": {
+          "resourceType": "Patient",
+          "id": "mock-patient-0",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.471872"
+          },
+          "name": [
+            {
+              "family": "Test",
+              "given": [
+                "Patient"
+              ]
+            }
+          ],
+          "gender": "unknown",
+          "birthDate": "1970-01-01"
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Patient",
+          "id": "mock-patient-1",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.471876"
+          },
+          "name": [
+            {
+              "family": "Test",
+              "given": [
+                "Patient"
+              ]
+            }
+          ],
+          "gender": "unknown",
+          "birthDate": "1970-01-01"
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Patient",
+          "id": "mock-patient-2",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.471879"
+          },
+          "name": [
+            {
+              "family": "Test",
+              "given": [
+                "Patient"
+              ]
+            }
+          ],
+          "gender": "unknown",
+          "birthDate": "1970-01-01"
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Patient",
+          "id": "mock-patient-3",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.471880"
+          },
+          "name": [
+            {
+              "family": "Test",
+              "given": [
+                "Patient"
+              ]
+            }
+          ],
+          "gender": "unknown",
+          "birthDate": "1970-01-01"
+        }
+      },
+      {
+        "resource": {
+          "resourceType": "Patient",
+          "id": "mock-patient-4",
+          "meta": {
+            "lastUpdated": "2025-05-18T14:34:35.471882"
+          },
+          "name": [
+            {
+              "family": "Test",
+              "given": [
+                "Patient"
+              ]
+            }
+          ],
+          "gender": "unknown",
+          "birthDate": "1970-01-01"
+        }
+      }
+    ]
+  }
+}

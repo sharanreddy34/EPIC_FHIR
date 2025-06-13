@@ -1,0 +1,31 @@
+# Pathling extract specification for Observation resources
+select:
+  - path: id
+  - path: status
+  - path: subject.reference ; as: patient_reference
+  - path: subject.reference.substring(8) ; as: patient_id
+  - path: encounter.reference ; as: encounter_reference
+  - path: encounter.reference.substring(10) ; as: encounter_id
+  - path: effectiveDateTime.toString() ; as: effective_date_time
+  - path: effectivePeriod.start.toString() ; as: effective_period_start
+  - path: effectivePeriod.end.toString() ; as: effective_period_end
+  - path: issued.toString() ; as: issued_date
+  - path: code.coding.system.first() ; as: code_system
+  - path: code.coding.code.first() ; as: code
+  - path: code.coding.display.first() ; as: code_display
+  - path: code.text ; as: code_text
+  - path: category.coding.code.first() ; as: category_code
+  - path: category.coding.display.first() ; as: category_display
+  - path: valueQuantity.value ; as: quantity_value
+  - path: valueQuantity.unit ; as: quantity_unit
+  - path: valueQuantity.system ; as: quantity_system
+  - path: valueQuantity.code ; as: quantity_code
+  - path: valueString ; as: string_value
+  - path: valueCodeableConcept.coding.code.first() ; as: concept_code
+  - path: valueCodeableConcept.coding.display.first() ; as: concept_display
+  - path: valueCodeableConcept.text ; as: concept_text
+  - path: valueBoolean ; as: boolean_value
+  - path: interpretation.coding.code.first() ; as: interpretation_code
+  - path: interpretation.coding.display.first() ; as: interpretation_display
+  - path: note.text.first() ; as: note
+  - path: meta.lastUpdated.toString() ; as: last_updated 

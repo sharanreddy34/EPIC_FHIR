@@ -1,0 +1,66 @@
+{
+  "expectation_suite_name": "diagnosticreport_bronze_expectations",
+  "ge_cloud_id": null,
+  "expectations": [
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "resourceType"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "resourceType",
+        "value_set": [
+          "DiagnosticReport"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "status"
+      },
+      "meta": {
+        "notes": "Check for diagnostic report status."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "code.text"
+      },
+      "meta": {
+        "notes": "Check for the text representation of the diagnostic report code."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "subject.reference"
+      },
+      "meta": {
+        "notes": "Check for the reference to the patient."
+      }
+    }
+  ],
+  "meta": {
+    "great_expectations_version": "0.18.14",
+    "resource_type": "DiagnosticReport",
+    "tier": "bronze",
+    "notes": {
+      "content": "Bronze tier expectations for DiagnosticReport resources.",
+      "format": "markdown"
+    }
+  }
+} 

@@ -1,0 +1,58 @@
+{
+  "expectation_suite_name": "condition_gold_expectations",
+  "expectations": [
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "resourceType"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "resourceType",
+        "value_set": [
+          "Condition"
+        ]
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "id"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "code"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "subject"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "clinicalStatus"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "text.div"
+      }
+    }
+  ],
+  "meta": {
+    "resource_type": "Condition",
+    "tier": "gold",
+    "notes": {
+      "content": "Expectations for Condition in gold tier",
+      "format": "markdown"
+    }
+  }
+}

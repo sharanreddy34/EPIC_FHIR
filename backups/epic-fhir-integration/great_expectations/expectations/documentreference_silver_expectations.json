@@ -1,0 +1,114 @@
+{
+  "expectation_suite_name": "documentreference_silver_expectations",
+  "ge_cloud_id": null,
+  "expectations": [
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "resourceType"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "resourceType",
+        "value_set": [
+          "DocumentReference"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "status"
+      },
+      "meta": {
+        "notes": "Check for document status."
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "status",
+        "value_set": [
+          "current", "superseded", "entered-in-error"
+        ]
+      },
+      "meta": {
+        "notes": "DocumentReference status must be a valid FHIR code."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "type.coding"
+      },
+      "meta": {
+        "notes": "Silver tier requires coded values for document type."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "subject.reference"
+      },
+      "meta": {
+        "notes": "Check for the reference to the patient."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "content"
+      },
+      "meta": {
+        "notes": "Check for content element containing the document's location or data."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "content[0].attachment"
+      },
+      "meta": {
+        "notes": "Silver tier requires attachment details."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "content[0].attachment.contentType"
+      },
+      "meta": {
+        "notes": "Silver tier requires content type information."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "date"
+      },
+      "meta": {
+        "notes": "Silver tier requires date information."
+      }
+    }
+  ],
+  "meta": {
+    "great_expectations_version": "0.18.14",
+    "resource_type": "DocumentReference",
+    "tier": "silver",
+    "notes": {
+      "content": "Silver tier expectations for DocumentReference resources.",
+      "format": "markdown"
+    }
+  }
+} 

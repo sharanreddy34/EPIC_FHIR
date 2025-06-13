@@ -1,0 +1,22 @@
+# Pathling extract specification for Patient resources
+select:
+  - path: id
+  - path: identifier.where(system='urn:oid:1.2.840.114350.1.13.0.1.7.2.798268').value ; as: mrn
+  - path: active
+  - path: name.given.first() ; as: given_name
+  - path: name.family ; as: family_name
+  - path: name.where(use='official').text.first() ; as: full_name
+  - path: gender
+  - path: birthDate.toString() ; as: birth_date
+  - path: address.line.first() ; as: address_line
+  - path: address.city.first() ; as: city
+  - path: address.state.first() ; as: state
+  - path: address.postalCode.first() ; as: postal_code
+  - path: address.country.first() ; as: country
+  - path: telecom.where(system='phone').value.first() ; as: phone
+  - path: telecom.where(system='email').value.first() ; as: email
+  - path: maritalStatus.coding.code.first() ; as: marital_status
+  - path: communication.language.coding.code.first() ; as: language
+  - path: meta.lastUpdated.toString() ; as: last_updated
+  - path: extension.where(url='http://hl7.org/fhir/us/core/StructureDefinition/us-core-race').extension.where(url='ombCategory').valueCoding.display.first() ; as: race
+  - path: extension.where(url='http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity').extension.where(url='ombCategory').valueCoding.display.first() ; as: ethnicity 

@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "epic-fhir-integration"
+version = "0.1.0"
+authors = [
+    {name = "Your Organization", email = "example@example.com"},
+]
+description = "Epic FHIR Integration for Palantir Foundry"
+readme = "README.md"
+requires-python = ">=3.10,<3.12"
+license = {text = "Apache-2.0"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pyyaml>=6.0",
+    "requests>=2.31.0",
+    "pyspark>=3.4.0",
+    "pydantic>=1.10.8,<2.0.0",  # Using v1 series for compatibility
+    "fhir.resources>=8.0.0",
+    "pyjwt>=2.8.0",
+    "cryptography>=41.0.0",
+    "fhirpath>=1.2.0",  # For FHIRPath evaluation
+    "fhirpathpy>=0.2.4",  # Fallback if fhirpath not available
+]
+
+[project.optional-dependencies]
+analytics = [
+    "pandas>=1.5.3,<2.0.0",
+    "numpy>=1.24.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "pathling>=2.1.0",  # Pathling client for analytics
+]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.4.0",
+]
+
+[project.scripts]
+epic-fhir = "epic_fhir_integration.cli.main:main_cli"
+
+[tool.setuptools.packages.find]
+include = ["epic_fhir_integration*"]
+exclude = ["tests*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
+line_length = 100 

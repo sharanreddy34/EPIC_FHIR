@@ -1,0 +1,57 @@
+{
+  "patient_id": "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB",
+  "timestamp": "2025-05-20T19:58:58.527015",
+  "steps": {
+    "authentication": {
+      "success": true,
+      "duration": 2.512087821960449,
+      "token_type": "string",
+      "timestamp": "2025-05-20T19:59:01.039175"
+    },
+    "fetch_data": {
+      "success": true,
+      "duration": 0.00038909912109375,
+      "resource_counts": {
+        "Patient": 1,
+        "Observation": 5,
+        "Condition": 1,
+        "Encounter": 1
+      },
+      "timestamp": "2025-05-20T19:59:01.039621",
+      "output_file": "fhir_live_auth_test_output/results/raw_resources.json"
+    },
+    "fhirpath": {
+      "success": true,
+      "duration": 0.00044274330139160156,
+      "query_count": 8,
+      "timestamp": "2025-05-20T19:59:01.040103",
+      "output_file": "fhir_live_auth_test_output/results/fhirpath_results.json"
+    },
+    "pathling": {
+      "success": true,
+      "duration": 0.034140825271606445,
+      "timestamp": "2025-05-20T19:59:01.074292",
+      "output_file": "fhir_live_auth_test_output/results/pathling_results.json"
+    },
+    "datascience": {
+      "success": true,
+      "duration": 0.0003838539123535156,
+      "timestamp": "2025-05-20T19:59:01.074725",
+      "output_file": "fhir_live_auth_test_output/results/datascience_results.json"
+    },
+    "validation": {
+      "success": true,
+      "duration": 83.50607681274414,
+      "timestamp": "2025-05-20T20:00:24.580943",
+      "output_file": "fhir_live_auth_test_output/results/validation_results.json",
+      "validation_stats": {
+        "total": 8,
+        "valid_count": 0,
+        "invalid_count": 8,
+        "percent_valid": 0.0
+      }
+    }
+  },
+  "overall_success": true,
+  "mock_mode": false
+}

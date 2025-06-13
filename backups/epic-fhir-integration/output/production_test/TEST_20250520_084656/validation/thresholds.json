@@ -1,0 +1,17 @@
+{
+  "row_count_threshold": 0.99,
+  "performance_thresholds": {
+    "extract": 300,
+    "transform": 600,
+    "load": 300
+  },
+  "data_quality_thresholds": {
+    "completeness": 0.95,
+    "accuracy": 0.98,
+    "consistency": 0.97
+  },
+  "resource_usage_thresholds": {
+    "memory_percent_max": 90,
+    "cpu_percent_max": 95
+  }
+}

@@ -1,0 +1,13 @@
+runtime: python:3.9-spark:3.3
+entrypoint: patient_narrative.compute
+resources:
+  memory: "12G"
+  cpu: "2"
+sparkConf:
+  spark.sql.shuffle.partitions: "200"
+  spark.default.parallelism: "100"
+  spark.sql.autoBroadcastJoinThreshold: "100m"
+schedule:
+  cron: "30 2 * * *"   # 2:30 AM daily
+config:
+  max_events_per_patient: 100 

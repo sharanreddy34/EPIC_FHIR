@@ -1,0 +1,41 @@
+# Atlas IDE: React Frontend Development Guide & Framework
+
+## Introduction
+
+Welcome to the Atlas IDE React Frontend Development Guide! This document provides a comprehensive framework and practical guidance for designing, developing, and deploying the React-based frontend for Atlas IDE.
+
+THE GOAL:  ensure that the Atlas IDE effectively uses the power of VSCodium as a core editor, wrapped by a helpful and intelligent React-based clinician-focused interface this is the goal
+
+**Project Vision:** Atlas IDE is an AI-enabled, VS Code-like development environment embedded as a SMART-on-FHIR application within an Epic EMR sidebar. It aims to provide clinicians with Cursor-like AI coding assistance (e.g., context-aware chat, ghost-text autocompletion, AI-driven code modifications, FHIR-specific commands) while interacting with real-time FHIR data from Palantir Foundry. The frontend is a Next.js application that wraps a `code-server` instance and communicates with a FastAPI backend for data and AI functionalities.
+
+This guide synthesizes information from key planning documents (`frontend plan.md`, [REACT.md](cci:7://file:///Users/gabe/ATLAS%20Palantir/PLANNING/REACT.md:0:0-0:0), `REACT functionality.md`, [techstack.md](cci:7://file:///Users/gabe/ATLAS%20Palantir/PLANNING/techstack.md:0:0-0:0)) to provide actionable advice and patterns for the React frontend team.
+
+## Key Architectural & Guiding Principles
+
+These principles are derived from our project goals, technology choices, and iterative learning:
+
+1.  **Clinician-Centric Design Prevails:** All UI/UX decisions must prioritize ease of use, clarity, and efficiency for clinicians, minimizing cognitive load within the Epic sidebar constraints.
+2.  **Performance is Non-Negotiable:** The IDE must be highly responsive and resource-efficient. Employ code splitting, lazy loading, memoization, and optimized data handling (e.g., virtualized lists for large datasets).
+3.  **Backend Alignment for Data Fetching:**
+    *   **Principle:** Choose data fetching libraries that directly match the primary communication patterns of the backend services. For Atlas IDE, with a primary reliance on **REST APIs** from the FastAPI backend, **`TanStack Query` (React Query) is the standard for server state management.**
+    *   **Learning:** We initially considered Apollo Client. However, recognizing the backend's REST-first approach, we've adapted to `TanStack Query` to ensure a more streamlined and efficient integration. This highlights the importance of confirming backend API design before finalizing frontend data-fetching choices.
+4.  **Leverage Specialized Libraries for Server State:** Employ dedicated libraries like `TanStack Query` for managing asynchronous server state, including caching, background data synchronization, request deduplication, and optimistic updates. This simplifies client-side logic and enhances user experience.
+5.  **Modular & Reusable Components (MUI + Custom):** Build a robust component library using MUI as the foundation, supplemented by custom components organized within Nx libraries (`ui-core`, etc.) for maximum reusability and maintainability.
+6.  **Clear State Management Boundaries:**
+    *   **Zustand:** For global UI-specific client-side state (e.g., theme, modal visibility, chat state).
+    *   **`TanStack Query`:** For server cache and asynchronous state related to backend data.
+    *   Local component state: For UI elements that don't need to be shared.
+7.  **Embrace TypeScript for Robustness:** Strict TypeScript usage is mandatory to improve code quality, maintainability, and developer productivity.
+8.  **Iterative AI Feature Integration:** AI features will be developed and integrated iteratively, focusing on clear communication between the React shell, `code-server`, and the AI backend. `code-server` message passing will be a key mechanism.
+9.  **Security and Compliance by Design:** Adhere to HIPAA guidelines and WCAG 2.2 AA accessibility standards from the outset in all frontend development.
+10. **Comprehensive Testing Strategy:** Implement unit (Jest, RTL), integration, and E2E tests (Playwright/Cypress), along with Storybook for component development and visual testing.
+
+## 1. Overall Frontend Architecture
+
+The frontend architecture is designed to be modular, performant, and maintainable, integrating a Next.js React shell with `code-server` and various services.
+
+### 1.1. Next.js Shell and `code-server` Integration
+
+*   **Next.js Application:** Serves as the main container and UI shell for Atlas IDE. It will be responsible for:
+    *   User authentication and session management (handling SMART launch parameters).
+    *   Rendering the overall layout, including navigation, sidebars, and the `code-server` iframe.

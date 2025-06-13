@@ -1,0 +1,36 @@
+# Declarative Build configuration for Epic FHIR Pipeline
+version: 1
+
+defaultSparkConf:
+  "spark.sql.extensions": "io.delta.sql.DeltaSparkSessionExtension"
+  "spark.sql.catalog.spark_catalog": "org.apache.spark.sql.delta.catalog.DeltaCatalog"
+  "spark.sql.adaptive.enabled": "true"
+  "spark.databricks.delta.optimizeWrite.enabled": "true"
+  "spark.databricks.delta.autoCompact.enabled": "true"
+
+transforms:
+  # Bronze Layer - Raw Resource extraction transforms
+  // ... existing code ...
+
+  python:
+    root: transforms-python
+    secretScopes:
+      - epic-fhir-api
+    transforms:
+      - name: epic-fhir-transform
+        file: transforms/epic_fhir_transform.py
+        type: PYTHON
+        parameters:
+          - name: resource_type
+            type: string
+            default: Patient
+          - name: date_from
+            type: string
+            required: false
+          - name: date_to
+            type: string
+            required: false
+
+ci:
+  enabled: true
+  config: .github/workflows 

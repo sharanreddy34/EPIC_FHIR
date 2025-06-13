@@ -1,0 +1,10 @@
+{
+  "timestamp": "2025-05-18T14:34:35.478816",
+  "pipeline_run_id": "mock-run-123",
+  "metrics": {
+    "resources_processed": 100,
+    "errors": 0,
+    "warnings": 5,
+    "execution_time": 42.5
+  }
+}

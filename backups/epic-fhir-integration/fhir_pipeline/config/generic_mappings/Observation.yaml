@@ -1,0 +1,30 @@
+resourceType: Observation
+version: 1
+validate: true
+columns:
+  # Identifiers
+  observation_id: id
+  patient_id: subject.reference.replace('Patient/','')
+  # Coding
+  code_code: code.coding[0].code
+  code_system: code.coding[0].system
+  code_display: code.coding[0].display
+  code_text: code.text
+  # Dates and status
+  issued_datetime: issued
+  effective_datetime: effectiveDateTime | effectiveInstant | effectivePeriod.start
+  status: status
+  # Values
+  value_quantity: valueQuantity.value
+  value_quantity_unit: valueQuantity.unit
+  value_quantity_code: valueQuantity.code
+  value_string: valueString
+  value_codeable_concept_text: valueCodeableConcept.text
+  value: valueQuantity.value | valueString | valueCodeableConcept.text
+  # Context
+  encounter_reference: encounter.reference
+  # Narrative
+  clinical_text: text.div
+
+extras:
+  partition_by: [issued_year] 

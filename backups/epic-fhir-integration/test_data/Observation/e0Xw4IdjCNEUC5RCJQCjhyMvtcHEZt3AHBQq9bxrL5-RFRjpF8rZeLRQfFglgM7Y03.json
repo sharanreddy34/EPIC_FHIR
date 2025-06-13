@@ -1,0 +1,91 @@
+{
+  "resourceType": "Observation",
+  "id": "e0Xw4IdjCNEUC5RCJQCjhyMvtcHEZt3AHBQq9bxrL5-RFRjpF8rZeLRQfFglgM7Y03",
+  "extension": [
+    {
+      "valueQuantity": {
+        "value": 102,
+        "unit": "[degF]",
+        "system": "http://unitsofmeasure.org",
+        "code": "[degF]"
+      },
+      "url": "http://open.epic.com/FHIR/STU3/StructureDefinition/temperature-in-fahrenheit"
+    },
+    {
+      "valueIdentifier": {
+        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.707684",
+        "value": "31000"
+      },
+      "url": "http://open.epic.com/FHIR/StructureDefinition/extension/template-id"
+    }
+  ],
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "vital-signs",
+          "display": "Vital Signs"
+        }
+      ],
+      "text": "Vital Signs"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679",
+        "code": "6",
+        "display": "Temp"
+      },
+      {
+        "system": "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id",
+        "code": "tvdinindxnlKvaoAecyilRA0",
+        "display": "Temp"
+      },
+      {
+        "system": "urn:oid:1.2.246.537.6.96",
+        "code": "8310-5"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8310-5",
+        "display": "Body temperature"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8716-3",
+        "display": "Vital signs"
+      }
+    ],
+    "text": "Temp"
+  },
+  "subject": {
+    "reference": "Patient/eOPSKZbz6YIgoilQprzPy0Q3",
+    "display": "Cadence, Anna"
+  },
+  "encounter": {
+    "reference": "Encounter/e0u1fd.jUCNqz8ZQuTaMtsQ3",
+    "identifier": {
+      "use": "usual",
+      "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+      "value": "23816"
+    },
+    "display": "Hospital Encounter"
+  },
+  "effectiveDateTime": "2016-02-29T21:00:00Z",
+  "issued": "2016-02-29T21:03:55Z",
+  "performer": [
+    {
+      "reference": "Practitioner/eCzp8tUARfrldZGSdbqICuw3",
+      "display": "Nurse Inpatient, RN"
+    }
+  ],
+  "valueQuantity": {
+    "value": 38.9,
+    "unit": "Cel",
+    "system": "http://unitsofmeasure.org",
+    "code": "Cel"
+  }
+}

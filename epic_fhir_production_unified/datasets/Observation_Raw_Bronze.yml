@@ -1,0 +1,11 @@
+name: Observation_Raw_Bronze
+type: table
+format: delta
+mode: append
+description: Raw Observation resources from Epic FHIR API
+tags: 
+  - bronze
+  - raw
+  - fhir
+  - epic
+  - observation 

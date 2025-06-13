@@ -1,0 +1,85 @@
+# FHIR Resource Validation Rules
+# Contains validation rules for different resource types
+
+# Rule types:
+# - required: Field must be present and non-null
+# - regex: Field must match the specified regex pattern
+# - allowed_codes: Field must be one of the specified codes
+# - date_format: Field must be in valid ISO format
+# - min_value/max_value: Numeric constraints
+
+Patient:
+  - rule: required
+    paths: 
+      - id
+      - name[0].family
+      - birthDate
+    level: fatal
+    
+  - rule: regex
+    path: gender
+    pattern: "^(male|female|other|unknown)$"
+    level: fatal
+    
+  - rule: date_format
+    path: birthDate
+    format: "YYYY-MM-DD"
+    level: fatal
+
+Observation:
+  - rule: required
+    paths:
+      - id
+      - subject.reference
+      - code.coding[0].code
+    level: fatal
+    
+  - rule: allowed_codes
+    path: status
+    allowed:
+      - registered
+      - preliminary
+      - final
+      - amended
+      - corrected
+      - cancelled
+      - entered-in-error
+      - unknown
+    level: warning
+    
+  - rule: regex
+    path: code.coding[0].system
+    pattern: "^http(s)?://.*"
+    level: warning
+
+Encounter:
+  - rule: required
+    paths:
+      - id
+      - subject.reference
+      - status
+    level: fatal
+    
+  - rule: allowed_codes
+    path: status
+    allowed:
+      - planned
+      - arrived
+      - triaged
+      - in-progress
+      - onleave
+      - finished
+      - cancelled
+      - entered-in-error
+    level: warning
+    
+  - rule: date_format
+    path: period.start
+    format: "YYYY-MM-DDThh:mm:ss+zz:zz"
+    level: warning
+
+# Additional code sets referenced in rules
+code_sets:
+  loinc_systems:
+    - "http://loinc.org"
+    - "urn:oid:2.16.840.1.113883.6.1" 

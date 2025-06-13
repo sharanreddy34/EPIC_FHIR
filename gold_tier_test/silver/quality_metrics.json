@@ -1,0 +1,24 @@
+{
+  "tier": "silver",
+  "resource_counts": {
+    "Patient": 1,
+    "Observation": 5,
+    "Condition": 1,
+    "Encounter": 1
+  },
+  "total_resources": 8,
+  "quality_scores": {
+    "completeness": 0.95,
+    "conformance": 1.0,
+    "consistency": 0.98,
+    "timeliness": 0.99
+  },
+  "overall_quality": 0.98,
+  "resource_types": [
+    "Patient",
+    "Observation",
+    "Condition",
+    "Encounter"
+  ],
+  "mock_mode": true
+}

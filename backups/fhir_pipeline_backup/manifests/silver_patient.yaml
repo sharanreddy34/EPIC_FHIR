@@ -1,0 +1,65 @@
+name: fhir_normalized_patient
+description: |
+  Normalized Patient resources from FHIR.
+  Contains structured patient demographic information derived from FHIR R4 Patient resources.
+  
+format: delta
+
+schema:
+  fields:
+    - name: patient_id
+      type: string
+      nullable: false
+      description: Patient identifier
+      
+    - name: name_text
+      type: string
+      nullable: true
+      description: Patient's full name
+      
+    - name: name_family
+      type: string
+      nullable: true
+      description: Patient's family name
+      
+    - name: name_given
+      type: string
+      nullable: true
+      description: Patient's given name
+      
+    - name: birth_date
+      type: string
+      nullable: true
+      description: Patient's date of birth in ISO format
+      
+    - name: gender
+      type: string
+      nullable: true
+      description: Patient's gender (male, female, other, unknown)
+      
+    - name: active
+      type: boolean
+      nullable: true
+      description: Whether the patient record is active
+      
+    - name: _hash_id
+      type: string
+      nullable: false
+      description: Hash identifier for idempotent processing
+      
+retention:
+  expiration: 365d
+  stage: Silver
+  
+schemaEvolution: true
+
+permissions:
+  - principal: ROLE_HEALTH_ANALYST
+    actions: [READ]
+    
+  - principal: ROLE_HEALTH_DATA_ENGINEER
+    actions: [READ, WRITE, CREATE, DELETE]
+
+preview:
+  enabled: true
+  maxRowCount: 10000 

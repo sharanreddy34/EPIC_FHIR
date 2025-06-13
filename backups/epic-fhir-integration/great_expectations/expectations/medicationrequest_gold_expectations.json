@@ -1,0 +1,96 @@
+{
+  "expectation_suite_name": "medicationrequest_gold_expectations",
+  "expectations": [
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "resourceType"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "resourceType",
+        "value_set": [
+          "MedicationRequest"
+        ]
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "id"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "status"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "intent"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "subject"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "medication"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "status",
+        "value_set": [
+          "active",
+          "on-hold",
+          "cancelled",
+          "completed",
+          "entered-in-error",
+          "stopped",
+          "draft",
+          "unknown"
+        ]
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "intent",
+        "value_set": [
+          "proposal",
+          "plan",
+          "order",
+          "original-order",
+          "reflex-order",
+          "filler-order",
+          "instance-order",
+          "option"
+        ]
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "text.div"
+      }
+    }
+  ],
+  "meta": {
+    "resource_type": "MedicationRequest",
+    "tier": "gold",
+    "notes": {
+      "content": "Expectations for MedicationRequest in gold tier",
+      "format": "markdown"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+Pending To-Do List for a TRUE end-to-end production run (real Epic FHIR → bronze → silver → gold)
+Bronze layer 
+1.1 Format alignment
+Decide on ONE canonical storage format.
+Option A: keep Parquet (fastest) and teach all downstream code to read Parquet.
+Option B: switch extraction to write JSON (trivial to read everywhere, slower).
+Whichever you choose: update 02_extract_resources.py & transform_load.py consistently.
+1.1 Format alignment - DONE (Parquet chosen as canonical; extraction & transform updated)
+1.2 Metadata / partitioning
+Add a partition scheme (e.g., by resource_type / extraction_date) so Spark reads only what it needs.
+1.2 Metadata / partitioning - PENDING (partition scheme still to be implemented)
+1.3 Cursor dataset bootstrap
+Make sure /control/fhir_cursors exists with the expected schema when the pipeline first runs.
+1.3 Cursor dataset bootstrap - DONE (control/fhir_cursors bootstrapped)
+Spark / Delta configuration 
+2.1 Delta Lake JARs
+The bronze→silver job expects the Delta catalog (org.apache.spark.sql.delta.catalog.DeltaCatalog).
+Add delta-spark (same major version as Spark) to the Spark session's --packages, or
+Strip all Delta logic and treat Parquet/JSON as "plain" files.
+2.1 Delta Lake JARs - IN PROGRESS (delta-spark added but version mismatch; decide upgrade or remove Delta logic)
+2.2 Local execution profile
+Put the JARs in SPARK_HOME/jars or pass via --jars / spark.jars.packages.
+2.2 Local execution profile - IN PROGRESS (spark.jars setup partially configured)
+2.3 Unit test cluster image (CI) must include the same Delta artefacts.
+2.3 Unit test cluster image - PENDING
+Silver transformation (fhir_pipeline/pipelines/transform_load.py) 
+3.1 File-type handling
+When file_counts["parquet"] > 0 read with spark.read.parquet, not .json.
+3.1 File-type handling - DONE (transform_load reads Parquet when available)
+3.2 Schema extraction
+Derive column schemas for each resource or use a generic _raw column + from_json later.
+3.2 Schema extraction - IN PROGRESS (mapping specs need update for flattened Parquet schema)
+3.3 Remove hard-coded mock fallbacks; fail loudly instead.
+3.3 Remove hard-coded mock fallbacks - PENDING
+Gold layer jobs 
+4.1 Bronze→silver must succeed first; only then wire up gold (patient_summary, encounter_summary, etc.).
+4.2 Verify that each gold transform points at the new silver locations and schemas.
+4.3 Replace "mock gold data creation" block with real Spark SQL / DataFrame logic.
+Authentication & Secrets 
+5.1 Store Epic private key / client-id in Foundry Secrets (or your vault of choice).
+5.1 Store Epic private key / client-id - PENDING
+5.2 Implement automatic token refresh (the logic exists in FHIRClient, just hook it into Foundry).
+5.2 Implement automatic token refresh - PARTIAL (refresh logic added; vault integration pending)
+Observation fix follow-ups 
+6.1 Confirm that all Observation sub-queries (batch jobs, async client) include category param.
+6.1 Confirm Observation category param - DONE
+6.2 Expose category as a configurable value in resources_config.yaml.
+6.2 Expose category configurable - IN PROGRESS
+Strict / no-mock mode 
+7.1 Add a global STRICT=true flag (env var or CLI) that:
+Aborts if any stage tries to generate mock data.
+Propagates to unit tests via fixtures.
+7.2 Remove or guard every call path that currently falls back to mock data.
+Monitoring & Metrics 
+8.1 Wire client.get_metrics() into a Prometheus/Grafana sink or Foundry dataset.
+8.2 Emit pipeline-level metrics (rows read/written, failures) for bronze, silver, gold.
+CI / Unit & integration tests 
+9.1 Update tests after format changes (Parquet vs JSON).
+9.2 Add end-to-end integration test that spins up a local Spark session with Delta jars.
+Documentation & Ops 
+10.1 README: exact steps to provision secrets, run local pipeline, run Foundry transforms.
+10.2 docs/assets/fix plan.md: mark Observation issue as "done", update checklist progress.
+10.3 Add run-books for common failures (token expiry, Spark package mismatch, Delta missing).
+Once the above items are addressed, you will be able to execute the full production pipeline with real Epic FHIR data, automatically progress from bronze → silver → gold, and operate without any mock fallbacks.

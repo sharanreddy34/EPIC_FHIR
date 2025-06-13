@@ -1,0 +1,31 @@
+resourceType: Patient
+version: 1
+validate: true
+columns:
+  # Basic identifiers
+  patient_id: id
+  # Demographics
+  birth_date: birthDate
+  gender: gender
+  # Name components
+  name_family: name[0].family
+  name_given: name[0].given[0]
+  name_text: name[0].text | name[0].family
+  # Contact information
+  email: telecom[?system='email'].value
+  phone: telecom[?system='phone'].value
+  # Address
+  address_line: address[0].line[0]
+  address_city: address[0].city
+  address_state: address[0].state
+  address_postal_code: address[0].postalCode
+  address_country: address[0].country
+  # Extensions and additional data
+  marital_status_code: maritalStatus.coding[0].code
+  marital_status_text: maritalStatus.text
+  language: communication[0].language.coding[0].code
+  # Metadata for record-keeping
+  active: active
+  patient_summary_text: text.div
+extras:
+  partition_by: [birth_date_year] 

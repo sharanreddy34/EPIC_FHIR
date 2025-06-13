@@ -1,0 +1,43 @@
+resourceType: Patient
+version: 1
+validate: true
+columns:
+  # Basic identifiers
+  patient_id: id
+  mrn: identifier[0].value | identifier[?system='http://hospital.smarthealthit.org'].value
+  
+  # Demographics
+  name_given: name[0].given[0]
+  name_family: name[0].family
+  name_text: name[0].text | "{{resource.name[0].given | join(' ')}} {{resource.name[0].family}}"
+  birth_date: birthDate
+  gender: gender
+  active: active
+  
+  # Contact information
+  phone: telecom[?system='phone'].value
+  email: telecom[?system='email'].value
+  address_line: address[0].line[0]
+  address_city: address[0].city
+  address_state: address[0].state
+  address_postalCode: address[0].postalCode
+  address_country: address[0].country
+  
+  # Medical
+  marital_status: maritalStatus.text | maritalStatus.coding[0].display
+  language: communication[0].language.coding[0].code | communication[0].language.text
+  deceased: deceasedBoolean | "{{True if resource.get('deceasedDateTime') else False}}"
+  deceased_date: deceasedDateTime
+  
+  # Care providers
+  primary_care_provider: generalPractitioner[0].reference
+  managing_organization: managingOrganization.reference
+  
+  # Narrative
+  narrative: text.div
+  
+  # Patient summary text (comprehensive) - can be used for embedding
+  patient_summary_text: "{{resource.name[0].text if resource.get('name') and resource.get('name')[0].get('text') else (resource.get('name')[0].get('given', [''])[0] + ' ' + resource.get('name')[0].get('family', '')) if resource.get('name') else ''}}. {{\"DOB: \" + resource.get('birthDate', '') if resource.get('birthDate') else ''}}. {{\"Gender: \" + resource.get('gender', '') if resource.get('gender') else ''}}."
+
+extras:
+  partition_by: [] 

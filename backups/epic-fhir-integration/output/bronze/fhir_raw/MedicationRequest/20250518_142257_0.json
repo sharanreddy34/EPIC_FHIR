@@ -1,0 +1,170 @@
+{
+  "metadata": {
+    "resource_type": "MedicationRequest",
+    "extracted_at": "2025-05-18T14:22:57.302939",
+    "page_number": 0,
+    "entry_count": 5
+  },
+  "bundle": {
+    "resourceType": "Bundle",
+    "type": "searchset",
+    "total": 5,
+    "entry": [
+      {
+        "fullUrl": "MedicationRequest/mock-medicationrequest-1",
+        "resource": {
+          "resourceType": "MedicationRequest",
+          "id": "mock-medicationrequest-1",
+          "meta": {
+            "versionId": "1",
+            "lastUpdated": "2025-05-18T14:22:57.302920"
+          },
+          "status": "active",
+          "intent": "order",
+          "medicationCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "1117110",
+                "display": "Metformin"
+              }
+            ]
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "authoredOn": "2022-12-15T10:30:00Z",
+          "dosageInstruction": [
+            {
+              "text": "Take 500mg twice daily with meals"
+            }
+          ]
+        }
+      },
+      {
+        "fullUrl": "MedicationRequest/mock-medicationrequest-2",
+        "resource": {
+          "resourceType": "MedicationRequest",
+          "id": "mock-medicationrequest-2",
+          "meta": {
+            "versionId": "1",
+            "lastUpdated": "2025-05-18T14:22:57.302922"
+          },
+          "status": "active",
+          "intent": "order",
+          "medicationCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "1117110",
+                "display": "Metformin"
+              }
+            ]
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "authoredOn": "2022-12-15T10:30:00Z",
+          "dosageInstruction": [
+            {
+              "text": "Take 500mg twice daily with meals"
+            }
+          ]
+        }
+      },
+      {
+        "fullUrl": "MedicationRequest/mock-medicationrequest-3",
+        "resource": {
+          "resourceType": "MedicationRequest",
+          "id": "mock-medicationrequest-3",
+          "meta": {
+            "versionId": "1",
+            "lastUpdated": "2025-05-18T14:22:57.302923"
+          },
+          "status": "active",
+          "intent": "order",
+          "medicationCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "1117110",
+                "display": "Metformin"
+              }
+            ]
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "authoredOn": "2022-12-15T10:30:00Z",
+          "dosageInstruction": [
+            {
+              "text": "Take 500mg twice daily with meals"
+            }
+          ]
+        }
+      },
+      {
+        "fullUrl": "MedicationRequest/mock-medicationrequest-4",
+        "resource": {
+          "resourceType": "MedicationRequest",
+          "id": "mock-medicationrequest-4",
+          "meta": {
+            "versionId": "1",
+            "lastUpdated": "2025-05-18T14:22:57.302924"
+          },
+          "status": "active",
+          "intent": "order",
+          "medicationCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "1117110",
+                "display": "Metformin"
+              }
+            ]
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "authoredOn": "2022-12-15T10:30:00Z",
+          "dosageInstruction": [
+            {
+              "text": "Take 500mg twice daily with meals"
+            }
+          ]
+        }
+      },
+      {
+        "fullUrl": "MedicationRequest/mock-medicationrequest-5",
+        "resource": {
+          "resourceType": "MedicationRequest",
+          "id": "mock-medicationrequest-5",
+          "meta": {
+            "versionId": "1",
+            "lastUpdated": "2025-05-18T14:22:57.302925"
+          },
+          "status": "active",
+          "intent": "order",
+          "medicationCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "1117110",
+                "display": "Metformin"
+              }
+            ]
+          },
+          "subject": {
+            "reference": "Patient/T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"
+          },
+          "authoredOn": "2022-12-15T10:30:00Z",
+          "dosageInstruction": [
+            {
+              "text": "Take 500mg twice daily with meals"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

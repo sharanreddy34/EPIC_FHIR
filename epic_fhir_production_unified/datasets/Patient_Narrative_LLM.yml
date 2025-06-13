@@ -1,0 +1,25 @@
+name: Patient_Narrative_LLM
+type: table
+format: delta
+mode: overwrite
+description: Patient narratives from FHIR data optimized for LLM consumption
+tags:
+  - gold
+  - llm
+  - narrative
+  - fhir
+  - epic
+  - patient
+columns:
+  - name: patient_id
+    type: string
+    description: Patient ID
+  - name: given_name
+    type: string
+    description: Patient's given name
+  - name: family_name
+    type: string
+    description: Patient's family name
+  - name: narrative
+    type: string
+    description: Patient narrative text optimized for LLM consumption 

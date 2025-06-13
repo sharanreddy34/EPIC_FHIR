@@ -1,0 +1,44 @@
+name: "Epic FHIR Integration"
+description: "Epic FHIR API integration with bronze, silver, and gold data tiers"
+
+# Default branch for the workspace
+defaultBranch: main
+
+# Data configuration
+datasets:
+  - name: "epic_fhir_bronze"
+    path: "/foundry/objects/bronze"
+    description: "Raw FHIR resources from Epic API"
+    
+  - name: "epic_fhir_silver"
+    path: "/foundry/objects/silver"
+    description: "Validated and normalized FHIR resources"
+    
+  - name: "epic_fhir_gold"
+    path: "/foundry/objects/gold"
+    description: "Analytics-ready FHIR data"
+
+# Function dependencies
+functions:
+  - name: "epic-fhir-extract"
+    description: "Extracts FHIR resources from Epic API"
+    
+  - name: "epic-fhir-transform"
+    description: "Transforms bronze data to silver and gold"
+    dependencies:
+      - "epic-fhir-extract"
+      
+  - name: "epic-fhir-quality"
+    description: "Runs quality checks on the gold tier data"
+    dependencies:
+      - "epic-fhir-transform"
+
+# Container image configuration
+containerImages:
+  - name: "epic-fhir-tools"
+    description: "Combined image with Pathling and HL7 validator"
+
+# Secrets used by functions
+secrets:
+  - name: "epic-oauth-secret"
+    description: "Epic FHIR API credentials" 

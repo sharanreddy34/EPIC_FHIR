@@ -1,0 +1,212 @@
+# FHIR Resources Configuration
+
+resources:
+  # Patient demographics
+  Patient:
+    enabled: true
+    incremental_param: "_lastUpdated"
+    search_params:
+      - _id
+      - identifier
+      - name
+      - birthdate
+      - gender
+      - _lastUpdated
+    update_frequency: "daily"  # daily, hourly, weekly
+    priority: 1  # Lower number = higher priority
+  
+  # Clinical encounters
+  Encounter:
+    enabled: true
+    incremental_param: "_lastUpdated"
+    search_params:
+      - patient
+      - date
+      - type
+      - status
+      - class
+      - _lastUpdated
+    patient_scoped: true  # Requires patient context
+    update_frequency: "daily"
+    priority: 2
+  
+  # Observations (labs, vitals, etc.)
+  Observation:
+    enabled: true
+    incremental_param: "_lastUpdated"
+    search_params:
+      - patient
+      - category
+      - code
+      - date
+      - _lastUpdated
+    patient_scoped: true
+    update_frequency: "daily"
+    priority: 3
+  
+  # Conditions (problems, diagnoses)
+  Condition:
+    enabled: true
+    incremental_param: "_lastUpdated"
+    search_params:
+      - patient
+      - clinical-status
+      - category
+      - code
+      - _lastUpdated
+    patient_scoped: true
+    update_frequency: "daily"
+    priority: 3
+  
+  # Medication requests (prescriptions)
+  MedicationRequest:
+    enabled: true
+    incremental_param: "_lastUpdated"
+    search_params:
+      - patient
+      - status
+      - intent
+      - _lastUpdated
+    patient_scoped: true
+    update_frequency: "daily"
+    priority: 4
+  
+  # Diagnostic reports (lab reports, radiology reports)
+  DiagnosticReport:
+    enabled: true
+    incremental_param: "_lastUpdated"
+    search_params:
+      - patient
+      - category
+      - code
+      - date
+      - _lastUpdated
+    patient_scoped: true
+    update_frequency: "daily"
+    priority: 4
+  
+  # Procedures
+  Procedure:
+    enabled: true
+    incremental_param: "_lastUpdated"
+    search_params:
+      - patient
+      - date
+      - status
+      - code
+      - _lastUpdated
+    patient_scoped: true
+    update_frequency: "daily"
+    priority: 5
+  
+  # Allergies and intolerances
+  AllergyIntolerance:
+    enabled: true
+    incremental_param: "_lastUpdated"
+    search_params:
+      - patient
+      - clinical-status
+      - _lastUpdated
+    patient_scoped: true
+    update_frequency: "daily"
+    priority: 5
+  
+  # Immunizations
+  Immunization:
+    enabled: true
+    incremental_param: "_lastUpdated"
+    search_params:
+      - patient
+      - date
+      - status
+      - _lastUpdated
+    patient_scoped: true
+    update_frequency: "daily"
+    priority: 5
+  
+  # Healthcare providers
+  Practitioner:
+    enabled: true
+    incremental_param: "_lastUpdated"
+    search_params:
+      - _id
+      - identifier
+      - name
+      - _lastUpdated
+    update_frequency: "weekly"
+    priority: 6
+  
+  # Provider roles
+  PractitionerRole:
+    enabled: true
+    incremental_param: "_lastUpdated"
+    search_params:
+      - practitioner
+      - organization
+      - specialty
+      - _lastUpdated
+    update_frequency: "weekly"
+    priority: 6
+  
+  # Healthcare organizations
+  Organization:
+    enabled: true
+    incremental_param: "_lastUpdated"
+    search_params:
+      - _id
+      - identifier
+      - name
+      - _lastUpdated
+    update_frequency: "weekly"
+    priority: 7
+  
+  # Healthcare locations
+  Location:
+    enabled: true
+    incremental_param: "_lastUpdated"
+    search_params:
+      - _id
+      - identifier
+      - name
+      - organization
+      - _lastUpdated
+    update_frequency: "weekly"
+    priority: 7
+  
+  # Care plans
+  CarePlan:
+    enabled: false  # Disabled by default
+    incremental_param: "_lastUpdated"
+    search_params:
+      - patient
+      - status
+      - category
+      - _lastUpdated
+    patient_scoped: true
+    update_frequency: "daily"
+    priority: 8
+  
+  # Patient goals
+  Goal:
+    enabled: false  # Disabled by default
+    incremental_param: "_lastUpdated"
+    search_params:
+      - patient
+      - lifecycle-status
+      - _lastUpdated
+    patient_scoped: true
+    update_frequency: "daily"
+    priority: 8
+  
+  # Medical devices
+  Device:
+    enabled: false  # Disabled by default
+    incremental_param: "_lastUpdated"
+    search_params:
+      - patient
+      - type
+      - identifier
+      - _lastUpdated
+    patient_scoped: true
+    update_frequency: "daily"
+    priority: 9

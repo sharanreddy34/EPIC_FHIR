@@ -1,0 +1,72 @@
+apiVersion: 1.0.0
+kind: Workflow
+name: fhir-integration-pipeline
+description: |
+  Complete FHIR integration pipeline from Epic to Foundry, following the medallion
+  architecture pattern (Bronze → Silver → Gold).
+  
+  This workflow orchestrates the entire pipeline:
+  1. Token refresh
+  2. Resource extraction to Bronze layer
+  3. Transformation to Silver layer
+  4. Gold layer aggregations
+  5. Monitoring
+
+nodes:
+  - id: token_refresh
+    name: Refresh Epic FHIR API Token
+    transform: token-refresh
+
+  - id: extract_resources
+    name: Extract FHIR Resources
+    transform: extract-resources
+    dependencies:
+      - node: token_refresh
+        status: Succeeded
+
+  - id: transform_resources
+    name: Transform FHIR Resources
+    transform: transform-resources
+    dependencies:
+      - node: extract_resources
+        status: Succeeded
+
+  - id: gold_patient_summary
+    name: Generate Patient Summary
+    transform: gold-patient-summary
+    dependencies:
+      - node: transform_resources
+        status: Succeeded
+
+  - id: gold_encounter_summary
+    name: Generate Encounter Summary
+    transform: gold-encounter-summary
+    dependencies:
+      - node: transform_resources
+        status: Succeeded
+
+  - id: gold_medication_summary
+    name: Generate Medication Summary
+    transform: gold-medication-summary
+    dependencies:
+      - node: transform_resources
+        status: Succeeded
+
+  - id: pipeline_monitoring
+    name: Generate Pipeline Metrics
+    transform: fhir-pipeline-monitoring
+    dependencies:
+      - node: gold_patient_summary
+        status: Succeeded
+      - node: gold_encounter_summary
+        status: Succeeded
+      - node: gold_medication_summary
+        status: Succeeded
+
+  - id: workflow_orchestrator
+    name: FHIR Pipeline Orchestrator
+    transform: fhir-workflow-orchestrator
+    dependencies: []  # Can run independently to monitor/trigger other nodes
+
+schedule:
+  cron: "0 0 * * *"  # Midnight every day 

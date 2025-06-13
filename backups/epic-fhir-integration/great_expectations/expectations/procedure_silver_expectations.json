@@ -1,0 +1,87 @@
+{
+  "expectation_suite_name": "procedure_silver_expectations",
+  "ge_cloud_id": null,
+  "expectations": [
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "resourceType"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "resourceType",
+        "value_set": [
+          "Procedure"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "status"
+      },
+      "meta": {
+        "notes": "Check for procedure status."
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "status",
+        "value_set": [
+          "preparation", "in-progress", "not-done", "on-hold", "stopped", "completed", "entered-in-error", "unknown"
+        ]
+      },
+      "meta": {
+        "notes": "Procedure status must be a valid FHIR code."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "code.coding"
+      },
+      "meta": {
+        "notes": "Silver tier requires coded values for procedure code."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "subject.reference"
+      },
+      "meta": {
+        "notes": "Check for the reference to the patient."
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "performedDateTime"
+      },
+      "meta": {
+        "notes": "Silver tier requires performedDateTime or performedPeriod."
+      }
+    }
+  ],
+  "meta": {
+    "great_expectations_version": "0.18.14",
+    "resource_type": "Procedure",
+    "tier": "silver",
+    "notes": {
+      "content": "Silver tier expectations for Procedure resources.",
+      "format": "markdown"
+    }
+  }
+} 

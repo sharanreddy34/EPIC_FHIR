@@ -1,0 +1,43 @@
+apiVersion: 1.0.0
+kind: Pipeline
+name: epic-appointment-sync
+description: Synchronizes appointment data from Epic FHIR API
+
+# Schedule (runs daily at 2 AM)
+schedule:
+  cron: "0 2 * * *"
+  timezone: "America/New_York"
+
+# Pipeline parameters
+parameters:
+  - name: patientId
+    type: string
+    description: Epic patient ID to fetch appointments for
+    default: "T1wI5bk8n1YVgvWk9D05BmRV0Pi3ECImNSK8DKyKltsMB"  # Use your default patient ID
+  
+# Steps in the pipeline
+steps:
+  - name: refresh-access-token
+    type: function
+    function: epic-appointment-functions.refresh_epic_token
+    parameters: {}
+    outputs:
+      - name: access_token
+        description: Fresh Epic API access token
+  
+  - name: fetch-appointments
+    type: function
+    function: epic-appointment-functions.fetch_appointment_data
+    parameters:
+      patientId: "${parameters.patientId}"
+      access_token: "${steps.refresh-access-token.outputs.access_token}"
+    outputs:
+      - name: appointments_dataset
+        description: Dataset containing the appointment data
+        type: dataset
+
+# Pipeline outputs
+outputs:
+  - name: appointments
+    description: Latest appointments data from Epic
+    value: "${steps.fetch-appointments.outputs.appointments_dataset}" 

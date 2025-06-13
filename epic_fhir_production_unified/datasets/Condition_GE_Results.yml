@@ -1,0 +1,10 @@
+name: Condition_GE_Results
+type: table
+mode: overwrite
+description: Great Expectations validation results for Condition data
+tags:
+  - validation
+  - quality
+  - fhir
+  - epic
+  - condition 

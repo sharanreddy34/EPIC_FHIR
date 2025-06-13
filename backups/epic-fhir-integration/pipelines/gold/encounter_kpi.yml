@@ -1,0 +1,19 @@
+apiVersion: 1.0.0
+kind: Transform
+name: gold-encounter-kpi
+file: pipelines/gold/encounter_kpi.py
+entrypoint: create_encounter_kpi
+inputs:
+  - path: /silver/fhir_normalized/encounter
+  - path: /silver/fhir_normalized/condition
+  - path: /silver/fhir_normalized/observation
+  - path: /silver/fhir_normalized/medicationrequest
+outputs:
+  - path: /gold/encounter_kpi
+resources:
+  memory: 8Gi
+schedule:
+  after: gold-patient-timeline
+permissions:
+  - principal: ROLE_HEALTH_ANALYST
+    actions: [READ]

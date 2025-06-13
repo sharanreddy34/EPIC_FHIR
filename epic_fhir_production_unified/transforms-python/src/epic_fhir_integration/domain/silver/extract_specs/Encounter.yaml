@@ -1,0 +1,23 @@
+# Pathling extract specification for Encounter resources
+select:
+  - path: id
+  - path: subject.reference ; as: patient_reference
+  - path: subject.reference.substring(8) ; as: patient_id
+  - path: status
+  - path: class.code ; as: class_code
+  - path: class.display ; as: class_display
+  - path: type.coding.code.first() ; as: encounter_type_code
+  - path: type.coding.display.first() ; as: encounter_type_display
+  - path: priority.coding.code.first() ; as: priority_code
+  - path: priority.coding.display.first() ; as: priority_display
+  - path: period.start.toString() ; as: start_date
+  - path: period.end.toString() ; as: end_date
+  - path: length.value ; as: length_value
+  - path: length.unit ; as: length_unit
+  - path: reasonCode.coding.code.first() ; as: reason_code
+  - path: reasonCode.coding.display.first() ; as: reason_display
+  - path: location.location.reference.first() ; as: location_reference
+  - path: location.location.display.first() ; as: location_display
+  - path: serviceProvider.reference ; as: service_provider_reference
+  - path: serviceProvider.display ; as: service_provider_display
+  - path: meta.lastUpdated.toString() ; as: last_updated 

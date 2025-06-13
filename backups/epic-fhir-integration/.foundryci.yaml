@@ -1,0 +1,138 @@
+apiVersion: 1.0.0
+kind: FoundryCI
+steps:
+  - name: Install Dependencies
+    run: pip install -r requirements.txt
+
+  - name: Lint
+    run: |
+      pip install ruff black
+      black --check .
+      ruff check .
+
+  - name: Unit Tests
+    run: |
+      python -m pytest -xvs tests/unit/ --cov=fhir_pipeline --cov-report=xml --cov-report=term
+
+  - name: Integration Tests
+    run: |
+      python -m pytest -xvs tests/integration/ --cov=fhir_pipeline --cov-append --cov-report=xml --cov-report=term
+
+  - name: Coverage Check
+    run: |
+      python -m coverage report --fail-under=85
+
+  - name: Chaos Tests
+    run: ./scripts/run_ci_chaos.sh
+
+  - name: Live Sandbox Smoke Test
+    run: ./scripts/run_ci_live_smoke.sh
+    # This will run only if EPIC credentials are provided as secrets
+    # It only hits the /metadata endpoint which doesn't contain PHI
+    condition: secrets.EPIC_CLIENT_ID != "" && secrets.EPIC_BASE_URL != "" && secrets.EPIC_PRIVATE_KEY != ""
+
+  - name: LLM Code Audit
+    run: python pipelines/09_llm_code_audit.py --commit $GIT_COMMIT
+    condition: env.GIT_COMMIT != ""
+
+  - name: Generate QA Report
+    run: |
+      echo "# QA Test Results" > QA_REPORT.md
+      echo "## Test Coverage" >> QA_REPORT.md
+      python -m coverage report >> QA_REPORT.md
+      
+      echo "## Validation Results" >> QA_REPORT.md
+      if [ -f "tests/perf/chaos_report.md" ]; then
+        cat tests/perf/chaos_report.md >> QA_REPORT.md
+      else
+        echo "No chaos test results available" >> QA_REPORT.md
+      fi
+
+secrets:
+  - EPIC_BASE_URL
+  - EPIC_CLIENT_ID
+  - EPIC_PRIVATE_KEY
+
+version: 1
+
+stages:
+  - name: setup
+    steps:
+      - name: Install dependencies
+        command: pip install -r requirements.txt
+      - name: Install test dependencies
+        command: pip install pytest pytest-cov delta-spark
+
+  - name: test-unit
+    steps:
+      - name: Run unit tests
+        command: |
+          pytest tests/unit -v --cov=fhir_pipeline.transforms --cov-report=term --cov-fail-under=85
+        
+  - name: test-integration
+    steps:
+      - name: Run integration tests
+        command: |
+          pytest tests/integration -v --cov=fhir_pipeline.pipelines --cov-report=term
+          
+  - name: build
+    steps:
+      - name: Verify package builds
+        command: python -m pip install -e .
+      
+  - name: validate-workflows
+    steps:
+      - name: Validate Foundry workflow definitions
+        command: |
+          for file in pipelines/*.yml; do
+            if [ -f "$file" ]; then
+              echo "Validating $file"
+              python -c "import yaml; yaml.safe_load(open('$file', 'r'))"
+            fi
+          done
+
+  - name: validate-mappings
+    steps:
+      - name: Validate YAML mapping specs
+        command: |
+          python -c "
+          import os
+          import yaml
+          import sys
+          
+          config_dir = 'fhir_pipeline/config/generic_mappings'
+          
+          if not os.path.exists(config_dir):
+              print(f'ERROR: Directory {config_dir} not found')
+              sys.exit(1)
+              
+          for filename in os.listdir(config_dir):
+              if filename.endswith('.yaml'):
+                  filepath = os.path.join(config_dir, filename)
+                  print(f'Validating {filepath}')
+                  try:
+                      with open(filepath, 'r') as f:
+                          spec = yaml.safe_load(f)
+                          
+                      # Validate basic structure
+                      if not spec:
+                          raise ValueError(f'Empty mapping spec in {filename}')
+                          
+                      required_keys = ['resourceType', 'version', 'columns']
+                      for key in required_keys:
+                          if key not in spec:
+                              raise ValueError(f'Missing required key {key} in {filename}')
+                              
+                      # Verify resourceType matches filename
+                      resource_type = os.path.splitext(filename)[0]
+                      if spec['resourceType'] != resource_type:
+                          print(f'WARNING: {filename} has resourceType {spec[\"resourceType\"]} which does not match filename')
+                              
+                      print(f'  - Found {len(spec[\"columns\"])} column mappings')
+                      
+                  except Exception as e:
+                      print(f'ERROR in {filepath}: {str(e)}')
+                      sys.exit(1)
+                      
+          print('All mapping specs validated successfully')
+          " 
